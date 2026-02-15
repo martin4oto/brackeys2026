@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cb343dd89c417c14d972e7d520e2de84
+guid: b1f20c6ebb4193042a656862697ce02b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2784535072509477603
-    second: kamuk2_0
+      213: -3134476045367466541
+    second: vaza_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kamuk2_0
+      name: vaza_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 15
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d1db47aca185b59d0800000000000000
-      internalID: -2784535072509477603
+      spriteID: 3d5a6e6d4aa1084d0800000000000000
+      internalID: -3134476045367466541
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      kamuk2_0: -2784535072509477603
+      vaza_0: -3134476045367466541
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
