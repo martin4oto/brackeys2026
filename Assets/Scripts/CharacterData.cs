@@ -13,4 +13,5 @@ public class CharacterData : ScriptableObject
     public ScriptableObject skill1;
     public ScriptableObject skill2;
     public ScriptableObject skill3;
+    public Sprite combatSprite;
 }

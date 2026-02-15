@@ -22,3 +22,4 @@ MonoBehaviour:
   skill1: {fileID: 11400000, guid: ceeb07d5d08c68d44bb2a812dd45030a, type: 2}
   skill2: {fileID: 0}
   skill3: {fileID: 0}
+  combatSprite: {fileID: -1666806920, guid: 642825867cfcfca43aa292914ad53136, type: 3}
