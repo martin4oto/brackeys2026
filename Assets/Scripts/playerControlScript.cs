@@ -5,6 +5,7 @@ public class playerControlScript : MonoBehaviour
 {
     bool isMoving = false;
     public GridMovement playerMovement;
+    Vector3 lastStandingPosition;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -12,28 +13,33 @@ public class playerControlScript : MonoBehaviour
         
     }
 
+    bool StartWalkingTest(Vector2 movementVector)
+    {
+        if(movementVector.x != 0 || movementVector.y != 0)
+        {
+            lastStandingPosition = transform.position;
+            movementVector = (Vector2)transform.position + movementVector;
+            playerMovement.StartMoving(movementVector);
+            isMoving = true;
+            return true;
+        }
+        return false;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if(isMoving)return;
         Vector2 movementVector = AddToVectorHorizontally();
-
-        if(movementVector.x != 0 || movementVector.y != 0)
+        
+        if(StartWalkingTest(movementVector))
         {
-            movementVector = (Vector2)transform.position + movementVector;
-            playerMovement.StartMoving(movementVector);
-            isMoving = true;
             return;
         }
 
         movementVector = AddToVectorVertically();
-
-        if(movementVector.x != 0 || movementVector.y != 0)
-        {
-            movementVector = (Vector2)transform.position + movementVector;
-            playerMovement.StartMoving(movementVector);
-            isMoving = true;
-        }
+        
+        StartWalkingTest(movementVector);
     }
 
     Vector2 AddToVectorHorizontally()
@@ -67,5 +73,13 @@ public class playerControlScript : MonoBehaviour
     public void Stopped()
     {
         isMoving = false;
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if(collider.tag == "walls")
+        {
+            playerMovement.Redirect(lastStandingPosition);
+        }
     }
 }

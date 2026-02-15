@@ -22,7 +22,10 @@ public class GridMovement : MonoBehaviour
         {
             Vector2 momentum = direction*speed*Time.deltaTime;
 
-            IsMovementComplete(momentum);
+            if(IsMovementComplete(momentum))
+            {
+                return;
+            }
             transform.position += (Vector3)momentum;
         }
     }
@@ -32,7 +35,13 @@ public class GridMovement : MonoBehaviour
         if(isMoving)return;
 
         movementPosition = position;
-        Debug.Log(movementPosition);
+        PositionChange(position);
+        isMoving = true;
+    }
+
+    public void Redirect(Vector2 position)
+    {
+        movementPosition = position;
         PositionChange(position);
         isMoving = true;
     }
@@ -44,7 +53,7 @@ public class GridMovement : MonoBehaviour
         Vector3.Normalize(direction);
     }
 
-    void IsMovementComplete(Vector2 momentum)
+    bool IsMovementComplete(Vector2 momentum)
     {
         //distance squared
         float currentDistance = CalculateCurrentDistance();
@@ -54,7 +63,9 @@ public class GridMovement : MonoBehaviour
         if(currentDistance<velocity)
         {
             CompleteMovement();
+            return true;
         }
+        return false;
     }
 
     float CalculateCurrentDistance()

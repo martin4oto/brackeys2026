@@ -3,6 +3,12 @@ using UnityEngine;
 public class MapManager : MonoBehaviour
 {
     public static MapManager instance;
+    GameObject[] enemyVariants;
+
+    void LoadManPrefabs()
+    {
+        
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -20,5 +26,6 @@ public class MapManager : MonoBehaviour
     void Update()
     {
         
+
     }
 }
