@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - walls
   layers:
   - Default
   - TransparentFX
@@ -12,7 +13,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Player
   - 
   - 
   - 
@@ -41,11 +42,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: characters
-    uniqueID: 3828340295
+  - name: Enemy
+    uniqueID: 2292819357
     locked: 0
-  - name: background
-    uniqueID: 197716783
+  - name: Player
+    uniqueID: 1172363871
     locked: 0
   m_RenderingLayers:
   - Default
