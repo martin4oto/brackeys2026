@@ -21,6 +21,9 @@ public class BattleManager : MonoBehaviour
         {
             party.transform.Find("Character1").GetComponent<SpriteRenderer>().sprite=GameController.Instance.characters[0].combatSprite;
         }
-
+        if (GameController.Instance.characters[1] != null)
+        {
+            party.transform.Find("Character2").GetComponent<SpriteRenderer>().sprite=GameController.Instance.characters[0].combatSprite;
+        }
     }
 }
