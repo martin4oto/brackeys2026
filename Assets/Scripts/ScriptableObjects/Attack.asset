@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Attack
   manaCost: 10
   logo: {fileID: 0}
-  script: {fileID: 11500000, guid: dc30a8e026255d4459f598a981ccc592, type: 3}
+  id: 1

@@ -19,11 +19,11 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
     public CharacterData[] characters = new CharacterData[4];
-    private EnemyStats[] enemies;
+    public EnemyStats[] enemies;
     public float locationID;
     public void EnterCombat() {
 
-
+        //TODO add pre combat saving + logic
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("BattleScene"));
     }
 
