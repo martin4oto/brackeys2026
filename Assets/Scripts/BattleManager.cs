@@ -18,14 +18,17 @@ public class BattleManager : MonoBehaviour
     public Button attackButton;
     public Button itemButton;
     public Button skillsButton;
-    public Button backButton; //go back to action panel
+    public Button cancelButton; //go back to action panel
+
+    public Button moveButton;
     void Awake()
     {
 
         attackButton.onClick.AddListener(() => OnAttackButtonClicked());
         itemButton.onClick.AddListener(() => OnItemButtonClicked());
         skillsButton.onClick.AddListener(() => OnSkillsButtonClicked());
-        backButton.onClick.AddListener(() => ShowActionPanel());
+        cancelButton.onClick.AddListener(() => ShowActionPanel());
+        moveButton.onClick.AddListener(() => OnMoveButtonClicked());
 
         string file = "Sprites/battleBackground" + GameController.Instance.locationID;
         background= Resources.Load<Sprite>(file);
@@ -51,6 +54,10 @@ public class BattleManager : MonoBehaviour
             if(GameController.Instance.enemies[i] != null)
                 enemySprites[i].sprite=GameController.Instance.enemies[i].combatSprite;
         }
+    }
+    void OnMoveButtonClicked()
+    {
+        
     }
     void OnAttackButtonClicked()
     {
