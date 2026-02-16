@@ -13,7 +13,7 @@ public class BattleManager : MonoBehaviour
     public Sprite background;
     public GameObject party;
     private SpriteRenderer[] partySprites= new SpriteRenderer[4];
-    private SpriteRenderer[] enemySprites= new SpriteRenderer[5];
+    private SpriteRenderer[] enemySprites= new SpriteRenderer[4];
     public GameObject enemyParty;
     public Button attackButton;
     public Button itemButton;
@@ -39,7 +39,6 @@ public class BattleManager : MonoBehaviour
         enemySprites[1]=enemyParty.transform.Find("Enemy2").GetComponent<SpriteRenderer>();
         enemySprites[2]=enemyParty.transform.Find("Enemy3").GetComponent<SpriteRenderer>();
         enemySprites[3]=enemyParty.transform.Find("Enemy4").GetComponent<SpriteRenderer>();
-        enemySprites[4]=enemyParty.transform.Find("Enemy5").GetComponent<SpriteRenderer>();
         for(int i=0;i<4;i++)
         {
             if (GameController.Instance.characters[i] != null)

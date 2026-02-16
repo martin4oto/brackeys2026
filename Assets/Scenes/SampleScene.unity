@@ -1919,6 +1919,50 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1 &1187698142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187698144}
+  - component: {fileID: 1187698143}
+  m_Layer: 0
+  m_Name: SkillController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1187698143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187698142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f058a02b5a4264c4c89f1e9658cb7df9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SkillController
+--- !u!4 &1187698144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187698142}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1512812243
 GameObject:
   m_ObjectHideFlags: 0
@@ -4381,11 +4425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfc7563707376644b892ecb49dbdb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
-  squareSize: 1
-  saves:
-  - {fileID: 4900000, guid: 9e6d7db5fc498fe47aa134b8eb63f8f2, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &1892963180
 Transform:
   m_ObjectHideFlags: 0
@@ -4435,6 +4474,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  enemies: []
   locationID: 1
 --- !u!4 &1957775654
 Transform:
@@ -4461,3 +4501,4 @@ SceneRoots:
   - {fileID: 1641381963}
   - {fileID: 1957775654}
   - {fileID: 1892963180}
+  - {fileID: 1187698144}
