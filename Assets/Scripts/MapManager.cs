@@ -8,11 +8,13 @@ public class Save
 {
     public int[] enemiesAliveIndexes;
     public Vector2[] enemiesAlivePositions;
+    public Vector2[][] enemyGuardAILocations;
 
     public Save(int enemyCount)
     {
         enemiesAliveIndexes = new int[enemyCount];
         enemiesAlivePositions = new Vector2[enemyCount];
+        enemyGuardAILocations = new Vector2[enemyCount][];
     }
 }
 
@@ -49,15 +51,9 @@ public class MapManager : MonoBehaviour
         }
 
         LoadMapPrefabs();
-        LoadFile(0);
 
         DontDestroyOnLoad(transform);
         instance = this;
-    }
-
-    void Start()
-    {
-        SaveGame(0);
     }
 
     // Update is called once per frame
@@ -67,28 +63,30 @@ public class MapManager : MonoBehaviour
 
     }
 
-    public void PutEnemy(Vector2 position, int index)
+    public void PutEnemy(Vector2 position, int index, Vector2[] locations)
     {
         GameObject enemy = GameObject.Instantiate(enemyVariants[index], position, Quaternion.identity);
 
-        enemiesAlive.Add(enemy.GetComponent<Enemy>());
-        Debug.Log(enemiesAlive[0]);
+        Enemy enemyScript = enemy.GetComponent<Enemy>();
+
+        enemyScript.guardAILocations = locations;
+        enemiesAlive.Add(enemyScript);
     }
 
     void LoadEnemiesFromSave(Save save)
     {
         for(int i = 0; i<save.enemiesAliveIndexes.Length; i++)
         {
-            PutEnemy(save.enemiesAlivePositions[i],save.enemiesAliveIndexes[i]);
+            PutEnemy(save.enemiesAlivePositions[i],save.enemiesAliveIndexes[i], save.enemyGuardAILocations[i]);
         }
     }
     void PutEnemiesIntoSave(Save save)
     {
         for(int i = 0; i<enemiesAlive.Count; i++)
         {
-            Debug.Log(enemiesAlive[i]);
             save.enemiesAliveIndexes[i] = enemiesAlive[i].prefabIndex;
             save.enemiesAlivePositions[i] = enemiesAlive[i].transform.position;
+            save.enemyGuardAILocations[i] = enemiesAlive[i].guardAILocations;
         }
     }
 
