@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
-    
+    public bool toBattle;
     public static GameController Instance {
         get;
         set;
@@ -17,7 +17,10 @@ public class GameController : MonoBehaviour
     }
 
     void Start() {
-        SceneManager.LoadScene("BattleScene");
+        if(toBattle)
+        {
+            SceneManager.LoadScene("BattleScene");
+        }
     }
     [SerializeField]
     public Data[] characters = new Data[4];

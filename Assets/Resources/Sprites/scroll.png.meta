@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bd22b31390829124583f92f96d7bfc15
+guid: c15351e42688aea4bb7f303ba215b4a7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1561129129936645884
-    second: ruka_0
+      213: -519052415876542791
+    second: scroll_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ruka_0
+      name: scroll_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 6
-        width: 32
-        height: 24
+        x: 1
+        y: 1
+        width: 191
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4019c99d351c55ae0800000000000000
-      internalID: -1561129129936645884
+      spriteID: 9becedbe394fbc8f0800000000000000
+      internalID: -519052415876542791
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ruka_0: -1561129129936645884
+      scroll_0: -519052415876542791
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

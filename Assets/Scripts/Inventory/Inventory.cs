@@ -13,6 +13,16 @@ public class InventoryStack
     public Item item;
 }
 
+[Serializable]
+public class CharacterGear
+{
+    public Item helmet;
+    public Item chestplate;
+    public Item pants;
+    public Item boots;
+    public Item weapon;
+}
+
 public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
@@ -34,11 +44,7 @@ public class Inventory : MonoBehaviour
 
     [SerializeField]
     public List<InventoryStack> items;
-    public Item helmet;
-    public Item chestplate;
-    public Item pants;
-    public Item boots;
-    public Item weapon;
+    public List<CharacterGear> characters;
 
     Dictionary<string, int> itemIndexes;
     public GameObject inventoryMenu;
@@ -73,6 +79,7 @@ public class Inventory : MonoBehaviour
         {
             InventoryStack newstack = new InventoryStack();
             newstack.item  = item;
+            newstack.amount = 1;
 
             itemIndexes.Add(item.itemName, items.Count);
             items.Add(newstack);
@@ -122,95 +129,95 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    void RemoveHelmet()
+    void RemoveHelmet(int character)
     {
-        if(helmet != null)
+        if(characters[character].helmet != null)
         {
-            AddItem(helmet);
-            helmet = null;
+            AddItem(characters[character].helmet);
+            characters[character].helmet = null;
         }
     }
-    void RemoveChestPlate()
+    void RemoveChestPlate(int character)
     {
-        if(chestplate != null)
+        if(characters[character].chestplate != null)
         {
-            AddItem(chestplate);
-            chestplate = null;
+            AddItem(characters[character].chestplate);
+            characters[character].chestplate = null;
         }
     }
-    void RemovePants()
+    void RemovePants(int character)
     {
-        if(pants != null)
+        if(characters[character].pants != null)
         {
-            AddItem(pants);
-            pants = null;
+            AddItem(characters[character].pants);
+            characters[character].pants = null;
         }
     }
-    void RemoveBoots()
+    void RemoveBoots(int character)
     {
-        if(boots != null)
+        if(characters[character].boots != null)
         {
-            AddItem(boots);
-            boots = null;
+            AddItem(characters[character].boots);
+            characters[character].boots = null;
         }
     }
-    void RemoveWeapon()
+    void RemoveWeapon(int character)
     {
-        if(weapon != null)
+        if(characters[character].weapon != null)
         {
-            AddItem(weapon);
-            weapon = null;
+            AddItem(characters[character].weapon);
+            characters[character].weapon = null;
         }
     }
 
-    public void EquipItem(Item item)
+    public void EquipItem(Item item, int character)
     {
         if(item == null)return;
         
         switch(item.gearType)
         {
             case GearTypes.Helmet:
-                RemoveHelmet();
-                helmet = item;
+                RemoveHelmet(character);
+                characters[character].helmet = item;
                 break;
             case GearTypes.Chestplate:
-                RemoveChestPlate();
-                chestplate = item;
+                RemoveChestPlate(character);
+                characters[character].chestplate = item;
                 break;
             case GearTypes.Pants:
-                RemovePants();
-                pants = item;
+                RemovePants(character);
+                characters[character].pants = item;
                 break;
             case GearTypes.Boots:
-                RemoveBoots();
-                boots = item;
+                RemoveBoots(character);
+                characters[character].boots = item;
                 break;
             case GearTypes.Weapon:
-                RemoveWeapon();
-                weapon = item;
+                RemoveWeapon(character);
+                characters[character].weapon = item;
                 break;
         }
         RemoveItem(item);
     }
 
-    public void UnEquipItem(GearTypes itemtype)
+    public void UnEquipItem(GearTypes itemtype, int character)
     {
         switch(itemtype)
         {
             case GearTypes.Helmet:
-                RemoveHelmet();
+                RemoveHelmet(character);
                 break;
             case GearTypes.Chestplate:
-                RemoveChestPlate();
+                RemoveChestPlate(character);
                 break;
             case GearTypes.Pants:
-                RemovePants();
+                RemovePants(character);
                 break;
             case GearTypes.Boots:
-                RemoveBoots();
+                RemoveBoots(character);
                 break;
             case GearTypes.Weapon:
-                RemoveWeapon();
+                RemoveWeapon(character);
                 break;
         }
     }
