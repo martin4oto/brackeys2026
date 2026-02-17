@@ -19,7 +19,7 @@ public class GameController : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
     public CharacterData[] characters = new CharacterData[4];
-    public EnemyStats[] enemies;
+    public EnemyStats[] enemies = new EnemyStats[4];
     public float locationID;
     public void EnterCombat() {
 
