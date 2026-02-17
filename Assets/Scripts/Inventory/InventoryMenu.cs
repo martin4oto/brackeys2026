@@ -4,11 +4,25 @@ using UnityEngine.UI;
 
 public class InventoryMenu : MonoBehaviour
 {
+    string path = "Sprites/map/";
+    Item currentItem;
+
     public Image[] buttons;
     public GameObject[] buttonObject;
     public Image bigPicture;
-    public TextMeshPro name;
-    public TextMeshPro description;
+    public TextMeshProUGUI name;
+    public TextMeshProUGUI description;
+    public GameObject infoScreen;
+    int begining = 0;
+
+    
+    public GameObject helmetObject;
+    public GameObject chestPlateObject;
+    public GameObject pantsObject;
+    public GameObject bootsObject;
+    public GameObject weaponObject;
+    
+    public GameObject equipButton;
 
     public void Select(int id)
     {
@@ -17,24 +31,75 @@ public class InventoryMenu : MonoBehaviour
         {
             return;
         }
+        infoScreen.SetActive(true);
 
-        name.text = inventory.items[id].item.name;
-        bigPicture.sprite = Resources.Load<Sprite>("Sprites/" + inventory.items[id].item.name);
+        currentItem = inventory.items[id].item;
+
+        if(currentItem.type == ItemTypes.Gear)
+        {
+            equipButton.SetActive(true);
+        }
+        else
+        {
+            equipButton.SetActive(false);
+        }
+
+        name.text = currentItem.itemName;
+        bigPicture.sprite = Resources.Load<Sprite>(path + currentItem.itemSprite);
     }
 
     public void OpenMenu()
+    {
+        equipButton.SetActive(false);
+        infoScreen.SetActive(false);
+        begining = 0;
+        VisualizeItems();
+    }
+
+    void VisualizeItems()
     {
         Inventory inventory = Inventory.instance;
 
         for(int i = 0; i<buttons.Length;i++)
         {
-            if(i>=inventory.items.Count)
+            if(i + begining>=inventory.items.Count)
             {
                 buttonObject[i].SetActive(false);
                 continue;
             }
+
             buttonObject[i].SetActive(true);
-            buttons[i].sprite = Resources.Load<Sprite>("Sprites/" + inventory.items[i].item.name);
+            buttons[i + begining].sprite = Resources.Load<Sprite>(path + inventory.items[i + begining].item.itemSprite);
+        }
+        VisualzieGear();
+    }
+
+    void VisualzieGear()
+    {
+        Image helmet = helmetObject.GetComponent<Image>();
+        Image chestplate = chestPlateObject.GetComponent<Image>();
+        Image pants = pantsObject.GetComponent<Image>();
+        Image boots = bootsObject.GetComponent<Image>();
+        Image weapon = weaponObject.GetComponent<Image>();
+
+        PutGear(helmet, helmetObject, Inventory.instance.helmet);
+        PutGear(chestplate, chestPlateObject, Inventory.instance.chestplate);
+        PutGear(pants, pantsObject, Inventory.instance.pants);
+        PutGear(boots, bootsObject, Inventory.instance.boots);
+        PutGear(weapon, weaponObject, Inventory.instance.weapon);
+    }
+
+    void PutGear(Image image, GameObject gearObject, Item item)
+    {
+        Inventory inventory = Inventory.instance;
+        if(item == null)
+        {
+            gearObject.SetActive(false);
+        }
+        else
+        {
+            gearObject.SetActive(true);
+            image.sprite = Resources.Load<Sprite>(path + item.itemSprite);
         }
     }
 
@@ -43,5 +108,43 @@ public class InventoryMenu : MonoBehaviour
         Inventory.instance.inventoryMenu = gameObject;
         Inventory.instance.inventoryMenuScript = this;
         gameObject.SetActive(false);
+    }
+
+    public void NextPage()
+    {
+        if(begining + buttons.Length >= Inventory.instance.items.Count)
+        {
+            return;
+        }
+
+        begining += buttons.Length;
+    }
+
+    public void PreviousPage()
+    {
+        if(begining - buttons.Length < 0)
+        {
+            return;
+        }
+
+        begining -= buttons.Length;
+    }
+
+    public void EquipGearPiece()
+    {
+        Inventory.instance.EquipItem(currentItem);
+        VisualizeItems();
+        
+        equipButton.SetActive(false);
+        infoScreen.SetActive(false);
+    }
+    
+    public void UnEquipGearPiece(int type)
+    {
+        Inventory.instance.UnEquipItem((GearTypes)type);
+        VisualizeItems();
+        
+        equipButton.SetActive(false);
+        infoScreen.SetActive(false);
     }
 }
