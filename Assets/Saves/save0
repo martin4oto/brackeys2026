@@ -1,1 +1,17 @@
-{"enemiesAliveIndexes":[0,0,0],"enemiesAlivePositions":[{"x":4.0,"y":5.0},{"x":-3.0,"y":5.0},{"x":0.0,"y":-3.0}]}
+{"enemiesAliveIndexes":[0,0,0],"enemiesAlivePositions":[{"x":4.0,"y":5.0},{"x":-3.0,"y":5.0},{"x":0.0,"y":-3.0}],
+"enemyGuardAILocations":
+[
+    [
+        {"x":4.0,"y":5.0}
+    ],
+    [
+        {"x":-3.0,"y":5.0}
+    ],
+    [
+        {"x":0.0,"y":-3.0}
+    ]
+],
+"playerInventory":
+[
+]
+}

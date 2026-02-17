@@ -1,6 +1,6 @@
 using UnityEngine;
 
-enum ItemTypes
+public enum ItemTypes
 {
     Gear,
     Usable,
@@ -10,7 +10,8 @@ enum ItemTypes
 [CreateAssetMenu(fileName = "Item", menuName = "Scriptable Objects/Item")]
 public class Item : ScriptableObject
 {
-    ItemTypes type;
+    public ItemTypes type;
     public string itemName;
+    public string itemSprite;
     public Skill[] skillsOfItem;
 }
