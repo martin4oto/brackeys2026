@@ -9,6 +9,7 @@ public class Save
     public int[] enemiesAliveIndexes;
     public Vector2[] enemiesAlivePositions;
     public Vector2[][] enemyGuardAILocations;
+    public InventoryStack[] playerInventory;
 
     public Save(int enemyCount)
     {
@@ -56,6 +57,11 @@ public class MapManager : MonoBehaviour
         instance = this;
     }
 
+    void Start()
+    {
+        LoadFile(1);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -90,23 +96,24 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    void SaveGame(int fileIndex)
+    public void SaveGame(int fileIndex)
     {
         string filePath = path +"save"+ fileIndex;
 
         if(!File.Exists(filePath))
         {
-            File.Create(filePath);
+            using(File.Create(filePath));
         }
         Save currentState = new Save(enemiesAlive.Count);
 
         PutEnemiesIntoSave(currentState);
+        currentState.playerInventory = Inventory.instance.items.ToArray();
 
         string json = JsonUtility.ToJson(currentState);
         File.WriteAllText(filePath, json);
     }
 
-    void LoadFile(int fileIndex)
+    public void LoadFile(int fileIndex)
     {
         string filePath = path +"save"+ fileIndex;
 
@@ -114,5 +121,10 @@ public class MapManager : MonoBehaviour
 
         Save sv = JsonUtility.FromJson<Save>(json);
         LoadEnemiesFromSave(sv);
+
+        if(sv.playerInventory!=null)
+            Inventory.instance.items = new List<InventoryStack>(sv.playerInventory);
+        
+        Inventory.instance.IndexItems();
     }
 }
