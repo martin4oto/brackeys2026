@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     }
 
     void Start() {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("BattleScene");
     }
     public CharacterData[] characters = new CharacterData[4];
     public EnemyStats[] enemies = new EnemyStats[4];

@@ -136,7 +136,7 @@ public class BattleManager : MonoBehaviour
             attackPanel.SetActive(false);
             combatStage=false;
             enemySelection=false;
-            enemyFields[enemyClickedId].GetComponent<Field>().isClicked = false;
+            enemyFields[enemyClickedId].GetComponent<EnemyField>().isClicked = false;
             friendlyFields[activeId].GetComponent<Image>().color = Color.white;
             enemyFields[enemyClickedId].GetComponent<Image>().color = Color.white;
             enemyClickedId=-1;
@@ -197,7 +197,7 @@ public class BattleManager : MonoBehaviour
         if(enemyClickedId!=-1)
         {
             enemyFields[enemyClickedId].GetComponent<Image>().color = Color.white;
-            enemyFields[enemyClickedId].GetComponent<Field>().isClicked = false;
+            enemyFields[enemyClickedId].GetComponent<EnemyField>().isClicked = false;
 
             enemyClickedId=-1;
         }
