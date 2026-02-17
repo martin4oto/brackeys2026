@@ -11,6 +11,12 @@ public class Save
     public Vector2[][] enemyGuardAILocations;
     public InventoryStack[] playerInventory;
 
+    public Item helmet;
+    public Item chestplate;
+    public Item pants;
+    public Item boots;
+    public Item weapon;
+
     public Save(int enemyCount)
     {
         enemiesAliveIndexes = new int[enemyCount];
@@ -107,7 +113,15 @@ public class MapManager : MonoBehaviour
         Save currentState = new Save(enemiesAlive.Count);
 
         PutEnemiesIntoSave(currentState);
-        currentState.playerInventory = Inventory.instance.items.ToArray();
+
+        Inventory inventory = Inventory.instance;
+        currentState.playerInventory = inventory.items.ToArray();
+
+        currentState.helmet = inventory.helmet;
+        currentState.chestplate = inventory.chestplate;
+        currentState.pants = inventory.pants;
+        currentState.boots = inventory.boots;
+        currentState.weapon = inventory.weapon;
 
         string json = JsonUtility.ToJson(currentState);
         File.WriteAllText(filePath, json);
@@ -122,9 +136,17 @@ public class MapManager : MonoBehaviour
         Save sv = JsonUtility.FromJson<Save>(json);
         LoadEnemiesFromSave(sv);
 
+        Inventory inventory = Inventory.instance;
+
         if(sv.playerInventory!=null)
-            Inventory.instance.items = new List<InventoryStack>(sv.playerInventory);
+            inventory.items = new List<InventoryStack>(sv.playerInventory);
         
-        Inventory.instance.IndexItems();
+        inventory.IndexItems();
+
+        inventory.helmet = sv.helmet;
+        inventory.chestplate = sv.chestplate;
+        inventory.pants = sv.pants;
+        inventory.boots = sv.boots;
+        inventory.weapon = sv.weapon;
     }
 }

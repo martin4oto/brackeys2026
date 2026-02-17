@@ -1,5 +1,15 @@
 using UnityEngine;
 
+public enum GearTypes
+{
+    None,
+    Helmet,
+    Chestplate,
+    Pants,
+    Boots,
+    Weapon
+}
+
 public enum ItemTypes
 {
     Gear,
@@ -13,5 +23,7 @@ public class Item : ScriptableObject
     public ItemTypes type;
     public string itemName;
     public string itemSprite;
+    public string itemDescription;
     public Skill[] skillsOfItem;
+    public GearTypes gearType;
 }
