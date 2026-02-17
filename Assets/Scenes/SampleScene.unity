@@ -9703,10 +9703,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   characters:
   - {fileID: 11400000, guid: 4dc3792cf58f1024c8b0a082e7bda233, type: 2}
+  - {fileID: 11400000, guid: 55e04060ea5cbe041bba5ea9fb0db017, type: 2}
+  - {fileID: 11400000, guid: 55e04060ea5cbe041bba5ea9fb0db017, type: 2}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  enemies: []
+  enemies:
+  - {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
+  - {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
+  - {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
+  - {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
   locationID: 1
 --- !u!4 &1957775654
 Transform:

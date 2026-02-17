@@ -19,3 +19,5 @@ MonoBehaviour:
   skill1: {fileID: 0}
   skill2: {fileID: 0}
   skill3: {fileID: 0}
+  deadSprite: {fileID: 0}
+  alive: 1
