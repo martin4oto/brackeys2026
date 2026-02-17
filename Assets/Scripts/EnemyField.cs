@@ -24,7 +24,7 @@ public class EnemyField : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         int activeId = BattleManager.Instance.activeId;
         if (BattleManager.Instance.combatStage)
         {
-            int range = GameController.Instance.characters[activeId].range;
+            int range = GameController.Instance.characters[activeId].characterData.range;
             return (id == activeId - range) || (id == activeId + range);
         }
         else if(BattleManager.Instance.itemStage)

@@ -75,9 +75,9 @@ public class BattleManager : MonoBehaviour
         enemySprites[3]=enemyParty.transform.Find("Enemy4").GetComponent<SpriteRenderer>();
         for(int i=0;i<4;i++)
         {
-            if (GameController.Instance.characters[i] != null)
+            if (GameController.Instance.characters[i].characterData != null)
             {
-              partySprites[i].sprite=GameController.Instance.characters[i].combatSprite;
+              partySprites[i].sprite=GameController.Instance.characters[i].characterData.combatSprite;
             }
         }
         for(int i=0;i<GameController.Instance.enemies.Length;i++)
@@ -97,6 +97,7 @@ public class BattleManager : MonoBehaviour
         movePanel.SetActive(false);
         actionPanel.SetActive(false);
         turnCounter=1;
+        RefreshFieldText();
         friendlyTurn(0);
     }
 
@@ -143,6 +144,14 @@ public class BattleManager : MonoBehaviour
             actionStage=false;
         }
     }
+    void RefreshFieldText()
+    {
+        for(int i=0;i<friendlyFields.Length;i++)
+        {
+            if(GameController.Instance.characters[i].characterData != null)
+                friendlyFields[i].transform.Find("Text").gameObject.GetComponent<FieldText>().UpdateStats();
+        }
+    }
     void OnMoveButtonClicked()
     {
         if(moveStage && clickedId!=-1)
@@ -151,7 +160,7 @@ public class BattleManager : MonoBehaviour
             partySprites[activeId].sprite = partySprites[clickedId].sprite;
             partySprites[clickedId].sprite= sprite;
 
-            CharacterData cd = GameController.Instance.characters[activeId];
+            Data cd = GameController.Instance.characters[activeId];
             GameController.Instance.characters[activeId] = GameController.Instance.characters[clickedId];
             GameController.Instance.characters[clickedId] = cd;
 //            GameObject field = friendlyFields[activeId];

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
@@ -18,7 +19,8 @@ public class GameController : MonoBehaviour
     void Start() {
         SceneManager.LoadScene("BattleScene");
     }
-    public CharacterData[] characters = new CharacterData[4];
+    [SerializeField]
+    public Data[] characters = new Data[4];
     public EnemyStats[] enemies = new EnemyStats[4];
     public float locationID;
     public void EnterCombat() {
