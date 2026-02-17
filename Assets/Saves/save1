@@ -1,1 +1,1 @@
-{"enemiesAliveIndexes":[],"enemiesAlivePositions":[],"playerInventory":[],"helmet":{"instanceID":0},"chestplate":{"instanceID":0},"pants":{"instanceID":0},"boots":{"instanceID":0},"weapon":{"instanceID":48740}}
+{"enemiesAliveIndexes":[],"enemiesAlivePositions":[],"playerInventory":[{"amount":1,"item":{"instanceID":48740}}],"characters":[{"helmet":{"instanceID":0},"chestplate":{"instanceID":0},"pants":{"instanceID":0},"boots":{"instanceID":0},"weapon":{"instanceID":48740}}]}

@@ -23,6 +23,7 @@ public class InventoryMenu : MonoBehaviour
     public GameObject weaponObject;
     
     public GameObject equipButton;
+    int currentCharacter = 0;
 
     public void Select(int id)
     {
@@ -82,11 +83,13 @@ public class InventoryMenu : MonoBehaviour
         Image boots = bootsObject.GetComponent<Image>();
         Image weapon = weaponObject.GetComponent<Image>();
 
-        PutGear(helmet, helmetObject, Inventory.instance.helmet);
-        PutGear(chestplate, chestPlateObject, Inventory.instance.chestplate);
-        PutGear(pants, pantsObject, Inventory.instance.pants);
-        PutGear(boots, bootsObject, Inventory.instance.boots);
-        PutGear(weapon, weaponObject, Inventory.instance.weapon);
+        CharacterGear character = Inventory.instance.characters[currentCharacter];
+
+        PutGear(helmet, helmetObject, character.helmet);
+        PutGear(chestplate, chestPlateObject, character.chestplate);
+        PutGear(pants, pantsObject, character.pants);
+        PutGear(boots, bootsObject, character.boots);
+        PutGear(weapon, weaponObject, character.weapon);
     }
 
     void PutGear(Image image, GameObject gearObject, Item item)
@@ -132,7 +135,7 @@ public class InventoryMenu : MonoBehaviour
 
     public void EquipGearPiece()
     {
-        Inventory.instance.EquipItem(currentItem);
+        Inventory.instance.EquipItem(currentItem,currentCharacter);
         VisualizeItems();
         
         equipButton.SetActive(false);
@@ -141,7 +144,7 @@ public class InventoryMenu : MonoBehaviour
     
     public void UnEquipGearPiece(int type)
     {
-        Inventory.instance.UnEquipItem((GearTypes)type);
+        Inventory.instance.UnEquipItem((GearTypes)type, currentCharacter);
         VisualizeItems();
         
         equipButton.SetActive(false);

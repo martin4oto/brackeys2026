@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   name: aaaa
   level: 0
-  maxHP: 0
-  currentHP: 0
+  maxHP: 5
+  currentHP: 5
   mana: 0
   critChance: 0
   dodgeChance: 0
@@ -24,4 +24,5 @@ MonoBehaviour:
   skill3: {fileID: 0}
   combatSprite: {fileID: -672388805594007808, guid: 2a6c5638f0435af448d2345d0d0e0176, type: 3}
   deadSprite: {fileID: 0}
+  range: 0
   alive: 1

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   name: Rasu
   level: 0
-  maxHP: 0
-  currentHP: 0
+  maxHP: 7
+  currentHP: 5
   mana: 0
   critChance: 0
   dodgeChance: 0

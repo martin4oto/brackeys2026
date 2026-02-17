@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
-    
+    public bool toBattle;
     public static GameController Instance {
         get;
         set;
@@ -16,7 +16,10 @@ public class GameController : MonoBehaviour
     }
 
     void Start() {
-        SceneManager.LoadScene("SampleScene");
+        if(toBattle)
+        {
+            SceneManager.LoadScene("BattleScene");
+        }
     }
     public CharacterData[] characters = new CharacterData[4];
     public EnemyStats[] enemies = new EnemyStats[4];
