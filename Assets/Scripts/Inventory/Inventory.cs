@@ -21,7 +21,7 @@ public class CharacterGear
     public Item pants;
     public Item boots;
     public Item weapon;
-    public CharacterData stats;
+    public Data stats;
 }
 
 public class Inventory : MonoBehaviour
@@ -231,9 +231,18 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    CharacterData[] GetCompleteData()
+    public Data[] GetCompleteData()
     {
-        CharacterData[] newData = new CharacterData[characters.Count];
+        Data[] newData = new Data[characters.Count];
+
+        for(int i = 0; i<newData.Length; i++)
+        {
+            Data data = newData[i] = characters[i].stats;
+
+            newData[i] = data.Copy();
+            newData[i].alive = true;
+            newData[i].mana = data.characterData.maxMana;
+        }
 
         return newData;
     }

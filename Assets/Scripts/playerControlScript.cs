@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class playerControlScript : MonoBehaviour
 {
     bool isMoving = false;
-    public GridMovement playerMovement;
-    Vector3 lastStandingPosition;
+
+    public PartyMember playerMember;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,9 +17,9 @@ public class playerControlScript : MonoBehaviour
     {
         if(movementVector.x != 0 || movementVector.y != 0)
         {
-            lastStandingPosition = transform.position;
             movementVector = (Vector2)transform.position + movementVector;
-            playerMovement.StartMoving(movementVector);
+
+            playerMember.StartChain(movementVector);
             isMoving = true;
             return true;
         }
@@ -79,7 +79,7 @@ public class playerControlScript : MonoBehaviour
     {
         if(collider.tag == "walls")
         {
-            playerMovement.Redirect(lastStandingPosition);
+            playerMember.Return();
         }
     }
 }

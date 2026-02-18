@@ -24,6 +24,7 @@ public class InventoryMenu : MonoBehaviour
     
     public GameObject equipButton;
     int currentCharacter = 0;
+    public TextMeshProUGUI characterName;
 
     public void Select(int id)
     {
@@ -51,6 +52,8 @@ public class InventoryMenu : MonoBehaviour
 
     public void OpenMenu()
     {
+        //characterName.text = Inventory.instance.characters[currentCharacter].stats.characterData.name;
+
         equipButton.SetActive(false);
         infoScreen.SetActive(false);
         begining = 0;
@@ -159,6 +162,7 @@ public class InventoryMenu : MonoBehaviour
             currentCharacter = 0;
         }
         VisualzieGear();
+        characterName.text = Inventory.instance.characters[currentCharacter].stats.characterData.name;
     }
 
     public void PreviousCharacter()
@@ -169,5 +173,6 @@ public class InventoryMenu : MonoBehaviour
             currentCharacter = Inventory.instance.characters.Count-1;
         }
         VisualzieGear();
+        characterName.text = Inventory.instance.characters[currentCharacter].stats.characterData.name;
     }
 }

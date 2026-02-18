@@ -12,17 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c544925c7f925f441b5b2e20af3473dc, type: 3}
   m_Name: doctor
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  characterName: mage
-  level: 0
+  characterName: doctor
   maxHP: 0
-  currentHP: 0
-  mana: 0
-  critChance: 0
-  dodgeChance: 0
+  maxMana: 0
   skill1: {fileID: 0}
   skill2: {fileID: 0}
   skill3: {fileID: 0}
   combatSprite: {fileID: 0}
   deadSprite: {fileID: 0}
   range: 0
-  alive: 1
