@@ -7,12 +7,12 @@ public class SkillController : MonoBehaviour
         get;
         set;
     }
-    public delegate void SkillAction(GameObject[] targets, CharacterData user);
+    public delegate void SkillAction(int targets, int user);
     public List<SkillAction> skills = new List<SkillAction>();
     
-    public void Attack(GameObject[] targets, CharacterData user) { }
+    public void Attack(int targets, int user) { }
     
-    public void Slash(GameObject[] targets, CharacterData user) { }
+    public void Slash(int targets, int user) { }
     
     void Awake()
     {
@@ -23,7 +23,7 @@ public class SkillController : MonoBehaviour
         skills.Add(Attack);
         skills.Add(Slash);
     }
-    public void use(int id, GameObject[] targets, CharacterData user)
+    public void use(int id, int targets, int user)
     {
         skills[id](targets,user);
     }

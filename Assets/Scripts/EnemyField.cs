@@ -35,8 +35,8 @@ public class EnemyField : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
         else if(BattleManager.Instance.skillStage)
         {
-            //...
-            return false;
+            
+            return true;
         }
         return false;
     }
@@ -72,6 +72,10 @@ public class EnemyField : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             BattleManager.Instance.enemyClickedId=id;
             gameObject.GetComponent<Image>().color = clickedColor;
             EnemyFieldClickHandler.OnAnyFieldClicked?.Invoke(id);
+            if(BattleManager.Instance.skillStage)
+            {
+                BattleManager.Instance.UseSkill(false);
+            }
         }
     }
 

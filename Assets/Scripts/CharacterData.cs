@@ -21,6 +21,7 @@ public class Data
         newData.mana = mana;
         newData.critChance = critChance;
         newData.alive = alive;
+        newData.atkBonus= atkBonus;
 
         return newData;
     }
