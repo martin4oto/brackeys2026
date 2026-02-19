@@ -534,6 +534,7 @@ MonoBehaviour:
   characters: []
   inventoryMenu: {fileID: 40847486}
   inventoryMenuScript: {fileID: 40847488}
+  inventoryEnabled: 1
 --- !u!1 &64739354
 GameObject:
   m_ObjectHideFlags: 0
