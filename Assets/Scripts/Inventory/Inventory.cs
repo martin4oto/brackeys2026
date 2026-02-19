@@ -21,6 +21,7 @@ public class CharacterGear
     public Item pants;
     public Item boots;
     public Item weapon;
+    public Data stats;
 }
 
 public class Inventory : MonoBehaviour
@@ -44,6 +45,7 @@ public class Inventory : MonoBehaviour
 
     [SerializeField]
     public List<InventoryStack> items;
+    [SerializeField]
     public List<CharacterGear> characters;
 
     Dictionary<string, int> itemIndexes;
@@ -63,6 +65,7 @@ public class Inventory : MonoBehaviour
             {
                 itemIndexes.Remove(item.itemName);
                 items.RemoveAt(index);
+                IndexItems();
             }
         }
     }
@@ -125,6 +128,12 @@ public class Inventory : MonoBehaviour
 
         for(int i = 0; i<items.Count; i++)
         {
+            if(itemIndexes.ContainsKey(items[i].item.itemName))
+            {
+                itemIndexes[items[i].item.itemName] = i;
+                continue;
+            }
+
             itemIndexes.Add(items[i].item.itemName,i);
         }
     }
@@ -220,5 +229,21 @@ public class Inventory : MonoBehaviour
                 RemoveWeapon(character);
                 break;
         }
+    }
+
+    public Data[] GetCompleteData()
+    {
+        Data[] newData = new Data[characters.Count];
+
+        for(int i = 0; i<newData.Length; i++)
+        {
+            Data data = newData[i] = characters[i].stats;
+
+            newData[i] = data.Copy();
+            newData[i].alive = true;
+            newData[i].mana = data.characterData.maxMana;
+        }
+
+        return newData;
     }
 }

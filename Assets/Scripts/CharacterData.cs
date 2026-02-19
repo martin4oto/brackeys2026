@@ -10,6 +10,21 @@ public class Data
     public float critChance;
     public bool alive;
     public float atkBonus;
+
+    public Data Copy()
+    {
+        Data newData = new Data();
+
+        newData.characterData = characterData;
+        newData.level = level;
+        newData.currentHP = currentHP;
+        newData.mana = mana;
+        newData.critChance = critChance;
+        newData.alive = alive;
+
+        return newData;
+    }
+
 }
 
 [CreateAssetMenu(fileName = "CharacterData", menuName = "Scriptable Objects/CharacterData")]

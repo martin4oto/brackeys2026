@@ -10,7 +10,7 @@ public class InventoryMenu : MonoBehaviour
     public Image[] buttons;
     public GameObject[] buttonObject;
     public Image bigPicture;
-    public TextMeshProUGUI name;
+    public TextMeshProUGUI Name;
     public TextMeshProUGUI description;
     public GameObject infoScreen;
     int begining = 0;
@@ -24,6 +24,7 @@ public class InventoryMenu : MonoBehaviour
     
     public GameObject equipButton;
     int currentCharacter = 0;
+    public TextMeshProUGUI characterName;
 
     public void Select(int id)
     {
@@ -45,12 +46,14 @@ public class InventoryMenu : MonoBehaviour
             equipButton.SetActive(false);
         }
 
-        name.text = currentItem.itemName;
+        Name.text = currentItem.itemName;
         bigPicture.sprite = Resources.Load<Sprite>(path + currentItem.itemSprite);
     }
 
     public void OpenMenu()
     {
+        //characterName.text = Inventory.instance.characters[currentCharacter].stats.characterData.name;
+
         equipButton.SetActive(false);
         infoScreen.SetActive(false);
         begining = 0;
@@ -149,5 +152,27 @@ public class InventoryMenu : MonoBehaviour
         
         equipButton.SetActive(false);
         infoScreen.SetActive(false);
+    }
+
+    public void NextCharacter()
+    {
+        currentCharacter++;
+        if(currentCharacter>=Inventory.instance.characters.Count)
+        {
+            currentCharacter = 0;
+        }
+        VisualzieGear();
+        characterName.text = Inventory.instance.characters[currentCharacter].stats.characterData.name;
+    }
+
+    public void PreviousCharacter()
+    {
+        currentCharacter--;
+        if(currentCharacter<0)
+        {
+            currentCharacter = Inventory.instance.characters.Count-1;
+        }
+        VisualzieGear();
+        characterName.text = Inventory.instance.characters[currentCharacter].stats.characterData.name;
     }
 }

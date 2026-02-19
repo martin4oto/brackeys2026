@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class GridMovement : MonoBehaviour
 {
-    bool isMoving = false;
-    Vector2 movementPosition;
-    Vector2 direction;
+    public bool isMoving = false;
+    public Vector2 movementPosition;
+    public Vector2 direction;
     public float speed;
 
     public bool isPlayer;
@@ -42,8 +42,8 @@ public class GridMovement : MonoBehaviour
     public void Redirect(Vector2 position)
     {
         movementPosition = position;
-        PositionChange(position);
         isMoving = true;
+        PositionChange(position);
     }
 
     //calculating the normal vector of the direection
@@ -60,7 +60,7 @@ public class GridMovement : MonoBehaviour
 
         float velocity = momentum.x*momentum.x + momentum.y*momentum.y;
 
-        if(currentDistance<velocity)
+        if(currentDistance<velocity||currentDistance<0.01)
         {
             CompleteMovement();
             return true;

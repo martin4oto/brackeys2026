@@ -43,7 +43,9 @@ public class MapManager : MonoBehaviour
         if(instance != null)
         {
             GameObject.Destroy(gameObject);
+            return;
         }
+        instance = this;
 
         enemiesAlive = new List<Enemy>();
 
@@ -55,11 +57,6 @@ public class MapManager : MonoBehaviour
         LoadMapPrefabs();
 
         DontDestroyOnLoad(transform);
-        instance = this;
-    }
-
-    void Start()
-    {
         LoadFile(1);
     }
 

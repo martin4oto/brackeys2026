@@ -30,6 +30,6 @@ public class Enemy : MonoBehaviour
 
     void StartCombat()
     {
-
+        GameController.Instance.characters = Inventory.instance.GetCompleteData();
     }
 }
