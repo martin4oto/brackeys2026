@@ -52,18 +52,16 @@ public class SkillPanelManager : MonoBehaviour
     {
         if(skill1!=null)
         {
-            BattleManager.Instance.enemySelection=true;
+            BattleManager.Instance.activeSkillId=skill1.id;
             if(skill1.enemyTarget)
             {
-                
+                BattleManager.Instance.enemySelection=true;
+                BattleManager.Instance.friendlyTargetStage=false;
             }
             else if(skill1.friendlyTarget)
             {
-                
-            }
-            else if(skill1.selfTarget)
-            {
-                
+                BattleManager.Instance.friendlyTargetStage=true;
+                BattleManager.Instance.enemySelection=false;
             }
         }
     }
@@ -71,18 +69,16 @@ public class SkillPanelManager : MonoBehaviour
     {
         if(skill2!=null)
         {
-            BattleManager.Instance.enemySelection=true;
+            BattleManager.Instance.activeSkillId=skill2.id;
             if(skill2.enemyTarget)
             {
-                
+                BattleManager.Instance.enemySelection=true;
+                BattleManager.Instance.friendlyTargetStage=false;
             }
             else if(skill2.friendlyTarget)
             {
-                
-            }
-            else if(skill2.selfTarget)
-            {
-                
+                BattleManager.Instance.friendlyTargetStage=true;
+                BattleManager.Instance.enemySelection=false;
             }
         }
     }
@@ -90,19 +86,17 @@ public class SkillPanelManager : MonoBehaviour
     {
         if(skill3!=null)
         {
-            BattleManager.Instance.enemySelection=true;
+            BattleManager.Instance.activeSkillId=skill3.id;
             if(skill3.enemyTarget)
             {
-                
+                BattleManager.Instance.enemySelection=true;
+                BattleManager.Instance.friendlyTargetStage=false; 
             }
             else if(skill3.friendlyTarget)
             {
-                
+                BattleManager.Instance.friendlyTargetStage=true;
+                BattleManager.Instance.enemySelection=false;
             } 
-            else if(skill3.selfTarget)
-            {
-                
-            }
         } 
     }
 

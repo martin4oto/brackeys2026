@@ -46,6 +46,8 @@ public class BattleManager : MonoBehaviour
     public bool combatStage;
     public bool itemStage;
     public bool skillStage;
+    public bool friendlyTargetStage;
+    public int activeSkillId;
     public static BattleManager Instance {
         get;
         set;
@@ -100,6 +102,7 @@ public class BattleManager : MonoBehaviour
         combatStage=false;
         itemStage=false;
         skillStage=false;
+        friendlyTargetStage=false;
         movePanel.SetActive(false);
         actionPanel.SetActive(false);
         turnCounter=1;
@@ -116,6 +119,7 @@ public class BattleManager : MonoBehaviour
             clickedId=-1;
             enemyClickedId = -1;
             moveStage=true;
+            friendlyTargetStage=true;
             movePanel.SetActive(true);
         }
         /*
@@ -151,6 +155,24 @@ public class BattleManager : MonoBehaviour
         }
         return(countAll!=countDead);
     }
+    void CheckEnemyAlive()
+    {
+        if(GameController.Instance.enemies[enemyClickedId].hp<=0)
+        {
+            Debug.Log("enemy dead");
+            GameController.Instance.enemies[enemyClickedId].hp=0;
+            GameController.Instance.enemies[enemyClickedId].alive=false;
+            enemyFields[enemyClickedId].GetComponent<Image>().color=Color.white;
+            enemySprites[enemyClickedId].sprite=GameController.Instance.enemies[enemyClickedId].enemyStats.deadSprite;
+            enemyFields[enemyClickedId].transform.Find("Text").gameObject.SetActive(false);
+                
+            if(!CheckEnemiesAlive())
+            {
+                EndBattleWin();
+            }
+                //check if all are dead...
+        }
+    }
     void Attack()
     {
         if(combatStage && enemyClickedId!=-1)
@@ -165,25 +187,8 @@ public class BattleManager : MonoBehaviour
                 Debug.Log("You critted");  
             }
             GameController.Instance.enemies[enemyClickedId].hp-=dmg;
-            if(GameController.Instance.enemies[enemyClickedId].hp<=0)
-            {
-                Debug.Log("enemy dead");
-                GameController.Instance.enemies[enemyClickedId].hp=0;
-                GameController.Instance.enemies[enemyClickedId].alive=false;
-                enemyFields[enemyClickedId].GetComponent<Image>().color=Color.white;
-                enemySprites[enemyClickedId].sprite=GameController.Instance.enemies[enemyClickedId].enemyStats.deadSprite;
-                enemyFields[enemyClickedId].transform.Find("Text").gameObject.SetActive(false);
-                
-                if(!CheckEnemiesAlive())
-                {
-                    EndBattleWin();
-                }
-                //check if all are dead...
-            }
-            
 
-
-
+            CheckEnemyAlive();
             RefreshFieldText();
             attackPanel.SetActive(false);
             combatStage=false;
@@ -193,7 +198,43 @@ public class BattleManager : MonoBehaviour
 
             enemyClickedId=-1;
             actionStage=false;
+            enemySelection=false;
+
+
+
         }
+    }
+    public void UseSkill(bool friendly)
+    {
+        if(friendly)
+            SkillController.Instance.use(activeSkillId,clickedId,activeId);
+        else
+        {
+            SkillController.Instance.use(activeSkillId,enemyClickedId,activeId);
+            CheckEnemiesAlive();
+        }
+        RefreshFieldText();
+
+        skillPanel.SetActive(false);
+        if(enemyClickedId>=0)
+        {
+            enemyFields[enemyClickedId].GetComponent<Image>().color = Color.white;
+            enemyFields[enemyClickedId].GetComponent<EnemyField>().isClicked = false;
+        }
+        if(clickedId>=0)
+        {
+            friendlyFields[clickedId].GetComponent<Image>().color = Color.white;
+            friendlyFields[clickedId].GetComponent<EnemyField>().isClicked = false;
+        }
+        friendlyFields[activeId].GetComponent<Image>().color = Color.white;
+        skillStage=false;
+        actionStage=false;
+        enemyClickedId=-1;
+        clickedId=-1;
+        enemySelection=false;
+        friendlyTargetStage=false;
+
+
     }
     void RefreshFieldText()
     {
@@ -241,6 +282,7 @@ public class BattleManager : MonoBehaviour
 
             activeId=clickedId;
             moveStage=false;
+            friendlyTargetStage=false;
             actionStage=true;
             clickedId=-1;
             movePanel.SetActive(false);
@@ -283,9 +325,11 @@ public class BattleManager : MonoBehaviour
 
             enemyClickedId=-1;
         }
+        activeSkillId=-1;
         moveStage=false;
         actionStage=true;
         enemySelection=false;
+        friendlyTargetStage=false;
         combatStage=false;
         itemStage=false;
         skillStage=false;

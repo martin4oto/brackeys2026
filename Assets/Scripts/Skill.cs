@@ -9,6 +9,6 @@ public class Skill : ScriptableObject
     public int id;
     public bool enemyTarget;
     public bool friendlyTarget;
-    public bool selfTarget;
+
     
 }
