@@ -16,5 +16,7 @@ MonoBehaviour:
   itemName: spear
   itemSprite: kopie
   itemDescription: 
-  skillsOfItem: []
+  skillID: 0
   gearType: 5
+  friendly: 0
+  itemID: 8

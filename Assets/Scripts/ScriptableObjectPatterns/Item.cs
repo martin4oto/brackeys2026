@@ -27,4 +27,5 @@ public class Item : ScriptableObject
     public int skillID;
     public GearTypes gearType;
     public bool friendly;
+    public int itemID;
 }

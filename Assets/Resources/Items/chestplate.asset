@@ -16,5 +16,7 @@ MonoBehaviour:
   itemName: chestplate
   itemSprite: chestplate
   itemDescription: 
-  skillsOfItem: []
+  skillID: 0
   gearType: 2
+  friendly: 0
+  itemID: 1

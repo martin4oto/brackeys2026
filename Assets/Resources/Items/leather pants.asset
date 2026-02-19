@@ -16,5 +16,7 @@ MonoBehaviour:
   itemName: leather pants
   itemSprite: kozha
   itemDescription: 
-  skillsOfItem: []
+  skillID: 0
   gearType: 3
+  friendly: 0
+  itemID: 6

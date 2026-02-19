@@ -16,5 +16,7 @@ MonoBehaviour:
   itemName: simple helmet
   itemSprite: kaska
   itemDescription: 
-  skillsOfItem: []
+  skillID: 0
   gearType: 1
+  friendly: 0
+  itemID: 4

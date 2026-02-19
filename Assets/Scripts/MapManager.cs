@@ -10,13 +10,16 @@ public class Save
     public int[] enemiesAliveIndexes;
     public Vector2[] enemiesAlivePositions;
     public Vector2[][] enemyGuardAILocations;
-    public InventoryStack[] playerInventory;
+
+    public int[] itemAmount;
+    public int[] itemID;
+    
     public CharacterGear[] characters;
     public int[] interactablesIndexes;
     public Vector2[] interactablesPositions;
     public bool[] interactableUsed;
 
-    public Save(int enemyCount, int interactableCount)
+    public Save(int enemyCount, int interactableCount, int itemCount)
     {
         enemiesAliveIndexes = new int[enemyCount];
         enemiesAlivePositions = new Vector2[enemyCount];
@@ -25,6 +28,9 @@ public class Save
         interactablesIndexes = new int[interactableCount];
         interactablesPositions = new Vector2[interactableCount];
         interactableUsed = new bool[interactableCount];
+
+        itemID = new int[itemCount];
+        itemAmount = new int[itemCount];
     }
 }
 
@@ -47,9 +53,12 @@ public class MapManager : MonoBehaviour
     int screenMiddleWidth;
 
     string path = Application.dataPath + "/Saves/";
+    string itemsPath = "/Items/";
 
     public float squareSize;
     public TextAsset[] saves;
+
+    public Item[] allItems;
 
     void LoadMapPrefabs()
     {
@@ -84,6 +93,10 @@ public class MapManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(transform);
+    }
+
+    void Start()
+    {
         LoadFile(1);
     }
 
@@ -153,6 +166,28 @@ public class MapManager : MonoBehaviour
             save.interactablesIndexes[i] = allInteractables[i].prefabIndex;
         }
     }
+    
+    void LoadItemFromSave(Save save)
+    {
+        for(int i = 0; i<save.itemAmount.Length; i++)
+        {
+            for(int j = 0; j<save.itemAmount[i]; j++)
+            {
+                Inventory.instance.AddItem(allItems[save.itemID[i]]);
+            }
+        }
+    }
+
+    void PutItemIntoSave(Save save)
+    {
+        Inventory inventory = Inventory.instance;
+
+        for(int i = 0; i<inventory.items.Count; i++)
+        {
+            save.itemAmount[i] = inventory.items[i].amount;
+            save.itemID[i] = inventory.items[i].item.itemID;
+        }
+    }
 
     public void TryToInteract(Vector2 objectLocation)
     {
@@ -173,13 +208,13 @@ public class MapManager : MonoBehaviour
         {
             using(File.Create(filePath));
         }
-        Save currentState = new Save(enemiesAlive.Count, allInteractables.Count);
+        Save currentState = new Save(enemiesAlive.Count, allInteractables.Count, Inventory.instance.items.Count);
 
         PutEnemiesIntoSave(currentState);
         PutInteractablesIntoSave(currentState);
+        PutItemIntoSave(currentState);
 
         Inventory inventory = Inventory.instance;
-        currentState.playerInventory = inventory.items.ToArray();
 
         currentState.characters = inventory.characters.ToArray();
 
@@ -196,14 +231,10 @@ public class MapManager : MonoBehaviour
         Save sv = JsonUtility.FromJson<Save>(json);
         LoadEnemiesFromSave(sv);
         LoadInteractablesFromSave(sv);
+        LoadItemFromSave(sv);
 
 
         Inventory inventory = Inventory.instance;
-
-        if(sv.playerInventory!=null)
-        {
-            inventory.items = new List<InventoryStack>(sv.playerInventory);
-        }
         
         if(sv.characters != null)
         {
