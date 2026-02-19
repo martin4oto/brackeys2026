@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
     }
     [SerializeField]
     public Data[] characters = new Data[4];
-    public EnemyStats[] enemies = new EnemyStats[4];
+    public EnemyData[] enemies = new EnemyData[4];
     public float locationID;
     public void EnterCombat() {
 

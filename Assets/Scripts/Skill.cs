@@ -7,4 +7,8 @@ public class Skill : ScriptableObject
     public float manaCost;
     public Sprite logo;
     public int id;
+    public bool enemyTarget;
+    public bool friendlyTarget;
+    public bool selfTarget;
+    
 }

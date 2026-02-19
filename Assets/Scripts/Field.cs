@@ -22,16 +22,13 @@ public class Field : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     private bool IsAdjacentToActive()
     {
         int activeId = BattleManager.Instance.activeId;
-        return (id == activeId - 1) || (id == activeId + 1);
+        return (((id == activeId - 1) || (id == activeId + 1))&&BattleManager.Instance.moveStage);
     }
 
     private bool CanInteract()
     {
         return IsAdjacentToActive() && 
-               id != BattleManager.Instance.activeId &&
-               GameController.Instance.characters[id].characterData != null && 
-               GameController.Instance.characters[id].alive && 
-               BattleManager.Instance.moveStage;
+               id != BattleManager.Instance.activeId;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {

@@ -12,17 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c544925c7f925f441b5b2e20af3473dc, type: 3}
   m_Name: CharacterData
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  name: aaaa
-  level: 0
+  characterName: 
   maxHP: 5
-  currentHP: 5
-  mana: 0
-  critChance: 0
-  dodgeChance: 0
+  maxMana: 5
   skill1: {fileID: 0}
   skill2: {fileID: 0}
   skill3: {fileID: 0}
   combatSprite: {fileID: -672388805594007808, guid: 2a6c5638f0435af448d2345d0d0e0176, type: 3}
   deadSprite: {fileID: 0}
   range: 0
-  alive: 1
+  baseAtk: 2
