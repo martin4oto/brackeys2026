@@ -125,7 +125,12 @@ public class InventoryMenu : MonoBehaviour
     {
         if(currentItem.type == ItemTypes.Usable)
         {
-            //DO SOMETHING
+            BattleManager.Instance.itemSkillId=currentItem.skillID;
+            if(currentItem.friendly)
+                BattleManager.Instance.friendlyTargetStage=true;
+            else
+                BattleManager.Instance.enemySelection=true;
+            //add option to cancel.
             Inventory.instance.RemoveItem(currentItem);
         
             equipButton.SetActive(false);

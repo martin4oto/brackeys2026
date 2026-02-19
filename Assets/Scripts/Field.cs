@@ -30,7 +30,8 @@ public class Field : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         {
             return true;
         }
-
+        else if(BattleManager.Instance.itemStage && BattleManager.Instance.itemSkillId!=-1)
+            return true;
         return false;
     }
 
@@ -67,6 +68,10 @@ public class Field : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
             if(BattleManager.Instance.skillStage)
             {
                 BattleManager.Instance.UseSkill(true);
+            }
+            else if(BattleManager.Instance.itemStage)
+            {
+                BattleManager.Instance.UseItem(true);
             }
         }
     }

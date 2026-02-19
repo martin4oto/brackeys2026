@@ -27,6 +27,15 @@ public class SkillController : MonoBehaviour
             GameController.Instance.characters[targets].currentHP=GameController.Instance.characters[targets].characterData.maxHP;
         }
     }
+    public void HealPotion30(int targets, int user)
+    {
+        int hpHeal = 30;
+        GameController.Instance.characters[targets].currentHP+=hpHeal;
+        if(GameController.Instance.characters[targets].currentHP>GameController.Instance.characters[targets].characterData.maxHP)
+        {
+            GameController.Instance.characters[targets].currentHP=GameController.Instance.characters[targets].characterData.maxHP;
+        }
+    }
     
     void Awake()
     {
@@ -36,6 +45,7 @@ public class SkillController : MonoBehaviour
         Instance = this;
         skills.Add(Attack);
         skills.Add(Heal);
+        skills.Add(HealPotion30);
     }
     public void use(int id, int targets, int user)
     {

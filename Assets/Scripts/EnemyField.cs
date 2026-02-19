@@ -28,10 +28,9 @@ public class EnemyField : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             int range = GameController.Instance.characters[activeId].characterData.range;
             return (id == activeId - range) || (id == activeId + range);
         }
-        else if(BattleManager.Instance.itemStage)
+        else if(BattleManager.Instance.itemStage && BattleManager.Instance.itemSkillId!=-1)
         {
-            //...
-            return false;
+            return true;
         }
         else if(BattleManager.Instance.skillStage)
         {
@@ -75,6 +74,10 @@ public class EnemyField : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             if(BattleManager.Instance.skillStage)
             {
                 BattleManager.Instance.UseSkill(false);
+            }
+            else if(BattleManager.Instance.itemStage)
+            {
+                BattleManager.Instance.UseItem(false);
             }
         }
     }

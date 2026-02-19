@@ -27,6 +27,7 @@ public class BattleManager : MonoBehaviour
     public Button skipButton; //go back to action panel
     public Button cancelButton; //go back to action panel
     public Button cancelButton1;
+    public Button cancelButton2;
     public Button strikeButton;
 
     public Button moveButton;
@@ -35,6 +36,7 @@ public class BattleManager : MonoBehaviour
 
     public GameObject movePanel;
     public GameObject actionPanel;
+    public int itemSkillId;
     public bool moveStage;
     public bool actionStage;
     private bool enemyMoveStage;
@@ -69,6 +71,7 @@ public class BattleManager : MonoBehaviour
         cancelButton.onClick.AddListener(() => ShowActionPanel());
         strikeButton.onClick.AddListener(() => Attack());
         cancelButton1.onClick.AddListener(() => ShowActionPanel());
+        cancelButton2.onClick.AddListener(() => ShowActionPanel());
 
         string file = "Sprites/battleBackground" + GameController.Instance.locationID;
         background= Resources.Load<Sprite>(file);
@@ -228,7 +231,6 @@ public class BattleManager : MonoBehaviour
             friendlyFields[clickedId].GetComponent<Image>().color = Color.white;
             friendlyFields[clickedId].GetComponent<Field>().isClicked = false;
         }
-        Debug.Log("HI");
         friendlyFields[activeId].GetComponent<Image>().color = Color.white;
         skillStage=false;
         actionStage=false;
@@ -293,6 +295,36 @@ public class BattleManager : MonoBehaviour
             RefreshFieldText();
         }
     }
+    public void UseItem(bool friendly)
+    {
+        if(friendly)
+            SkillController.Instance.use(activeSkillId,clickedId,activeId);
+        else
+        {
+            SkillController.Instance.use(activeSkillId,enemyClickedId,activeId);
+            CheckEnemyAlive();
+        }
+        RefreshFieldText();
+
+        ItemMenu.SetActive(false);
+        if(enemyClickedId>=0)
+        {
+            enemyFields[enemyClickedId].GetComponent<Image>().color = Color.white;
+            enemyFields[enemyClickedId].GetComponent<EnemyField>().isClicked = false;
+        }
+        if(clickedId>=0)
+        {
+            friendlyFields[clickedId].GetComponent<Image>().color = Color.white;
+            friendlyFields[clickedId].GetComponent<Field>().isClicked = false;
+        }
+        friendlyFields[activeId].GetComponent<Image>().color = Color.white;
+        itemStage=false;
+        actionStage=false;
+        enemyClickedId=-1;
+        clickedId=-1;
+        enemySelection=false;
+        friendlyTargetStage=false;
+    }
     void OnAttackButtonClicked()
     {
         actionPanel.SetActive(false);
@@ -303,8 +335,9 @@ public class BattleManager : MonoBehaviour
     void OnItemButtonClicked()
     {
         //... pannels
+        itemSkillId=-1;
         ItemMenu.SetActive(true);
-        enemySelection=true;
+        actionPanel.SetActive(false);
         itemStage=true;
     }
     void OnSkillsButtonClicked()
@@ -329,6 +362,7 @@ public class BattleManager : MonoBehaviour
 
             enemyClickedId=-1;
         }
+        itemSkillId=-1;
         activeSkillId=-1;
         moveStage=false;
         actionStage=true;
