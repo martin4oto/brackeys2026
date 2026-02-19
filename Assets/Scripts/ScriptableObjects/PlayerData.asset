@@ -12,17 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c544925c7f925f441b5b2e20af3473dc, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
-  name: Rasu
-  level: 0
+  characterName: 
   maxHP: 7
-  currentHP: 5
-  mana: 0
-  critChance: 0
-  dodgeChance: 0
+  maxMana: 5
   skill1: {fileID: 11400000, guid: ceeb07d5d08c68d44bb2a812dd45030a, type: 2}
   skill2: {fileID: 0}
   skill3: {fileID: 0}
   combatSprite: {fileID: -1666806920, guid: 642825867cfcfca43aa292914ad53136, type: 3}
   deadSprite: {fileID: 0}
   range: 1
-  alive: 1
+  baseAtk: 3

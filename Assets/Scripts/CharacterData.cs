@@ -9,6 +9,7 @@ public class Data
     public float mana;
     public float critChance;
     public bool alive;
+    public float atkBonus;
 }
 
 [CreateAssetMenu(fileName = "CharacterData", menuName = "Scriptable Objects/CharacterData")]
@@ -19,11 +20,12 @@ public class CharacterData : ScriptableObject
     public float maxHP;
     public float maxMana;
 
-    public ScriptableObject skill1;
-    public ScriptableObject skill2;
-    public ScriptableObject skill3;
+    public Skill skill1;
+    public Skill skill2;
+    public Skill skill3;
     public Sprite combatSprite;
     public Sprite deadSprite;
     public int range;
 
+    public int baseAtk;
 }

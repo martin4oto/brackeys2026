@@ -9,6 +9,7 @@ public class EnemyField : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private Color defaultColor = Color.white;
     private Color clickedColor = Color.red;
     private Color hoverColor = Color.red;
+    
 
     private void OnEnable()
     {
@@ -43,7 +44,7 @@ public class EnemyField : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private bool CanInteract()
     {
         return IsInRange() && 
-               GameController.Instance.enemies[id] != null && 
+               GameController.Instance.enemies[id].enemyStats != null && 
                GameController.Instance.enemies[id].alive && 
                BattleManager.Instance.enemySelection;
     }

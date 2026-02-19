@@ -9687,7 +9687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb75bd181b13dab4f84fe70ddb80e6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
-  toBattle: 0
+  toBattle: 1
   characters:
   - characterData: {fileID: 11400000, guid: 4dc3792cf58f1024c8b0a082e7bda233, type: 2}
     level: 0
@@ -9695,29 +9695,45 @@ MonoBehaviour:
     mana: 3
     critChance: 0
     alive: 1
+    atkBonus: 0
   - characterData: {fileID: 11400000, guid: 55e04060ea5cbe041bba5ea9fb0db017, type: 2}
     level: 0
     currentHP: 3
     mana: 2
     critChance: 0
     alive: 1
+    atkBonus: 0
   - characterData: {fileID: 11400000, guid: 55e04060ea5cbe041bba5ea9fb0db017, type: 2}
     level: 0
     currentHP: 4
     mana: 1
     critChance: 0
     alive: 1
+    atkBonus: 1
   - characterData: {fileID: 0}
     level: 0
     currentHP: 0
     mana: 0
     critChance: 0
     alive: 0
+    atkBonus: 1
   enemies:
-  - {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
-  - {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
-  - {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
-  - {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
+  - enemyStats: {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
+    hp: 3
+    baseDmg: 2
+    alive: 1
+  - enemyStats: {fileID: 0}
+    hp: 6
+    baseDmg: 1
+    alive: 1
+  - enemyStats: {fileID: 0}
+    hp: 2
+    baseDmg: 0
+    alive: 1
+  - enemyStats: {fileID: 0}
+    hp: 7
+    baseDmg: 0
+    alive: 1
   locationID: 2
 --- !u!4 &1957775654
 Transform:
