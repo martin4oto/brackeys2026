@@ -304,6 +304,9 @@ public class BattleManager : MonoBehaviour
     {
         //... pannels
         ItemMenu.SetActive(true);
+        ItemMenu.GetComponent<InventoryMenu>().OpenMenu();
+        Debug.Log("test");
+
         enemySelection=true;
         itemStage=true;
     }

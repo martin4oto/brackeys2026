@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     void Start() {
         if(toBattle)
         {
+            Inventory.instance.inventoryEnabled = false;
             SceneManager.LoadScene("BattleScene");
         }
     }

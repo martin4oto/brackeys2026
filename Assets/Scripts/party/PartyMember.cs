@@ -15,7 +15,7 @@ public class PartyMember : MonoBehaviour
     {
         lastPosition = transform.position;
 
-        movement.StartMoving(position);
+        movement.Redirect(position);
 
         if(nextPartyMember == null)return;
         nextPartyMember.StartChain(transform.position);
