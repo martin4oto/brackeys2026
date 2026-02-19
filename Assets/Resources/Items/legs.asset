@@ -16,5 +16,7 @@ MonoBehaviour:
   itemName: leggings
   itemSprite: leggingi
   itemDescription: 
-  skillsOfItem: []
+  skillID: 0
   gearType: 3
+  friendly: 0
+  itemID: 7

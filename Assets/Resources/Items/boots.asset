@@ -16,5 +16,7 @@ MonoBehaviour:
   itemName: boots
   itemSprite: boshut
   itemDescription: 
-  skillsOfItem: []
+  skillID: 0
   gearType: 4
+  friendly: 0
+  itemID: 0

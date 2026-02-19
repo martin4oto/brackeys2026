@@ -16,5 +16,7 @@ MonoBehaviour:
   itemName: mage staff(green)
   itemSprite: zhezulZelen
   itemDescription: 
-  skillsOfItem: []
+  skillID: 0
   gearType: 5
+  friendly: 0
+  itemID: 12
