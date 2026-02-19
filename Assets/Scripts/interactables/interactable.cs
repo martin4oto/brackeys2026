@@ -8,10 +8,17 @@ public class interactable : MonoBehaviour
     public bool used;
     public int prefabIndex;
     dialogueBox dialogueManager;
+    public bool door;
+    GameObject roof;
 
     void Start()
     {
         dialogueManager = GameObject.Find("Canvas").GetComponent<dialogueBox>();
+
+        if(door)
+        {
+            roof = transform.GetChild(0).gameObject;
+        }
     }
 
 
@@ -20,6 +27,10 @@ public class interactable : MonoBehaviour
         if(used)
         {
             dialogueManager.StartDialogue(firstInteraction);
+            if(door)
+            {
+                GameObject.Destroy(gameObject);
+            }
             return;
         }
         dialogueManager.StartDialogue(baseInteraction);

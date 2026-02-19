@@ -130,6 +130,7 @@ public class InventoryMenu : MonoBehaviour
         
             equipButton.SetActive(false);
             infoScreen.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 
