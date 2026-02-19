@@ -1101,7 +1101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &136464104
 Transform:
   m_ObjectHideFlags: 0
@@ -1111,8 +1111,8 @@ Transform:
   m_GameObject: {fileID: 136464103}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46332.246, y: 27904.44, z: -9329.864}
-  m_LocalScale: {x: 103.66516, y: 103.66516, z: 103.66516}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1590318321}
@@ -2377,7 +2377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -363.63}
+  m_AnchoredPosition: {x: 0, y: -363.63004}
   m_SizeDelta: {x: 0, y: -727.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &257057148
@@ -3400,7 +3400,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -363.63}
+  m_AnchoredPosition: {x: 0, y: -363.63004}
   m_SizeDelta: {x: 0, y: -727.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402272939
@@ -9968,7 +9968,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -363.63}
+  m_AnchoredPosition: {x: 0, y: -363.63004}
   m_SizeDelta: {x: 0, y: -727.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1295899844
@@ -14608,7 +14608,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -363.63}
+  m_AnchoredPosition: {x: 0, y: -363.63004}
   m_SizeDelta: {x: 0, y: -727.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2021690881
@@ -15218,6 +15218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb16917e21667bc43866b153787cbedc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleManager
+  ItemMenu: {fileID: 136464103}
   skillPanel: {fileID: 2021690879}
   combatPanel: {fileID: 402272937}
   panel: {fileID: 1062355327}
@@ -15256,6 +15257,8 @@ MonoBehaviour:
   combatStage: 0
   itemStage: 0
   skillStage: 0
+  friendlyTargetStage: 0
+  activeSkillId: 0
 --- !u!4 &2075537577
 Transform:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ using Random = UnityEngine.Random;
 
 public class BattleManager : MonoBehaviour
 {
+    public GameObject ItemMenu;
     public GameObject skillPanel;
     public GameObject combatPanel;
     public GameObject panel;
@@ -105,6 +106,7 @@ public class BattleManager : MonoBehaviour
         friendlyTargetStage=false;
         movePanel.SetActive(false);
         actionPanel.SetActive(false);
+        ItemMenu.SetActive(false);
         turnCounter=1;
         RefreshFieldText();
         friendlyTurn(0);
@@ -301,6 +303,7 @@ public class BattleManager : MonoBehaviour
     void OnItemButtonClicked()
     {
         //... pannels
+        ItemMenu.SetActive(true);
         enemySelection=true;
         itemStage=true;
     }
@@ -334,6 +337,7 @@ public class BattleManager : MonoBehaviour
         combatStage=false;
         itemStage=false;
         skillStage=false;
+        ItemMenu.SetActive(false);
         skillPanel.SetActive(false);
         movePanel.SetActive(false);
         attackPanel.SetActive(false);

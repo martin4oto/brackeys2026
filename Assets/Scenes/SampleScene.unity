@@ -346,6 +346,7 @@ MonoBehaviour:
   weaponObject: {fileID: 933249707}
   equipButton: {fileID: 1460013930}
   characterName: {fileID: 761244825}
+  ItemUseMenu: 0
 --- !u!1 &59920634
 GameObject:
   m_ObjectHideFlags: 0
