@@ -40,21 +40,17 @@ public class InventoryMenu : MonoBehaviour
 
         if(ItemUseMenu && currentItem.type == ItemTypes.Usable)
         {
-            LoadItem();
+            equipButton.SetActive(true);
         }
         else if(!ItemUseMenu && currentItem.type == ItemTypes.Gear)
         {
-            LoadItem();
+            equipButton.SetActive(true);
         }
         else
         {
             equipButton.SetActive(false);
         }
-    }
-
-    void LoadItem()
-    {
-        equipButton.SetActive(true);
+        
         Name.text = currentItem.itemName;
         bigPicture.sprite = Resources.Load<Sprite>(path + currentItem.itemSprite);
     }
@@ -62,7 +58,6 @@ public class InventoryMenu : MonoBehaviour
     public void OpenMenu()
     {
         //characterName.text = Inventory.instance.characters[currentCharacter].stats.characterData.name;
-
         equipButton.SetActive(false);
         infoScreen.SetActive(false);
         begining = 0;
@@ -142,7 +137,7 @@ public class InventoryMenu : MonoBehaviour
     {
         Inventory.instance.inventoryMenu = gameObject;
         Inventory.instance.inventoryMenuScript = this;
-        gameObject.SetActive(false);
+        if(!ItemUseMenu)gameObject.SetActive(false);
     }
 
     public void NextPage()

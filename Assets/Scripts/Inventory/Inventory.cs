@@ -103,9 +103,11 @@ public class Inventory : MonoBehaviour
     }
 
     bool buttonHeld = false;
+    public bool inventoryEnabled = true;
 
     void Update()
     {
+        if(!inventoryEnabled)return;
         if(Keyboard.current.iKey.isPressed && !buttonHeld)
         {
             buttonHeld = true;

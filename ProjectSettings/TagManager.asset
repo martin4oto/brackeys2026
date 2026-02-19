@@ -43,6 +43,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: floor
+    uniqueID: 2724367989
+    locked: 0
+  - name: walls
+    uniqueID: 3583115293
+    locked: 0
+  - name: rooms
+    uniqueID: 2785832775
+    locked: 0
+  - name: roof
+    uniqueID: 656955639
+    locked: 0
   - name: Enemy
     uniqueID: 2292819357
     locked: 0

@@ -338,6 +338,11 @@ public class BattleManager : MonoBehaviour
         itemSkillId=-1;
         ItemMenu.SetActive(true);
         actionPanel.SetActive(false);
+
+        ItemMenu.GetComponent<InventoryMenu>().OpenMenu();
+        Debug.Log("test");
+
+
         itemStage=true;
     }
     void OnSkillsButtonClicked()
