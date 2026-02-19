@@ -5,11 +5,11 @@ public class Data
 {
     public CharacterData characterData;
     public float level;
-    public float currentHP;
+    public int currentHP;
     public float mana;
     public float critChance;
     public bool alive;
-    public float atkBonus;
+    public int atkBonus;
 
     public Data Copy()
     {
@@ -33,7 +33,7 @@ public class CharacterData : ScriptableObject
 {
     public string characterName;
 
-    public float maxHP;
+    public int maxHP;
     public float maxMana;
 
     public Skill skill1;

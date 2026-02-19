@@ -10,9 +10,23 @@ public class SkillController : MonoBehaviour
     public delegate void SkillAction(int targets, int user);
     public List<SkillAction> skills = new List<SkillAction>();
     
-    public void Attack(int targets, int user) { }
+    public void Attack(int targets, int user)
+    {
+        Data caster=GameController.Instance.characters[user];
+        int dmg=(int)(caster.characterData.baseAtk*((caster.characterData.maxMana/100)+1));
+        GameController.Instance.enemies[targets].hp-=dmg;
+    }
     
-    public void Slash(int targets, int user) { }
+    public void Heal(int targets, int user)
+    {
+        Data caster=GameController.Instance.characters[user];
+        int hpHeal=(int)caster.characterData.maxMana/4;
+        GameController.Instance.characters[targets].currentHP+=hpHeal;
+        if(GameController.Instance.characters[targets].currentHP>GameController.Instance.characters[targets].characterData.maxHP)
+        {
+            GameController.Instance.characters[targets].currentHP=GameController.Instance.characters[targets].characterData.maxHP;
+        }
+    }
     
     void Awake()
     {
@@ -21,7 +35,7 @@ public class SkillController : MonoBehaviour
         DontDestroyOnLoad (transform.gameObject);
         Instance = this;
         skills.Add(Attack);
-        skills.Add(Slash);
+        skills.Add(Heal);
     }
     public void use(int id, int targets, int user)
     {

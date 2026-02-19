@@ -22,7 +22,16 @@ public class Field : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     private bool IsAdjacentToActive()
     {
         int activeId = BattleManager.Instance.activeId;
-        return (((id == activeId - 1) || (id == activeId + 1)) && BattleManager.Instance.moveStage);
+        if(BattleManager.Instance.moveStage)
+            return ((id == activeId - 1) || (id == activeId + 1));
+        else if(BattleManager.Instance.skillStage
+        && GameController.Instance.characters[id].characterData!= null 
+        && GameController.Instance.characters[id].alive)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     private bool CanInteract()
@@ -55,6 +64,10 @@ public class Field : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
             BattleManager.Instance.clickedId=id;
             gameObject.GetComponent<Image>().color = clickedColor;
             FieldClickHandler.OnAnyFieldClicked?.Invoke(id);
+            if(BattleManager.Instance.skillStage)
+            {
+                BattleManager.Instance.UseSkill(true);
+            }
         }
     }
 

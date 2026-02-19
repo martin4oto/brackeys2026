@@ -179,7 +179,7 @@ public class BattleManager : MonoBehaviour
         {
             //atack logiccc
             enemyFields[enemyClickedId].GetComponent<Image>().color = Color.white;
-            float dmg=GameController.Instance.characters[activeId].atkBonus+GameController.Instance.characters[activeId].characterData.baseAtk;
+            int dmg=GameController.Instance.characters[activeId].atkBonus+GameController.Instance.characters[activeId].characterData.baseAtk;
             float num=Random.Range(0.0f,100.0f);
             if(num<=GameController.Instance.characters[activeId].critChance)
             {
@@ -211,7 +211,7 @@ public class BattleManager : MonoBehaviour
         else
         {
             SkillController.Instance.use(activeSkillId,enemyClickedId,activeId);
-            CheckEnemiesAlive();
+            CheckEnemyAlive();
         }
         RefreshFieldText();
 
@@ -224,8 +224,9 @@ public class BattleManager : MonoBehaviour
         if(clickedId>=0)
         {
             friendlyFields[clickedId].GetComponent<Image>().color = Color.white;
-            friendlyFields[clickedId].GetComponent<EnemyField>().isClicked = false;
+            friendlyFields[clickedId].GetComponent<Field>().isClicked = false;
         }
+        Debug.Log("HI");
         friendlyFields[activeId].GetComponent<Image>().color = Color.white;
         skillStage=false;
         actionStage=false;
@@ -341,6 +342,7 @@ public class BattleManager : MonoBehaviour
     }
     private void EndBattleWin()
     {
+        Debug.Log("Win");
         victoryPanel.SetActive(true);
         //show victory screen
         //add xp

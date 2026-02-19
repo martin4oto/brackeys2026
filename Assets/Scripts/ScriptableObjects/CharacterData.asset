@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CharacterData
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   characterName: 
-  maxHP: 5
+  maxHP: 7
   maxMana: 5
   skill1: {fileID: 0}
   skill2: {fileID: 0}

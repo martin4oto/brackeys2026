@@ -10345,47 +10345,47 @@ MonoBehaviour:
   characters:
   - characterData: {fileID: 11400000, guid: 4dc3792cf58f1024c8b0a082e7bda233, type: 2}
     level: 0
-    currentHP: 4
+    currentHP: 5
     mana: 3
     critChance: 0
     alive: 1
     atkBonus: 0
   - characterData: {fileID: 11400000, guid: 55e04060ea5cbe041bba5ea9fb0db017, type: 2}
     level: 0
-    currentHP: 3
+    currentHP: 5
     mana: 2
     critChance: 0
     alive: 1
     atkBonus: 0
   - characterData: {fileID: 11400000, guid: 55e04060ea5cbe041bba5ea9fb0db017, type: 2}
     level: 0
-    currentHP: 4
+    currentHP: 6
     mana: 1
     critChance: 0
     alive: 1
-    atkBonus: 1
+    atkBonus: 0
   - characterData: {fileID: 0}
     level: 0
     currentHP: 0
     mana: 0
     critChance: 0
     alive: 0
-    atkBonus: 1
+    atkBonus: 0
   enemies:
   - enemyStats: {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
     hp: 3
     baseDmg: 2
     alive: 1
   - enemyStats: {fileID: 0}
-    hp: 6
+    hp: 0
     baseDmg: 1
     alive: 1
   - enemyStats: {fileID: 0}
-    hp: 2
+    hp: 0
     baseDmg: 0
     alive: 1
   - enemyStats: {fileID: 0}
-    hp: 7
+    hp: 0
     baseDmg: 0
     alive: 1
   locationID: 2
