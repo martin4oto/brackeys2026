@@ -6,6 +6,7 @@ public class playerControlScript : MonoBehaviour
     bool isMoving = false;
 
     public PartyMember playerMember;
+    Vector2 playerFaceDirection;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,6 +18,8 @@ public class playerControlScript : MonoBehaviour
     {
         if(movementVector.x != 0 || movementVector.y != 0)
         {
+            playerFaceDirection = movementVector;
+
             movementVector = (Vector2)transform.position + movementVector;
 
             playerMember.StartChain(movementVector);
@@ -32,14 +35,14 @@ public class playerControlScript : MonoBehaviour
         if(isMoving)return;
         Vector2 movementVector = AddToVectorHorizontally();
         
-        if(StartWalkingTest(movementVector))
+        if(!StartWalkingTest(movementVector))
         {
-            return;
-        }
-
-        movementVector = AddToVectorVertically();
+            movementVector = AddToVectorVertically();
         
-        StartWalkingTest(movementVector);
+            StartWalkingTest(movementVector);
+        }
+        
+        InteractTest();
     }
 
     Vector2 AddToVectorHorizontally()
@@ -70,6 +73,14 @@ public class playerControlScript : MonoBehaviour
         return movementVector;
     }
 
+    void InteractTest()
+    {
+        if(Keyboard.current.eKey.isPressed && !isMoving)
+        {
+            MapManager.instance.TryToInteract((Vector2)transform.position + playerFaceDirection);
+        }
+    }
+
     public void Stopped()
     {
         isMoving = false;
@@ -81,5 +92,10 @@ public class playerControlScript : MonoBehaviour
         {
             playerMember.Return();
         }
+    }
+
+    void TryToInteract()
+    {
+        
     }
 }
