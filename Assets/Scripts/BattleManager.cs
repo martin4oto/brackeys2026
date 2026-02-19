@@ -51,6 +51,7 @@ public class BattleManager : MonoBehaviour
     public bool skillStage;
     public bool friendlyTargetStage;
     public int activeSkillId;
+    public int manaCost;
     public static BattleManager Instance {
         get;
         set;
@@ -97,7 +98,7 @@ public class BattleManager : MonoBehaviour
             if(GameController.Instance.enemies[i].enemyStats != null)
                 enemySprites[i].sprite=GameController.Instance.enemies[i].enemyStats.combatSprite;
         }
-
+        manaCost=-1;
         moveStage=false;
         actionStage=false;
         enemyActionStage=false;
@@ -211,6 +212,7 @@ public class BattleManager : MonoBehaviour
     }
     public void UseSkill(bool friendly)
     {
+        GameController.Instance.characters[activeId].mana-=manaCost;
         if(friendly)
             SkillController.Instance.use(activeSkillId,clickedId,activeId);
         else
@@ -371,6 +373,7 @@ public class BattleManager : MonoBehaviour
         }
         itemSkillId=-1;
         activeSkillId=-1;
+        manaCost=-1;
         moveStage=false;
         actionStage=true;
         enemySelection=false;

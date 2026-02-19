@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Heal
   m_EditorClassIdentifier: Assembly-CSharp::Skill
   name: Heal
-  manaCost: 0
+  manaCost: 2
   logo: {fileID: 0}
   id: 1
   enemyTarget: 0

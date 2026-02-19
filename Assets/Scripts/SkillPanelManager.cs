@@ -50,8 +50,9 @@ public class SkillPanelManager : MonoBehaviour
     }
     void skill1Clicked()
     {
-        if(skill1!=null)
+        if(skill1!=null && skill1.manaCost<=GameController.Instance.characters[activeID].mana)
         {
+            BattleManager.Instance.manaCost=(int)skill1.manaCost;
             BattleManager.Instance.activeSkillId=skill1.id;
             if(skill1.enemyTarget)
             {
@@ -67,9 +68,10 @@ public class SkillPanelManager : MonoBehaviour
     }
     void skill2Clicked()
     {
-        if(skill2!=null)
+        if(skill2!=null && skill2.manaCost<=GameController.Instance.characters[activeID].mana)
         {
             BattleManager.Instance.activeSkillId=skill2.id;
+            BattleManager.Instance.manaCost=(int)skill2.manaCost;
             if(skill2.enemyTarget)
             {
                 BattleManager.Instance.enemySelection=true;
@@ -84,9 +86,10 @@ public class SkillPanelManager : MonoBehaviour
     }
     void skill3Clicked()
     {
-        if(skill3!=null)
+        if(skill3!=null && skill3.manaCost<=GameController.Instance.characters[activeID].mana)
         {
             BattleManager.Instance.activeSkillId=skill3.id;
+            BattleManager.Instance.manaCost=(int)skill3.manaCost;
             if(skill3.enemyTarget)
             {
                 BattleManager.Instance.enemySelection=true;
