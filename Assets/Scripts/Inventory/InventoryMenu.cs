@@ -25,6 +25,7 @@ public class InventoryMenu : MonoBehaviour
     public GameObject equipButton;
     int currentCharacter = 0;
     public TextMeshProUGUI characterName;
+    public bool ItemUseMenu;
 
     public void Select(int id)
     {
@@ -37,15 +38,23 @@ public class InventoryMenu : MonoBehaviour
 
         currentItem = inventory.items[id].item;
 
-        if(currentItem.type == ItemTypes.Gear)
+        if(ItemUseMenu && currentItem.type == ItemTypes.Usable)
         {
-            equipButton.SetActive(true);
+            LoadItem();
+        }
+        else if(!ItemUseMenu && currentItem.type == ItemTypes.Gear)
+        {
+            LoadItem();
         }
         else
         {
             equipButton.SetActive(false);
         }
+    }
 
+    void LoadItem()
+    {
+        equipButton.SetActive(true);
         Name.text = currentItem.itemName;
         bigPicture.sprite = Resources.Load<Sprite>(path + currentItem.itemSprite);
     }
@@ -75,7 +84,10 @@ public class InventoryMenu : MonoBehaviour
             buttonObject[i].SetActive(true);
             buttons[i + begining].sprite = Resources.Load<Sprite>(path + inventory.items[i + begining].item.itemSprite);
         }
-        VisualzieGear();
+        if(!ItemUseMenu)
+        {
+            VisualzieGear();
+        }
     }
 
     void VisualzieGear()
@@ -106,6 +118,18 @@ public class InventoryMenu : MonoBehaviour
         {
             gearObject.SetActive(true);
             image.sprite = Resources.Load<Sprite>(path + item.itemSprite);
+        }
+    }
+
+    public void ChooseItem()
+    {
+        if(currentItem.type == ItemTypes.Usable)
+        {
+            //DO SOMETHING
+            Inventory.instance.RemoveItem(currentItem);
+        
+            equipButton.SetActive(false);
+            infoScreen.SetActive(false);
         }
     }
 
