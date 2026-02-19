@@ -232,6 +232,7 @@ public class BattleManager : MonoBehaviour
             friendlyFields[clickedId].GetComponent<Field>().isClicked = false;
         }
         friendlyFields[activeId].GetComponent<Image>().color = Color.white;
+        activeSkillId=-1;
         skillStage=false;
         actionStage=false;
         enemyClickedId=-1;
@@ -298,10 +299,10 @@ public class BattleManager : MonoBehaviour
     public void UseItem(bool friendly)
     {
         if(friendly)
-            SkillController.Instance.use(activeSkillId,clickedId,activeId);
+            SkillController.Instance.use(itemSkillId,clickedId,activeId);
         else
         {
-            SkillController.Instance.use(activeSkillId,enemyClickedId,activeId);
+            SkillController.Instance.use(itemSkillId,enemyClickedId,activeId);
             CheckEnemyAlive();
         }
         RefreshFieldText();
@@ -318,6 +319,7 @@ public class BattleManager : MonoBehaviour
             friendlyFields[clickedId].GetComponent<Field>().isClicked = false;
         }
         friendlyFields[activeId].GetComponent<Image>().color = Color.white;
+        itemSkillId=-1;
         itemStage=false;
         actionStage=false;
         enemyClickedId=-1;
