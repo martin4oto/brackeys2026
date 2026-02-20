@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using Random = UnityEngine.Random;
+using Unity.VisualScripting;
 
 public class BattleManager : MonoBehaviour
 {
@@ -52,6 +53,7 @@ public class BattleManager : MonoBehaviour
     public bool friendlyTargetStage;
     public int activeSkillId;
     public int manaCost;
+    private int counter;
     public static BattleManager Instance {
         get;
         set;
@@ -86,7 +88,7 @@ public class BattleManager : MonoBehaviour
         enemySprites[1]=enemyParty.transform.Find("Enemy2").GetComponent<SpriteRenderer>();
         enemySprites[2]=enemyParty.transform.Find("Enemy3").GetComponent<SpriteRenderer>();
         enemySprites[3]=enemyParty.transform.Find("Enemy4").GetComponent<SpriteRenderer>();
-        for(int i=0;i<4;i++)
+        for(int i=0;i<GameController.Instance.characters.Length;i++)
         {
             if (GameController.Instance.characters[i].characterData != null)
             {
@@ -112,33 +114,39 @@ public class BattleManager : MonoBehaviour
         actionPanel.SetActive(false);
         ItemMenu.SetActive(false);
         turnCounter=1;
+        counter=0;
         RefreshFieldText();
-        friendlyTurn(0);
+        Turn();
     }
 
-    public void friendlyTurn(int counter)
+    public void Turn()
     {
-        if (GameController.Instance.characters[counter].characterData != null && GameController.Instance.characters[counter].alive)
+        if(counter<Inventory.instance.characters.Count)
         {
-            friendlyFields[counter].GetComponent<Image>().color = Color.green;
-            activeId=counter;
+            int id=Inventory.instance.characters[counter].stats.characterData.id;
+            for(int i=0;i<GameController.Instance.characters.Length;i++)
+            {
+                if(GameController.Instance.characters[i].characterData.id==id)
+                {
+                    friendlyTurn(i);
+                    break;
+                }
+            }
+        }
+    }
+    public void friendlyTurn(int counterId)
+    {
+        if (GameController.Instance.characters[counterId].characterData != null && GameController.Instance.characters[counterId].alive)
+        {
+            counter++;
+            friendlyFields[counterId].GetComponent<Image>().color = Color.green;
+            activeId=counterId;
             clickedId=-1;
             enemyClickedId = -1;
             moveStage=true;
             friendlyTargetStage=true;
             movePanel.SetActive(true);
         }
-        /*
-        else if(counter<3)
-        {
-            counter++;
-            friendlyTurn(counter);
-        }
-        else if(counter==3)
-        {
-            enemyTurn(0);
-        }
-        */
     }
     public void enemyTurn(int counter)
     {
@@ -205,7 +213,7 @@ public class BattleManager : MonoBehaviour
             enemyClickedId=-1;
             actionStage=false;
             enemySelection=false;
-
+            Turn();
 
 
         }
@@ -241,7 +249,7 @@ public class BattleManager : MonoBehaviour
         clickedId=-1;
         enemySelection=false;
         friendlyTargetStage=false;
-
+        Turn();
 
     }
     void RefreshFieldText()
@@ -328,6 +336,7 @@ public class BattleManager : MonoBehaviour
         clickedId=-1;
         enemySelection=false;
         friendlyTargetStage=false;
+        Turn();
     }
     void OnAttackButtonClicked()
     {

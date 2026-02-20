@@ -35,6 +35,7 @@ public class CharacterData : ScriptableObject
 
     public int maxHP;
     public float maxMana;
+    public int id;
 
     public Skill skill1;
     public Skill skill2;
