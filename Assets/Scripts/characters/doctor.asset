@@ -15,9 +15,11 @@ MonoBehaviour:
   characterName: doctor
   maxHP: 0
   maxMana: 0
+  id: 2
   skill1: {fileID: 0}
   skill2: {fileID: 0}
   skill3: {fileID: 0}
   combatSprite: {fileID: 0}
   deadSprite: {fileID: 0}
   range: 0
+  baseAtk: 0
