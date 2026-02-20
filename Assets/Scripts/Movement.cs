@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEngine;
 
 public class GridMovement : MonoBehaviour
@@ -8,6 +9,7 @@ public class GridMovement : MonoBehaviour
     public float speed;
 
     public bool isPlayer;
+    public bool isEnemy;
     public playerControlScript playerControlScript;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -81,5 +83,9 @@ public class GridMovement : MonoBehaviour
         isMoving = false;
 
         if(isPlayer)playerControlScript.Stopped();
+        else if(isEnemy)
+        {
+            GetComponent<Enemy>().isMoving = false;
+        }
     }
 }
