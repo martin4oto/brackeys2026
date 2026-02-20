@@ -6,7 +6,7 @@ public class EnemyData
     public EnemyStats enemyStats;
     public int currentId;
     public int hp;
-    public float baseDmg;
+    public int baseDmg;
     public bool alive; 
 }
 [CreateAssetMenu(fileName = "EnemyStats", menuName = "Scriptable Objects/EnemyStats")]
@@ -16,9 +16,10 @@ public class EnemyStats : ScriptableObject
 
     public int maxHp;
     public Sprite combatSprite;
-    public Skill skill1;
-    public Skill skill2;
-    public Skill skill3;
+    public int skill1;
+    public int skill2;
+    public int skill3;
     public Sprite deadSprite;
+    public bool ranged;
 
 }
