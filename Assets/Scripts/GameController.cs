@@ -20,7 +20,9 @@ public class GameController : MonoBehaviour
         if(toBattle)
         {
             Inventory.instance.inventoryEnabled = false;
+            characters = Inventory.instance.GetCompleteData();
             SceneManager.LoadScene("BattleScene");
+
         }
     }
     [SerializeField]
