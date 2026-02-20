@@ -1,12 +1,12 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour
 {
     bool isMoving = false;
     public int prefabIndex;
     public Vector2[] guardAILocations;
     int currentLocation;
-    EnemyStats stats;
+    public EnemyData[] stats;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +30,9 @@ public class Enemy : MonoBehaviour
 
     void StartCombat()
     {
+        Inventory.instance.inventoryEnabled = false;
         GameController.Instance.characters = Inventory.instance.GetCompleteData();
+        GameController.Instance.enemies= stats;
+        SceneManager.LoadScene("BattleScene");
     }
 }
