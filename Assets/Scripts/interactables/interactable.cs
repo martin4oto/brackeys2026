@@ -9,23 +9,18 @@ public class interactable : MonoBehaviour
     public int prefabIndex;
     dialogueBox dialogueManager;
     public bool door;
-    GameObject roof;
 
     void Start()
     {
         dialogueManager = GameObject.Find("Canvas").GetComponent<dialogueBox>();
-
-        if(door)
-        {
-            roof = transform.GetChild(0).gameObject;
-        }
     }
 
 
     public void StartInteraction()
     {
-        if(used)
+        if(!used)
         {
+            Debug.Log(firstInteraction);
             dialogueManager.StartDialogue(firstInteraction);
             if(door)
             {

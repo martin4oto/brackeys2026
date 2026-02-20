@@ -93,6 +93,8 @@ public class MapManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(transform);
+        screenMiddleHeight = height/2;
+        screenMiddleWidth = width/2;
     }
 
     void Start()
@@ -113,8 +115,8 @@ public class MapManager : MonoBehaviour
 
         interactable interactableScript = interactable.GetComponent<interactable>();
         
-        int x =(int)position.x;
-        int y =(int)position.y;
+        int x =(int)position.x + screenMiddleWidth;
+        int y =(int)position.y + screenMiddleHeight;
 
         interactablesMap[x][y] = interactableScript;
 
@@ -191,8 +193,8 @@ public class MapManager : MonoBehaviour
 
     public void TryToInteract(Vector2 objectLocation)
     {
-        int x =(int)objectLocation.x;
-        int y =(int)objectLocation.y;
+        int x =(int)objectLocation.x + screenMiddleHeight;
+        int y =(int)objectLocation.y + screenMiddleWidth;
 
         if(interactablesMap[x][y] != null)
         {

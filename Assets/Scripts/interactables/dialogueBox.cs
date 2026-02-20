@@ -16,6 +16,8 @@ public class dialogueBox : MonoBehaviour
         {
             return;
         }
+
+        Debug.Log(interaction);
         dialogueBoxObject.SetActive(true);
         mainText.text = interaction.mainText;
         titleText.text = interaction.title;
