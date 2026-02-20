@@ -5850,7 +5850,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1172363871
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -5908,6 +5908,7 @@ MonoBehaviour:
   direction: {x: 0, y: 0}
   speed: 3
   isPlayer: 1
+  isEnemy: 0
   playerControlScript: {fileID: 1641381964}
 --- !u!61 &1641381966
 BoxCollider2D:
@@ -6510,6 +6511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfc7563707376644b892ecb49dbdb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
+  enemiesAlive: []
   allInteractables: []
   width: 200
   height: 200
@@ -6529,6 +6531,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f286d5c6898040c458466b952d51ac6c, type: 2}
   - {fileID: 11400000, guid: 6f79ffbd753dd244bb95cd642941e838, type: 2}
   - {fileID: 11400000, guid: 155d73a745c35574c9c075fa76d57209, type: 2}
+  allData:
+  - {fileID: 11400000, guid: 55e04060ea5cbe041bba5ea9fb0db017, type: 2}
+  - {fileID: 11400000, guid: 4dc3792cf58f1024c8b0a082e7bda233, type: 2}
+  - {fileID: 11400000, guid: 94089d25b19e3fe40ab9a16108f92b0a, type: 2}
 --- !u!1 &1957775652
 GameObject:
   m_ObjectHideFlags: 0
@@ -6590,18 +6596,22 @@ MonoBehaviour:
     atkBonus: 0
   enemies:
   - enemyStats: {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
+    currentId: 0
     hp: 3
     baseDmg: 2
     alive: 1
   - enemyStats: {fileID: 0}
+    currentId: 0
     hp: 0
     baseDmg: 1
     alive: 1
   - enemyStats: {fileID: 0}
+    currentId: 0
     hp: 0
     baseDmg: 0
     alive: 1
   - enemyStats: {fileID: 0}
+    currentId: 0
     hp: 0
     baseDmg: 0
     alive: 1
