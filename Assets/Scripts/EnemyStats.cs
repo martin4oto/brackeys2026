@@ -4,6 +4,7 @@ using System;
 public class EnemyData
 {
     public EnemyStats enemyStats;
+    public int currentId;
     public int hp;
     public float baseDmg;
     public bool alive; 

@@ -98,7 +98,11 @@ public class BattleManager : MonoBehaviour
         for(int i=0;i<GameController.Instance.enemies.Length;i++)
         {
             if(GameController.Instance.enemies[i].enemyStats != null)
+            {
+                GameController.Instance.enemies[i].currentId=i;
                 enemySprites[i].sprite=GameController.Instance.enemies[i].enemyStats.combatSprite;
+            }
+
         }
         manaCost=-1;
         moveStage=false;
@@ -133,6 +137,22 @@ public class BattleManager : MonoBehaviour
                 }
             }
         }
+        else if(counter-Inventory.instance.characters.Count < GameController.Instance.enemies.Length)
+        {
+            for(int i=0;i<GameController.Instance.enemies.Length;i++)
+            {
+                if(GameController.Instance.enemies[i].currentId==counter-Inventory.instance.characters.Count)
+                {
+                    enemyTurn(i);
+                    break;
+                }
+            }
+        }
+        else
+        {
+            //next round
+        }
+
     }
     public void friendlyTurn(int counterId)
     {
@@ -147,10 +167,27 @@ public class BattleManager : MonoBehaviour
             friendlyTargetStage=true;
             movePanel.SetActive(true);
         }
+        else
+        {
+            counter++;
+            Turn();
+        }
     }
-    public void enemyTurn(int counter)
+    public void enemyTurn(int counterId)
     {
-        
+        if (GameController.Instance.enemies[counterId].enemyStats != null && GameController.Instance.enemies[counterId].alive)
+        {
+            counter++;
+            enemyFields[counterId].GetComponent<Image>().color = Color.green;
+            activeId=counterId;
+
+            //logic
+        }
+        else
+        {
+            counter++;
+            Turn();
+        }
     }
     public bool CheckEnemiesAlive()
     {
@@ -400,6 +437,7 @@ public class BattleManager : MonoBehaviour
     private void EndBattleWin()
     {
         Debug.Log("Win");
+        Inventory.instance.inventoryEnabled = true;
         victoryPanel.SetActive(true);
         //show victory screen
         //add xp
