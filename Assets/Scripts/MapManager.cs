@@ -6,12 +6,18 @@ using UnityEditor;
 using Unity.VisualScripting;
 using System;
 
+[Serializable]
+public class positionList
+{
+    [SerializeField]
+    public Vector2[] positions;
+}
 public class Save
 {
     public int[] enemiesAliveIndexes;
     public Vector2[] enemiesAlivePositions;
     [SerializeField]
-    public Vector2[][] enemyGuardAILocations;
+    public positionList[] enemyGuardAILocations;
 
     public int[] itemAmount;
     public int[] itemID;
@@ -25,7 +31,7 @@ public class Save
     {
         enemiesAliveIndexes = new int[enemyCount];
         enemiesAlivePositions = new Vector2[enemyCount];
-        enemyGuardAILocations = new Vector2[enemyCount][];
+        enemyGuardAILocations = new positionList[enemyCount];
         
         interactablesIndexes = new int[interactableCount];
         interactablesPositions = new Vector2[interactableCount];
@@ -149,7 +155,7 @@ public class MapManager : MonoBehaviour
     {
         for(int i = 0; i<save.enemiesAliveIndexes.Length; i++)
         {
-            PutEnemy(save.enemiesAlivePositions[i],save.enemiesAliveIndexes[i], save.enemyGuardAILocations[i]);
+            PutEnemy(save.enemiesAlivePositions[i],save.enemiesAliveIndexes[i], save.enemyGuardAILocations[i].positions);
         }
     }
     void PutEnemiesIntoSave(Save save)
@@ -158,9 +164,10 @@ public class MapManager : MonoBehaviour
         {
             save.enemiesAliveIndexes[i] = enemiesAlive[i].prefabIndex;
             save.enemiesAlivePositions[i] = enemiesAlive[i].transform.position;
-            Debug.Log(enemiesAlive[i].guardAILocations);
-            Debug.Log(enemiesAlive[i].guardAILocations.Length);
-            save.enemyGuardAILocations[i] = enemiesAlive[i].guardAILocations;
+
+            save.enemyGuardAILocations[i] = new positionList();
+
+            save.enemyGuardAILocations[i].positions = enemiesAlive[i].guardAILocations;
         }
     }
 
