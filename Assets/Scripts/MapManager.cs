@@ -23,6 +23,8 @@ public class Save
     public int[] itemID;
     
     public CharacterGear[] characters;
+    public int[] characterDataIDs;
+
     public int[] interactablesIndexes;
     public Vector2[] interactablesPositions;
     public bool[] interactableUsed;
@@ -65,6 +67,7 @@ public class MapManager : MonoBehaviour
     public TextAsset[] saves;
 
     public Item[] allItems;
+    public CharacterData[] allData;
 
     void LoadMapPrefabs()
     {
@@ -209,6 +212,26 @@ public class MapManager : MonoBehaviour
             save.itemID[i] = inventory.items[i].item.itemID;
         }
     }
+    
+    void LoadCharactersFromSave(Save save)
+    {
+        Inventory inventory = Inventory.instance;
+
+        for(int i = 0; i<save.characterDataIDs.Length; i++)
+        {
+            inventory.characters[i].stats.characterData = allData[save.characterDataIDs[i]];
+        }
+    }
+
+    void PutCharactersIntoSave(Save save)
+    {
+        save.characterDataIDs = new int[save.characters.Length];
+
+        for(int i = 0; i<save.characterDataIDs.Length; i++)
+        {
+            save.characterDataIDs[i] = save.characters[i].stats.characterData.id;
+        }
+    }
 
     public void TryToInteract(Vector2 objectLocation)
     {
@@ -238,6 +261,7 @@ public class MapManager : MonoBehaviour
         Inventory inventory = Inventory.instance;
 
         currentState.characters = inventory.characters.ToArray();
+        PutCharactersIntoSave(currentState);
 
         string json = JsonUtility.ToJson(currentState);
         File.WriteAllText(filePath, json);
@@ -260,6 +284,7 @@ public class MapManager : MonoBehaviour
         if(sv.characters != null)
         {
             inventory.characters = new List<CharacterGear>(sv.characters);
+            LoadCharactersFromSave(sv);
         }
         else
         {
