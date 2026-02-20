@@ -22,7 +22,7 @@ public class Field : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     private bool IsAdjacentToActive()
     {
         int activeId = BattleManager.Instance.activeId;
-        if(BattleManager.Instance.moveStage)
+        if(BattleManager.Instance.moveStage && id != activeId)
             return ((id == activeId - 1) || (id == activeId + 1));
         else if(BattleManager.Instance.skillStage
         && GameController.Instance.characters[id].characterData!= null 
@@ -38,7 +38,6 @@ public class Field : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
     private bool CanInteract()
     {
         return IsAdjacentToActive() && 
-               id != BattleManager.Instance.activeId &&
                BattleManager.Instance.friendlyTargetStage;
     }
     public void OnPointerEnter(PointerEventData eventData)
@@ -54,6 +53,8 @@ public class Field : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, I
         if (!isClicked && CanInteract())
         {
             gameObject.GetComponent<Image>().color = defaultColor;
+            if(id==BattleManager.Instance.activeId)
+                gameObject.GetComponent<Image>().color = Color.green;
         }
     }
 
