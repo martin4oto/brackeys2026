@@ -16,6 +16,7 @@ public class dialogueBox : MonoBehaviour
         {
             return;
         }
+
         dialogueBoxObject.SetActive(true);
         mainText.text = interaction.mainText;
         titleText.text = interaction.title;
@@ -23,9 +24,14 @@ public class dialogueBox : MonoBehaviour
         currentInteraction = interaction;
     }
 
+    public void PrintLine(string line)
+    {
+        mainText.text += line;
+    }
+
     void Update()
     {
-        if(currentInteraction != null && Keyboard.current.anyKey.isPressed)
+        if(currentInteraction != null && Keyboard.current.anyKey.isPressed && !Keyboard.current.eKey.isPressed)
         {
             if(currentInteraction.nextInteraction !=null)
             {

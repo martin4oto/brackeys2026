@@ -73,11 +73,20 @@ public class playerControlScript : MonoBehaviour
         return movementVector;
     }
 
+    bool buttonEHeld = false;
     void InteractTest()
     {
         if(Keyboard.current.eKey.isPressed && !isMoving)
         {
-            MapManager.instance.TryToInteract((Vector2)transform.position + playerFaceDirection);
+            if(!buttonEHeld)
+            {
+                MapManager.instance.TryToInteract((Vector2)transform.position + playerFaceDirection);
+            }
+            buttonEHeld = true;
+        }
+        else
+        {
+            buttonEHeld = false;
         }
     }
 

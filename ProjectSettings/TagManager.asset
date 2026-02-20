@@ -52,14 +52,17 @@ TagManager:
   - name: rooms
     uniqueID: 2785832775
     locked: 0
-  - name: roof
-    uniqueID: 656955639
-    locked: 0
   - name: Enemy
     uniqueID: 2292819357
     locked: 0
   - name: Player
     uniqueID: 1172363871
+    locked: 0
+  - name: overheadTiles
+    uniqueID: 4281915535
+    locked: 0
+  - name: roof
+    uniqueID: 656955639
     locked: 0
   - name: fog
     uniqueID: 932995043

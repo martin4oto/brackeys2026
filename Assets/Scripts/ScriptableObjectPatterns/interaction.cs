@@ -8,4 +8,11 @@ public class Interaction : ScriptableObject
     public Interaction nextInteraction;
 
     public Item[] itemRewards;
+
+    public Item GetReward()
+    {
+        int index = Random.Range(0, itemRewards.Length-1);
+
+        return itemRewards[index];
+    }
 }

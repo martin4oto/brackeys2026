@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -2002147939
-  m_SortingLayer: 1
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -5866530389215650186, guid: 32ee8fae1ba9d5445a075617adecb16c, type: 3}
@@ -105,10 +105,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59af427810efc1c468e822c5dda1ed9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::interactable
-  firstInteraction: {fileID: 11400000, guid: 3a63acaa85f435b4999cb5d68cb36e6f, type: 2}
-  baseInteraction: {fileID: 11400000, guid: 3a63acaa85f435b4999cb5d68cb36e6f, type: 2}
+  firstInteraction: {fileID: 11400000, guid: dd8a353451c7d1643aa2eb67cef46597, type: 2}
+  baseInteraction: {fileID: 11400000, guid: 4e5c6baecefe18545b8a907fed71b15a, type: 2}
   used: 0
   prefabIndex: 0
+  door: 0
+  itemReward: 1
 --- !u!61 &6258571748410915971
 BoxCollider2D:
   m_ObjectHideFlags: 0

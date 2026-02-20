@@ -9,31 +9,36 @@ public class interactable : MonoBehaviour
     public int prefabIndex;
     dialogueBox dialogueManager;
     public bool door;
-    GameObject roof;
+    public bool itemReward;
 
     void Start()
     {
         dialogueManager = GameObject.Find("Canvas").GetComponent<dialogueBox>();
-
-        if(door)
-        {
-            roof = transform.GetChild(0).gameObject;
-        }
     }
 
 
     public void StartInteraction()
     {
-        if(used)
-        {
+        if(!used)
+        {   
             dialogueManager.StartDialogue(firstInteraction);
+            used=true;
+
+            if(itemReward)
+            {
+                Item itemReward = firstInteraction.GetReward();
+
+                dialogueManager.PrintLine(itemReward.itemName);
+                Inventory.instance.AddItem(itemReward);
+            }
+
             if(door)
             {
+                MapManager.instance.RemoveInteractable(this);
                 GameObject.Destroy(gameObject);
             }
             return;
         }
         dialogueManager.StartDialogue(baseInteraction);
-        used=true;
     }
 }
