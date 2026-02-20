@@ -15,8 +15,8 @@ MonoBehaviour:
   enemyName: dani
   maxHp: 7
   combatSprite: {fileID: -2001296188, guid: 642825867cfcfca43aa292914ad53136, type: 3}
-  skill1: {fileID: 11400000, guid: 5d6aa4372d5910a428a74dd4fe3699f1, type: 2}
-  skill2: {fileID: 11400000, guid: 195d9d6616dc1e645ad0fab18e4abdb6, type: 2}
-  skill3: {fileID: 11400000, guid: 195d9d6616dc1e645ad0fab18e4abdb6, type: 2}
+  skill1: 3
+  skill2: 4
+  skill3: 4
   deadSprite: {fileID: 0}
   ranged: 0

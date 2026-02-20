@@ -195,6 +195,7 @@ public class BattleManager : MonoBehaviour
         //wait
         EnemyAttackStage();
         //wait
+        enemyFields[activeId].GetComponent<Image>().color = Color.white;
         Turn();
     }
     bool IsFriendlyAlive(int id)
@@ -264,14 +265,17 @@ public class BattleManager : MonoBehaviour
         float chance=Random.Range(0.0f,10.0f);
         if(chance<=5f)
         {
+            Debug.Log("Skill1");
             SkillController.Instance.use(GameController.Instance.enemies[activeId].enemyStats.skill1,activeId,activeId);
         }
         else if(chance<=8f)
         {
+            Debug.Log("Skill2");
             SkillController.Instance.use(GameController.Instance.enemies[activeId].enemyStats.skill2,activeId,activeId);
         }
         else
         {
+            Debug.Log("Skill3");
             SkillController.Instance.use(GameController.Instance.enemies[activeId].enemyStats.skill3,activeId,activeId);
         }
         //check if someone dies and if leader died end game.

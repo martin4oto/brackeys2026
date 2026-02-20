@@ -113,17 +113,17 @@ MonoBehaviour:
   - enemyStats: {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
     currentId: 0
     hp: 3
-    baseDmg: 0
+    baseDmg: 10
     alive: 1
   - enemyStats: {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
     currentId: 2
-    hp: 0
-    baseDmg: 0
+    hp: 2
+    baseDmg: 10
     alive: 1
   - enemyStats: {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
     currentId: 0
     hp: 4
-    baseDmg: 0
+    baseDmg: 10
     alive: 1
   - enemyStats: {fileID: 0}
     currentId: 0
