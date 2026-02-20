@@ -235,9 +235,9 @@ public class Inventory : MonoBehaviour
 
     public Data[] GetCompleteData()
     {
-        Data[] newData = new Data[characters.Count];
+        Data[] newData = new Data[4];
 
-        for(int i = 0; i<newData.Length; i++)
+        for(int i = 0; i<characters.Count; i++)
         {
             Data data = newData[i] = characters[i].stats;
 

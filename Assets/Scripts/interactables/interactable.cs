@@ -9,6 +9,7 @@ public class interactable : MonoBehaviour
     public int prefabIndex;
     dialogueBox dialogueManager;
     public bool door;
+    public bool itemReward;
 
     void Start()
     {
@@ -19,16 +20,25 @@ public class interactable : MonoBehaviour
     public void StartInteraction()
     {
         if(!used)
-        {
-            Debug.Log(firstInteraction);
+        {   
             dialogueManager.StartDialogue(firstInteraction);
+            used=true;
+
+            if(itemReward)
+            {
+                Item itemReward = firstInteraction.GetReward();
+
+                dialogueManager.PrintLine(itemReward.itemName);
+                Inventory.instance.AddItem(itemReward);
+            }
+
             if(door)
             {
+                MapManager.instance.RemoveInteractable(this);
                 GameObject.Destroy(gameObject);
             }
             return;
         }
         dialogueManager.StartDialogue(baseInteraction);
-        used=true;
     }
 }

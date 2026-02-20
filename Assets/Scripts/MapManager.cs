@@ -4,11 +4,13 @@ using UnityEngine;
 using System.IO;
 using UnityEditor;
 using Unity.VisualScripting;
+using System;
 
 public class Save
 {
     public int[] enemiesAliveIndexes;
     public Vector2[] enemiesAlivePositions;
+    [SerializeField]
     public Vector2[][] enemyGuardAILocations;
 
     public int[] itemAmount;
@@ -37,11 +39,9 @@ public class Save
 public class MapManager : MonoBehaviour
 {
     public static MapManager instance;
-
     GameObject[] enemyVariants;
     GameObject[] interactableVariants;
-
-    List<Enemy> enemiesAlive;
+    public List<Enemy> enemiesAlive;
 
     int interactableCount = 0;
     interactable[][] interactablesMap;
@@ -109,6 +109,17 @@ public class MapManager : MonoBehaviour
 
     }
 
+    public void RemoveInteractable(interactable interactable)
+    {
+        Vector2 position = interactable.transform.position;
+
+        int x =(int)position.x + screenMiddleWidth;
+        int y =(int)position.y + screenMiddleHeight;
+        
+        interactablesMap[x][y] = null;
+        allInteractables.Remove(interactable);
+    }
+
     public void AddInteractable(Vector2 position, int index, bool intereacted)
     {
         GameObject interactable = GameObject.Instantiate(interactableVariants[index], position, Quaternion.identity);
@@ -120,7 +131,6 @@ public class MapManager : MonoBehaviour
 
         interactablesMap[x][y] = interactableScript;
 
-        interactableCount++;
         interactableScript.used = intereacted;
         allInteractables.Add(interactableScript);
     }
@@ -148,6 +158,8 @@ public class MapManager : MonoBehaviour
         {
             save.enemiesAliveIndexes[i] = enemiesAlive[i].prefabIndex;
             save.enemiesAlivePositions[i] = enemiesAlive[i].transform.position;
+            Debug.Log(enemiesAlive[i].guardAILocations);
+            Debug.Log(enemiesAlive[i].guardAILocations.Length);
             save.enemyGuardAILocations[i] = enemiesAlive[i].guardAILocations;
         }
     }
