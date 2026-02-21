@@ -10,9 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93e5ee31573a82f4bb2f113de2cf4c6c, type: 3}
-  m_Name: empty
+  m_Name: magicianFirst1
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
-  mainText: Empty
-  title: barrel
+  mainText:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  title: Vaelis Moonshadow
   nextInteraction: {fileID: 0}
   itemRewards: []

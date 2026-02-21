@@ -2893,6 +2893,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfc7563707376644b892ecb49dbdb0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
+  enemyVariants:
+  - {fileID: 3505737017956275760, guid: 067f159b8bef4d5428f29bec725b086a, type: 3}
+  interactableVariants:
+  - {fileID: 3029440872695207823, guid: dcac93388451ab346aa01bf729ae6ae3, type: 3}
+  - {fileID: 8851247458951548047, guid: 895293acd9ddb4444b134e5823ae630f, type: 3}
   enemiesAlive: []
   allInteractables: []
   width: 200
