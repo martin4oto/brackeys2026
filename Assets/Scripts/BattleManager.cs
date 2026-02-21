@@ -135,10 +135,15 @@ public class BattleManager : MonoBehaviour
         RefreshFieldText();
 
     }
+    bool inTurn = false;
+
     void Update()
     {
-        if(counter==0)
+        if(!inTurn)
+        {
+            inTurn = true;
             Turn();
+        }
     }
     public void Turn()
     {
@@ -170,6 +175,7 @@ public class BattleManager : MonoBehaviour
                 if(i==GameController.Instance.enemies.Length-1)
                 {
                     counter++;
+                    inTurn = false;
                     return;
                 }
             }
@@ -178,20 +184,14 @@ public class BattleManager : MonoBehaviour
         {
             turnCounter++;
             counter=0;
+            inTurn = false;
             return;
         }
 
     }
-    void GameLoop()
-    {
-        while(true)
-        {
-            Turn();
-            Debug.Log(turnCounter);
-        }
-    }
     public void friendlyTurn(int counterId)
     {
+        Debug.Log("Your turn");
         if (GameController.Instance.characters[counterId].characterData != null && GameController.Instance.characters[counterId].alive)
         {
             Debug.Log("Your turn");
@@ -207,6 +207,7 @@ public class BattleManager : MonoBehaviour
         else
         {
             counter++;
+            inTurn = false;
             return;
         }
     }
@@ -221,6 +222,7 @@ public class BattleManager : MonoBehaviour
         //wait
 
         enemyFields[activeId].GetComponent<Image>().color = Color.white;
+        inTurn = false;
         return;
     }
     bool IsFriendlyAlive(int id)
@@ -342,6 +344,7 @@ public class BattleManager : MonoBehaviour
         else
         {
             counter++;
+            inTurn = false;
             return;
         }
     }
@@ -406,9 +409,7 @@ public class BattleManager : MonoBehaviour
             enemyClickedId=-1;
             actionStage=false;
             enemySelection=false;
-            Turn();
-
-
+            inTurn = false;
         }
     }
     public void UseSkill(bool friendly)
@@ -442,8 +443,7 @@ public class BattleManager : MonoBehaviour
         clickedId=-1;
         enemySelection=false;
         friendlyTargetStage=false;
-        Turn();
-
+        inTurn = false;
     }
     void RefreshFieldText()
     {
@@ -529,7 +529,7 @@ public class BattleManager : MonoBehaviour
         clickedId=-1;
         enemySelection=false;
         friendlyTargetStage=false;
-        Turn();
+        inTurn = false;
     }
     void OnAttackButtonClicked()
     {
