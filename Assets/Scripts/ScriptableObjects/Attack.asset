@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Skill
   name: Attack
   manaCost: 10
-  logo: {fileID: 0}
+  logo: {fileID: 5207273040741657318, guid: 50dbd55f5f865ee4e98a86bbea822d79, type: 3}
   id: 0
   enemyTarget: 1
   friendlyTarget: 0

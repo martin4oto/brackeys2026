@@ -28,4 +28,6 @@ public class Item : ScriptableObject
     public GearTypes gearType;
     public bool friendly;
     public int itemID;
+    public int armorValue;
+    public int bonusAtk;
 }

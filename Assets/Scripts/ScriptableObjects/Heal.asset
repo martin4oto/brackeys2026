@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Skill
   name: Heal
   manaCost: 2
-  logo: {fileID: 0}
+  logo: {fileID: -5569105429255664972, guid: 1c6c61302dda29047bfd1f8235bb2324, type: 3}
   id: 1
   enemyTarget: 0
   friendlyTarget: 1

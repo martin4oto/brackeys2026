@@ -20,3 +20,5 @@ MonoBehaviour:
   gearType: 2
   friendly: 0
   itemID: 1
+  armorValue: 5
+  bonusAtk: 0
