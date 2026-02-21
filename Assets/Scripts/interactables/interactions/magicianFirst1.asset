@@ -13,22 +13,8 @@ MonoBehaviour:
   m_Name: magicianFirst1
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
   mainText:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Woah! Thank you for saving me. I appriciate that.
+  - What brings you to my lonely house?
   title: Vaelis Moonshadow
-  nextInteraction: {fileID: 0}
+  nextInteraction: {fileID: 11400000, guid: d92514bc29bc3c34d9bc1f7e8b7bf25d, type: 2}
   itemRewards: []

@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: door
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
   mainText:
-  - aaa
-  - aaa
+  - you opened the door
   title: DOOR
   nextInteraction: {fileID: 0}
   itemRewards: []

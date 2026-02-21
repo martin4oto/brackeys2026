@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: sing
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
   mainText:
-  - 
+  - left - the lonely wizard
+  - right - an abandoned altar
   title: Sign
   nextInteraction: {fileID: 0}
   itemRewards: []
