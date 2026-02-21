@@ -32,6 +32,7 @@ public class BattleManager : MonoBehaviour
     public Button cancelButton1;
     public Button cancelButton2;
     public Button strikeButton;
+    public Button skipTurnButton;
 
     public Button moveButton;
     public GameObject[] friendlyFields;
@@ -85,6 +86,7 @@ public class BattleManager : MonoBehaviour
         strikeButton.onClick.AddListener(() => Attack());
         cancelButton1.onClick.AddListener(() => ShowActionPanel());
         cancelButton2.onClick.AddListener(() => ShowActionPanel());
+        skipTurnButton.onClick.AddListener(() => SkipTurn());
 
         string file = "Sprites/battleBackground" + GameController.Instance.locationID;
         background= Resources.Load<Sprite>(file);
@@ -113,6 +115,20 @@ public class BattleManager : MonoBehaviour
                 enemySprites[i].sprite=GameController.Instance.enemies[i].enemyStats.combatSprite;
             }
 
+        }
+        for(int i=0;i<Inventory.instance.characters.Count();i++)
+        {
+            CharacterGear character = Inventory.instance.characters[i];
+            if(character.helmet!=null)
+                GameController.Instance.characters[i].armor+=character.helmet.armorValue;
+            if(character.chestplate!=null)
+                GameController.Instance.characters[i].armor+=character.chestplate.armorValue;
+            if(character.pants!=null)
+                GameController.Instance.characters[i].armor+=character.pants.armorValue;
+            if(character.boots!=null)
+                GameController.Instance.characters[i].armor+=character.boots.armorValue;
+            if(character.weapon!=null)
+                GameController.Instance.characters[i].atkBonus+=character.weapon.bonusAtk;
         }
         manaCost=-1;
         moveStage=false;
@@ -382,6 +398,14 @@ public class BattleManager : MonoBehaviour
             }
                 //check if all are dead...
         }
+    }
+    void SkipTurn()
+    {
+        actionPanel.SetActive(false);
+        actionStage=false;
+        friendlyFields[activeId].GetComponent<Image>().color = Color.white;
+        activeId=-1;
+        inTurn=false;
     }
     void Attack()
     {

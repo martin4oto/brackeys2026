@@ -10,41 +10,57 @@ public class SkillPanelManager : MonoBehaviour
     private Skill skill1;
     private Skill skill2;
     private Skill skill3;
+    public GameObject logo1;
+    public GameObject logo2;
+    public GameObject logo3;
     private int activeID;
     public void Setup()
     {
         skillBtn1.onClick.AddListener(() => skill1Clicked());
         skillBtn2.onClick.AddListener(() => skill2Clicked());
         skillBtn3.onClick.AddListener(() => skill3Clicked());
+        string name;
         activeID=BattleManager.Instance.activeId;
         if(GameController.Instance.characters[activeID].characterData.skill1 != null)
         {
             skill1=GameController.Instance.characters[activeID].characterData.skill1;
-            skillBtn1.transform.Find("Text").GetComponent<TextMeshProUGUI>().text=skill1.name;
+            name=skill1.name+" "+skill1.manaCost;
+            skillBtn1.transform.Find("Text").GetComponent<TextMeshProUGUI>().text=name;
+            logo1.SetActive(true);
+            logo1.GetComponent<Image>().sprite=skill1.logo;
         }
         else
         {
             skill1=null;
             skillBtn1.transform.Find("Text").GetComponent<TextMeshProUGUI>().text="Empty";
+            logo1.SetActive(false);
         }
         if(GameController.Instance.characters[activeID].characterData.skill2 != null)
         {
             skill2=GameController.Instance.characters[activeID].characterData.skill2;
-            skillBtn2.transform.Find("Text").GetComponent<TextMeshProUGUI>().text=skill2.name;
+            name=skill2.name+" "+skill2.manaCost;
+            skillBtn2.transform.Find("Text").GetComponent<TextMeshProUGUI>().text=name;
+            logo2.SetActive(true);
+            logo2.GetComponent<Image>().sprite=skill2.logo;
         }
         else
         {
             skill2=null;
             skillBtn2.transform.Find("Text").GetComponent<TextMeshProUGUI>().text="Empty";
+            logo2.SetActive(false);
         }
         if(GameController.Instance.characters[activeID].characterData.skill3 != null)
         {
             skill3=GameController.Instance.characters[activeID].characterData.skill3;
-            skillBtn3.transform.Find("Text").GetComponent<TextMeshProUGUI>().text=skill3.name;
+            name=skill3.name+" "+skill3.manaCost;
+            skillBtn3.transform.Find("Text").GetComponent<TextMeshProUGUI>().text=name;
+            logo3.SetActive(true);
+            logo3.GetComponent<Image>().sprite=skill3.logo;
         }
         else
         {
             skill3=null;
+            logo3.SetActive(false);
             skillBtn3.transform.Find("Text").GetComponent<TextMeshProUGUI>().text="Empty";
         }
     }

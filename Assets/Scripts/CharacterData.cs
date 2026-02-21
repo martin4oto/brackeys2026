@@ -10,6 +10,7 @@ public class Data
     public float critChance;
     public bool alive;
     public int atkBonus;
+    public int armor;
 
     public Data Copy()
     {

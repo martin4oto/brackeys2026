@@ -57,6 +57,10 @@ public class SkillController : MonoBehaviour
         {
             EnemyData caster= GameController.Instance.enemies[user];
             int dmg=caster.baseDmg;
+            dmg=dmg*(100-GameController.Instance.characters[targets].armor);
+            dmg=(int)(dmg/100);
+            if(dmg<0)
+                dmg=0;
             GameController.Instance.characters[targets].currentHP-=dmg;
         }
     }
@@ -70,11 +74,11 @@ public class SkillController : MonoBehaviour
             GameObject.Destroy(gameObject);
         DontDestroyOnLoad (transform.gameObject);
         Instance = this;
-        skills.Add(Attack);
-        skills.Add(Heal);
-        skills.Add(HealPotion30);
-        skills.Add(EnemyTeamHeal);
-        skills.Add(EnemyAttack);
+        skills.Add(Attack); //0
+        skills.Add(Heal); //1
+        skills.Add(HealPotion30); //2
+        skills.Add(EnemyTeamHeal); //3
+        skills.Add(EnemyAttack); //4
     }
     public void use(int id, int targets, int user)
     {
