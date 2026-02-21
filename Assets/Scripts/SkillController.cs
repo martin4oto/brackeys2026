@@ -36,7 +36,34 @@ public class SkillController : MonoBehaviour
             GameController.Instance.characters[targets].currentHP=GameController.Instance.characters[targets].characterData.maxHP;
         }
     }
-    
+    public void EnemyTeamHeal(int targets, int user)
+    {
+        int hpHeal=20;
+        for(int i=0;i<GameController.Instance.enemies.Length;i++)
+        {
+            if(GameController.Instance.enemies[i].enemyStats!=null && GameController.Instance.enemies[i].alive)
+            {
+                GameController.Instance.enemies[i].hp+=hpHeal;
+                if(GameController.Instance.enemies[i].hp>GameController.Instance.enemies[i].enemyStats.maxHp)
+                {
+                    GameController.Instance.enemies[i].hp=GameController.Instance.enemies[i].enemyStats.maxHp;
+                }
+            }
+        }
+    }
+    public void EnemyAttack(int targets, int user)
+    {
+        if(GameController.Instance.characters[targets].characterData!=null && GameController.Instance.characters[targets].alive)
+        {
+            EnemyData caster= GameController.Instance.enemies[user];
+            int dmg=caster.baseDmg;
+            GameController.Instance.characters[targets].currentHP-=dmg;
+        }
+    }
+    public void EnemyAttackRanged(int targets, int user)
+    {
+        
+    }
     void Awake()
     {
         if(Instance!=null)
@@ -46,6 +73,8 @@ public class SkillController : MonoBehaviour
         skills.Add(Attack);
         skills.Add(Heal);
         skills.Add(HealPotion30);
+        skills.Add(EnemyTeamHeal);
+        skills.Add(EnemyAttack);
     }
     public void use(int id, int targets, int user)
     {

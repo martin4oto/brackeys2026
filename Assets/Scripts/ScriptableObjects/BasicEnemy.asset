@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: BasicEnemy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
   enemyName: dani
-  hp: 6
   maxHp: 7
-  baseDmg: 0
   combatSprite: {fileID: -2001296188, guid: 642825867cfcfca43aa292914ad53136, type: 3}
-  skill1: {fileID: 0}
-  skill2: {fileID: 0}
-  skill3: {fileID: 0}
+  skill1: 3
+  skill2: 4
+  skill3: 4
   deadSprite: {fileID: 0}
-  alive: 1
+  ranged: 0

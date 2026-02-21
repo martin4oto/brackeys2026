@@ -9,6 +9,8 @@ using System;
 using Random = UnityEngine.Random;
 using Unity.VisualScripting;
 
+
+
 public class BattleManager : MonoBehaviour
 {
     public GameObject ItemMenu;
@@ -54,6 +56,7 @@ public class BattleManager : MonoBehaviour
     public int activeSkillId;
     public int manaCost;
     private int counter;
+    private String leaderName;
     public static BattleManager Instance {
         get;
         set;
@@ -119,6 +122,7 @@ public class BattleManager : MonoBehaviour
         ItemMenu.SetActive(false);
         turnCounter=1;
         counter=0;
+        leaderName=GameController.Instance.characters[0].characterData.characterName;
         RefreshFieldText();
         Turn();
     }
@@ -130,27 +134,38 @@ public class BattleManager : MonoBehaviour
             int id=Inventory.instance.characters[counter].stats.characterData.id;
             for(int i=0;i<GameController.Instance.characters.Length;i++)
             {
-                if(GameController.Instance.characters[i].characterData.id==id)
+                if(GameController.Instance.characters[i].characterData!=null)
                 {
-                    friendlyTurn(i);
-                    break;
+                    if(GameController.Instance.characters[i].characterData.id==id)
+                    {
+                      friendlyTurn(i);
+                      break;
+                    }
                 }
+
             }
         }
         else if(counter-Inventory.instance.characters.Count < GameController.Instance.enemies.Length)
         {
             for(int i=0;i<GameController.Instance.enemies.Length;i++)
             {
-                if(GameController.Instance.enemies[i].currentId==counter-Inventory.instance.characters.Count)
+                if(GameController.Instance.enemies[i].enemyStats!=null && GameController.Instance.enemies[i].currentId==counter-Inventory.instance.characters.Count)
                 {
                     enemyTurn(i);
                     break;
+                }
+                if(i==GameController.Instance.enemies.Length-1)
+                {
+                    counter++;
+                    Turn();
                 }
             }
         }
         else
         {
-            //next round
+            turnCounter++;
+            counter=0;
+            Turn();
         }
 
     }
@@ -173,6 +188,122 @@ public class BattleManager : MonoBehaviour
             Turn();
         }
     }
+    void EnemyLogic()
+    {
+        //wait
+        EnemyMoveStage();
+        //wait
+        EnemyAttackStage();
+        //wait
+        enemyFields[activeId].GetComponent<Image>().color = Color.white;
+        Turn();
+    }
+    bool IsFriendlyAlive(int id)
+    {
+        return (GameController.Instance.characters[id].characterData!=null && GameController.Instance.characters[id].alive);
+    }
+    bool IsRangedDead(int id)
+    {
+        return (GameController.Instance.enemies[id].enemyStats==null
+                ||(!GameController.Instance.enemies[id].alive || !GameController.Instance.enemies[id].enemyStats.ranged));
+    }
+    void EnemyMoveStage()
+    {
+        if(GameController.Instance.enemies[activeId].enemyStats.ranged)
+        {
+            if(IsFriendlyAlive(activeId))
+            {
+                //move
+                //left if no enemy and there is no ranged guy there
+
+                if(activeId!=0 && !IsFriendlyAlive(activeId-1) && IsRangedDead(activeId-1))
+                {
+                    //move left
+                    EnemyMove(activeId-1);
+                }
+                else if(activeId!=3 && !IsFriendlyAlive(activeId+1) && IsRangedDead(activeId+1))
+                {
+                    //move right
+                    EnemyMove(activeId+1);
+                }
+            }
+        }
+        else
+        {
+            if(!IsFriendlyAlive(activeId))
+            {
+                //move
+                if(activeId!=0 && IsFriendlyAlive(activeId-1))
+                {
+                    //move left
+                    EnemyMove(activeId-1);
+                }
+                else if(activeId!=3 && IsFriendlyAlive(activeId+1))
+                {
+                    //move right
+                    EnemyMove(activeId+1);
+                }
+            }
+        }
+    }
+    void EnemyMove(int newPos)
+    {           
+        Sprite sprite = enemySprites[activeId].sprite;
+        enemySprites[activeId].sprite = enemySprites[newPos].sprite;
+        enemySprites[newPos].sprite= sprite;
+
+        EnemyData cd = GameController.Instance.enemies[activeId];
+        GameController.Instance.enemies[activeId] = GameController.Instance.enemies[newPos];
+        GameController.Instance.enemies[newPos] = cd;
+
+        enemyFields[newPos].GetComponent<Image>().color = Color.green;
+        enemyFields[activeId].GetComponent<Image>().color = Color.white;
+        activeId=newPos;
+    }
+    void EnemyAttackStage()
+    {
+        float chance=Random.Range(0.0f,10.0f);
+        if(chance<=5f)
+        {
+            Debug.Log("Skill1");
+            SkillController.Instance.use(GameController.Instance.enemies[activeId].enemyStats.skill1,activeId,activeId);
+        }
+        else if(chance<=8f)
+        {
+            Debug.Log("Skill2");
+            SkillController.Instance.use(GameController.Instance.enemies[activeId].enemyStats.skill2,activeId,activeId);
+        }
+        else
+        {
+            Debug.Log("Skill3");
+            SkillController.Instance.use(GameController.Instance.enemies[activeId].enemyStats.skill3,activeId,activeId);
+        }
+        //check if someone dies and if leader died end game.
+        //update player hp
+
+        RefreshFieldText();
+    }
+    void CheckFriendliesAlive()
+    {
+        for(int i=0;i<GameController.Instance.characters.Length;i++)
+        {
+            if(GameController.Instance.characters[i].currentHP<=0)
+            {
+                Debug.Log("friendly dead");
+                GameController.Instance.characters[i].currentHP=0;
+                GameController.Instance.characters[i].alive=false;
+                friendlyFields[i].GetComponent<Image>().color=Color.white;
+                partySprites[i].sprite=GameController.Instance.characters[i].characterData.deadSprite;
+                partySprites[i].transform.Find("Text").gameObject.SetActive(false);
+                
+                if(leaderName==GameController.Instance.characters[i].characterData.characterName)
+                {
+                    EndBattleLost();
+                }
+            }
+        }
+
+    }
     public void enemyTurn(int counterId)
     {
         if (GameController.Instance.enemies[counterId].enemyStats != null && GameController.Instance.enemies[counterId].alive)
@@ -182,6 +313,7 @@ public class BattleManager : MonoBehaviour
             activeId=counterId;
 
             //logic
+            EnemyLogic();
         }
         else
         {
@@ -442,5 +574,9 @@ public class BattleManager : MonoBehaviour
         //show victory screen
         //add xp
         //return to default scene
+    }
+    private void EndBattleLost()
+    {
+        Debug.Log("Lose");
     }
 }

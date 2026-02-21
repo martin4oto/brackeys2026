@@ -6564,16 +6564,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb75bd181b13dab4f84fe70ddb80e6a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameController
-  toBattle: 1
+  toBattle: 0
   characters:
-  - characterData: {fileID: 11400000, guid: 4dc3792cf58f1024c8b0a082e7bda233, type: 2}
+  - characterData: {fileID: 0}
     level: 0
     currentHP: 5
     mana: 3
     critChance: 0
     alive: 1
     atkBonus: 0
-  - characterData: {fileID: 11400000, guid: 55e04060ea5cbe041bba5ea9fb0db017, type: 2}
+  - characterData: {fileID: 0}
     level: 0
     currentHP: 5
     mana: 2
