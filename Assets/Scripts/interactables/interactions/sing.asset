@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93e5ee31573a82f4bb2f113de2cf4c6c, type: 3}
-  m_Name: door
+  m_Name: sing
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
   mainText:
-  - you opened the door
-  title: DOOR
+  - left - the lonely wizard
+  - right - an abandoned altar
+  title: Sign
   nextInteraction: {fileID: 0}
   itemRewards: []

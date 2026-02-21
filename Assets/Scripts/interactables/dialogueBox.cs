@@ -18,7 +18,12 @@ public class dialogueBox : MonoBehaviour
         }
 
         dialogueBoxObject.SetActive(true);
-        mainText.text = interaction.mainText;
+
+        mainText.text = "";
+        for(int i = 0; i<interaction.mainText.Length; i++)
+        {
+            mainText.text += interaction.mainText[i] +"\n";
+        }
         titleText.text = interaction.title;
 
         currentInteraction = interaction;

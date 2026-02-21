@@ -47,8 +47,8 @@ public class Save
 public class MapManager : MonoBehaviour
 {
     public static MapManager instance;
-    GameObject[] enemyVariants;
-    GameObject[] interactableVariants;
+    public GameObject[] enemyVariants;
+    public GameObject[] interactableVariants;
     public List<Enemy> enemiesAlive;
 
     int interactableCount = 0;
@@ -69,12 +69,6 @@ public class MapManager : MonoBehaviour
     public Item[] allItems;
     public CharacterData[] allData;
 
-    void LoadMapPrefabs()
-    {
-        enemyVariants = Resources.LoadAll<GameObject>("Prefabs/Enemies");
-        interactableVariants = Resources.LoadAll<GameObject>("Prefabs/Interactables");
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -92,8 +86,6 @@ public class MapManager : MonoBehaviour
         {
             Directory.CreateDirectory(path);
         }
-
-        LoadMapPrefabs();
 
         interactablesMap = new interactable[width][];
         for(int i = 0; i<width; i++)

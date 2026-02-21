@@ -10,9 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93e5ee31573a82f4bb2f113de2cf4c6c, type: 3}
-  m_Name: empty
+  m_Name: magiciantFirst2
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
-  mainText: Empty
-  title: barrel
-  nextInteraction: {fileID: 0}
+  mainText:
+  - Hello old friend! I haven't seen you in a while.
+  - This boy and I are going on a quest to defeat the mighty god Ra
+  - Mind to join?
+  title: Blacksmith
+  nextInteraction: {fileID: 11400000, guid: d0d3181ff2d613044a3db791c6bd7703, type: 2}
   itemRewards: []

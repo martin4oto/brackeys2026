@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 93e5ee31573a82f4bb2f113de2cf4c6c, type: 3}
-  m_Name: door
+  m_Name: magicianFirst1
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
   mainText:
-  - you opened the door
-  title: DOOR
-  nextInteraction: {fileID: 0}
+  - Woah! Thank you for saving me. I appriciate that.
+  - What brings you to my lonely house?
+  title: Vaelis Moonshadow
+  nextInteraction: {fileID: 11400000, guid: d92514bc29bc3c34d9bc1f7e8b7bf25d, type: 2}
   itemRewards: []
