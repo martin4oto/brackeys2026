@@ -290,6 +290,7 @@ public class BattleManager : MonoBehaviour
                 }
             }
         }
+        RefreshFieldText();
     }
     void EnemyMove(int newPos)
     {           
@@ -633,6 +634,6 @@ public class BattleManager : MonoBehaviour
     private void EndBattleLost()
     {
         Debug.Log("Lose");
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Main Menu");
     }
 }
