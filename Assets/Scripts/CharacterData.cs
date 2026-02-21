@@ -46,4 +46,5 @@ public class CharacterData : ScriptableObject
     public int range;
 
     public int baseAtk;
+    public int partyID;
 }
