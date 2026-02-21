@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5986194239352671042}
   - component: {fileID: 1180744178548747618}
   - component: {fileID: -1558844950792538639}
+  - component: {fileID: 4832172495715036753}
+  - component: {fileID: -5892910333697085288}
   m_Layer: 0
   m_Name: basicEnemy
   m_TagString: Untagged
@@ -196,3 +198,37 @@ MonoBehaviour:
   isPlayer: 0
   isEnemy: 1
   playerControlScript: {fileID: 0}
+--- !u!95 &4832172495715036753
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505737017956275760}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f8e231c63f8740d4baec0243e9a74416, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-5892910333697085288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3505737017956275760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3954db7215a74842bd54d8abb0e37a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::animationManager
