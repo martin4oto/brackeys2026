@@ -406,7 +406,6 @@ public class BattleManager : MonoBehaviour
             enemyClickedId=-1;
             actionStage=false;
             enemySelection=false;
-            Turn();
 
 
         }
@@ -442,7 +441,6 @@ public class BattleManager : MonoBehaviour
         clickedId=-1;
         enemySelection=false;
         friendlyTargetStage=false;
-        Turn();
 
     }
     void RefreshFieldText()
@@ -529,7 +527,6 @@ public class BattleManager : MonoBehaviour
         clickedId=-1;
         enemySelection=false;
         friendlyTargetStage=false;
-        Turn();
     }
     void OnAttackButtonClicked()
     {
