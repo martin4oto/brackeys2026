@@ -8,6 +8,7 @@ using System.Linq;
 using System;
 using Random = UnityEngine.Random;
 using Unity.VisualScripting;
+using TMPro;
 
 
 
@@ -40,6 +41,7 @@ public class BattleManager : MonoBehaviour
 
     public GameObject movePanel;
     public GameObject actionPanel;
+    public TextMeshProUGUI infoText;
     public int itemSkillId;
     public bool moveStage;
     public bool actionStage;
@@ -239,6 +241,7 @@ public class BattleManager : MonoBehaviour
 
         enemyFields[activeId].GetComponent<Image>().color = Color.white;
         inTurn = false;
+        infoText.text="";
         return;
     }
     bool IsFriendlyAlive(int id)
@@ -306,20 +309,24 @@ public class BattleManager : MonoBehaviour
     void EnemyAttackStage()
     {
         float chance=Random.Range(0.0f,10.0f);
+        string text=GameController.Instance.enemies[activeId].enemyStats.name+" used ";
         if(chance<=5f)
         {
             Debug.Log("Skill1");
             SkillController.Instance.use(GameController.Instance.enemies[activeId].enemyStats.skill1,activeId,activeId);
+            infoText.text=(text+SkillController.Instance.names[GameController.Instance.enemies[activeId].enemyStats.skill1]);
         }
         else if(chance<=7f)
         {
             Debug.Log("Skill2");
             SkillController.Instance.use(GameController.Instance.enemies[activeId].enemyStats.skill2,activeId,activeId);
+            infoText.text=(text+SkillController.Instance.names[GameController.Instance.enemies[activeId].enemyStats.skill2]);
         }
         else
         {
             Debug.Log("Skill3");
             SkillController.Instance.use(GameController.Instance.enemies[activeId].enemyStats.skill3,activeId,activeId);
+            infoText.text=(text+SkillController.Instance.names[GameController.Instance.enemies[activeId].enemyStats.skill3]);
         }
         //check if someone dies and if leader died end game.
         //update player hp
