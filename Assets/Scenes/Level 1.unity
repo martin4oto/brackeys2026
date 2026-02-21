@@ -775,6 +775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f058a02b5a4264c4c89f1e9658cb7df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkillController
+  names: []
 --- !u!4 &219211413
 Transform:
   m_ObjectHideFlags: 0
@@ -44564,7 +44565,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PartyManager
   partyMembers:
   - {fileID: 2116810921}
-  partyMemberPrefab: {fileID: 2884101593450981994, guid: 58557e9b0852a3241874d7704c8d138c, type: 3}
+  partyMemberPrefabs:
+  - {fileID: 2884101593450981994, guid: 729acbd32c1dec049b13226b60b7c181, type: 3}
 --- !u!114 &2116810921
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,3 +18,12 @@ MonoBehaviour:
   title: Vaelis Moonshadow
   nextInteraction: {fileID: 0}
   itemRewards: []
+  characterReward:
+    characterData: {fileID: 11400000, guid: 255e50fa435a8d14380db622ad03b951, type: 2}
+    level: 0
+    currentHP: 0
+    mana: 0
+    critChance: 0
+    alive: 0
+    atkBonus: 0
+    armor: 0
