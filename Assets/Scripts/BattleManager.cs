@@ -229,20 +229,19 @@ public class BattleManager : MonoBehaviour
             return;
         }
     }
-    void EnemyLogic()
+    IEnumerator EnemyLogic()
     {
         //wait
-
+        yield return new WaitForSeconds(2f);
         EnemyMoveStage();
         //wait
-
+        yield return new WaitForSeconds(2f);
         EnemyAttackStage();
         //wait
-
+        yield return new WaitForSeconds(3f);
         enemyFields[activeId].GetComponent<Image>().color = Color.white;
         inTurn = false;
         infoText.text="";
-        return;
     }
     bool IsFriendlyAlive(int id)
     {
@@ -362,7 +361,7 @@ public class BattleManager : MonoBehaviour
             activeId=counterId;
 
             //logic
-            EnemyLogic();
+            StartCoroutine(EnemyLogic());
         }
         else
         {
