@@ -49,6 +49,9 @@ TagManager:
   - name: walls
     uniqueID: 3583115293
     locked: 0
+  - name: decoration
+    uniqueID: 1729042015
+    locked: 0
   - name: rooms
     uniqueID: 2785832775
     locked: 0
