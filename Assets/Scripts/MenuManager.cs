@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
@@ -12,10 +13,15 @@ public class MenuManager : MonoBehaviour
     }
     void StartNewGame()
     {
-        
+        TextAsset mytxtData=(TextAsset)Resources.Load("save0");
+        string txt=mytxtData.text;
+
+        MapManager.instance.SaveGame(txt, 1);
+
+        LoadGame();
     }
     void LoadGame()
     {
-        
+        SceneManager.LoadScene("Level 1");
     }
 }

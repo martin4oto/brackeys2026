@@ -8,7 +8,7 @@ public class interactable : MonoBehaviour
     public bool used;
     public int prefabIndex;
     dialogueBox dialogueManager;
-    public bool door;
+    public bool destroy;
     public bool itemReward;
 
     void Start()
@@ -21,6 +21,7 @@ public class interactable : MonoBehaviour
     {
         if(!used)
         {   
+            Time.timeScale = 0;
             dialogueManager.StartDialogue(firstInteraction);
             used=true;
 
@@ -32,7 +33,7 @@ public class interactable : MonoBehaviour
                 Inventory.instance.AddItem(itemReward);
             }
 
-            if(door)
+            if(destroy)
             {
                 MapManager.instance.RemoveInteractable(this);
                 GameObject.Destroy(gameObject);

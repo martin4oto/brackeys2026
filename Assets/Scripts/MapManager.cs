@@ -29,6 +29,8 @@ public class Save
     public Vector2[] interactablesPositions;
     public bool[] interactableUsed;
 
+    public Vector3 playerPosition;
+
     public Save(int enemyCount, int interactableCount, int itemCount)
     {
         enemiesAliveIndexes = new int[enemyCount];
@@ -69,11 +71,16 @@ public class MapManager : MonoBehaviour
     public Item[] allItems;
     public CharacterData[] allData;
 
+    GameObject player;
+    GameObject mainCamera;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         if(instance != null)
         {
+            instance.SetUp();
+            instance.LoadFile(1);
             GameObject.Destroy(gameObject);
             return;
         }
@@ -96,11 +103,14 @@ public class MapManager : MonoBehaviour
         DontDestroyOnLoad(transform);
         screenMiddleHeight = height/2;
         screenMiddleWidth = width/2;
+        SetUp();
+        instance.LoadFile(1);
     }
 
-    void Start()
+    void SetUp()
     {
-        LoadFile(1);
+        player = GameObject.Find("Player");
+        mainCamera = GameObject.Find("Main Camera");
     }
 
     // Update is called once per frame
@@ -255,8 +265,17 @@ public class MapManager : MonoBehaviour
         currentState.characters = inventory.characters.ToArray();
         PutCharactersIntoSave(currentState);
 
+        currentState.playerPosition = player.transform.position;
+
         string json = JsonUtility.ToJson(currentState);
         File.WriteAllText(filePath, json);
+    }
+
+    public void SaveGame(string data, int fileIndex)
+    {
+        string filePath = path +"save"+ fileIndex;
+
+        File.WriteAllText(filePath, data);
     }
 
     public void LoadFile(int fileIndex)
@@ -269,6 +288,8 @@ public class MapManager : MonoBehaviour
         LoadEnemiesFromSave(sv);
         LoadInteractablesFromSave(sv);
         LoadItemFromSave(sv);
+        player.transform.position = sv.playerPosition;
+        mainCamera.transform.position = sv.playerPosition + Vector3.back*10;
 
 
         Inventory inventory = Inventory.instance;

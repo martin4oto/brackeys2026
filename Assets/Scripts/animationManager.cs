@@ -50,7 +50,7 @@ public class animationManager : MonoBehaviour
         {
             StartAnimationBack();
         }
-        else if(direction.x > 0 || direction.x < 0)
+        else
         {
             StartAnimationSide();
         }
