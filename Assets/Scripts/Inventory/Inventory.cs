@@ -70,6 +70,15 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void AddCharacter(Data characer)
+    {
+        CharacterGear cg = new CharacterGear();
+
+        cg.stats = characer;
+
+        characters.Add(cg);
+    }
+
     public void AddItem(Item item)
     {
         if(itemIndexes.ContainsKey(item.itemName))

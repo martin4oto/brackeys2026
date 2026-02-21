@@ -8,6 +8,7 @@ public class Interaction : ScriptableObject
     public Interaction nextInteraction;
 
     public Item[] itemRewards;
+    public Data characterReward;
 
     public Item GetReward()
     {
