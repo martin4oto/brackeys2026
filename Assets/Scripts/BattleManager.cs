@@ -63,12 +63,19 @@ public class BattleManager : MonoBehaviour
     }
     void Awake()
     {
-
         if(Instance!=null)
+        {
+            Instance.Setup();
             GameObject.Destroy(gameObject);
+            return;
+        }
+
         DontDestroyOnLoad (transform.gameObject);
         Instance = this;
-
+        Setup();
+    }
+    public void Setup()
+    {
         attackButton.onClick.AddListener(() => OnAttackButtonClicked());
         itemButton.onClick.AddListener(() => OnItemButtonClicked());
         skillsButton.onClick.AddListener(() => OnSkillsButtonClicked());
@@ -120,13 +127,19 @@ public class BattleManager : MonoBehaviour
         movePanel.SetActive(false);
         actionPanel.SetActive(false);
         ItemMenu.SetActive(false);
+        victoryPanel.SetActive(false);
         turnCounter=1;
         counter=0;
         leaderName=GameController.Instance.characters[0].characterData.characterName;
+        Debug.Log(leaderName);
         RefreshFieldText();
-        Turn();
-    }
 
+    }
+    void Update()
+    {
+        if(counter==0)
+            Turn();
+    }
     public void Turn()
     {
         if(counter<Inventory.instance.characters.Count)
@@ -157,7 +170,7 @@ public class BattleManager : MonoBehaviour
                 if(i==GameController.Instance.enemies.Length-1)
                 {
                     counter++;
-                    Turn();
+                    return;
                 }
             }
         }
@@ -165,9 +178,17 @@ public class BattleManager : MonoBehaviour
         {
             turnCounter++;
             counter=0;
-            Turn();
+            return;
         }
 
+    }
+    void GameLoop()
+    {
+        while(true)
+        {
+            Turn();
+            Debug.Log(turnCounter);
+        }
     }
     public void friendlyTurn(int counterId)
     {
@@ -185,7 +206,7 @@ public class BattleManager : MonoBehaviour
         else
         {
             counter++;
-            Turn();
+            return;
         }
     }
     void EnemyLogic()
@@ -196,7 +217,7 @@ public class BattleManager : MonoBehaviour
         EnemyAttackStage();
         //wait
         enemyFields[activeId].GetComponent<Image>().color = Color.white;
-        Turn();
+        return;
     }
     bool IsFriendlyAlive(int id)
     {
@@ -268,7 +289,7 @@ public class BattleManager : MonoBehaviour
             Debug.Log("Skill1");
             SkillController.Instance.use(GameController.Instance.enemies[activeId].enemyStats.skill1,activeId,activeId);
         }
-        else if(chance<=8f)
+        else if(chance<=7f)
         {
             Debug.Log("Skill2");
             SkillController.Instance.use(GameController.Instance.enemies[activeId].enemyStats.skill2,activeId,activeId);
@@ -280,22 +301,21 @@ public class BattleManager : MonoBehaviour
         }
         //check if someone dies and if leader died end game.
         //update player hp
-
+        CheckFriendliesAlive();
         RefreshFieldText();
     }
     void CheckFriendliesAlive()
     {
         for(int i=0;i<GameController.Instance.characters.Length;i++)
         {
-            if(GameController.Instance.characters[i].currentHP<=0)
+            if(GameController.Instance.characters[i].characterData!=null && GameController.Instance.characters[i].currentHP<=0)
             {
                 Debug.Log("friendly dead");
                 GameController.Instance.characters[i].currentHP=0;
                 GameController.Instance.characters[i].alive=false;
                 friendlyFields[i].GetComponent<Image>().color=Color.white;
                 partySprites[i].sprite=GameController.Instance.characters[i].characterData.deadSprite;
-                partySprites[i].transform.Find("Text").gameObject.SetActive(false);
-                
+                friendlyFields[i].transform.Find("Text").gameObject.SetActive(false);
                 if(leaderName==GameController.Instance.characters[i].characterData.characterName)
                 {
                     EndBattleLost();
@@ -318,7 +338,7 @@ public class BattleManager : MonoBehaviour
         else
         {
             counter++;
-            Turn();
+            return;
         }
     }
     public bool CheckEnemiesAlive()
@@ -531,6 +551,7 @@ public class BattleManager : MonoBehaviour
     {
         actionPanel.SetActive(false);
         skillPanel.SetActive(true);
+        skillPanel.GetComponent<SkillPanelManager>().Setup();
         enemySelection=false;
         skillStage=true;
     }
@@ -578,5 +599,6 @@ public class BattleManager : MonoBehaviour
     private void EndBattleLost()
     {
         Debug.Log("Lose");
+        SceneManager.LoadScene("SampleScene");
     }
 }

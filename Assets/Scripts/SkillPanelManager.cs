@@ -11,7 +11,7 @@ public class SkillPanelManager : MonoBehaviour
     private Skill skill2;
     private Skill skill3;
     private int activeID;
-    void Start()
+    public void Setup()
     {
         skillBtn1.onClick.AddListener(() => skill1Clicked());
         skillBtn2.onClick.AddListener(() => skill2Clicked());
@@ -50,8 +50,10 @@ public class SkillPanelManager : MonoBehaviour
     }
     void skill1Clicked()
     {
+        Debug.Log(skill1.manaCost + " " + GameController.Instance.characters[activeID].mana);
         if(skill1!=null && skill1.manaCost<=GameController.Instance.characters[activeID].mana)
         {
+            Debug.Log(skill1.manaCost);
             BattleManager.Instance.manaCost=(int)skill1.manaCost;
             BattleManager.Instance.activeSkillId=skill1.id;
             if(skill1.enemyTarget)
