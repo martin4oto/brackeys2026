@@ -79,8 +79,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -2002147939
-  m_SortingLayer: 5
+  m_SortingLayerID: 1729042015
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1026589465633337133, guid: ef3a8310ce33a274fa59c30c7c390e7a, type: 3}
@@ -111,6 +111,7 @@ MonoBehaviour:
   prefabIndex: 2
   door: 0
   itemReward: 0
+  characterReward: 1
 --- !u!61 &6541200176467515529
 BoxCollider2D:
   m_ObjectHideFlags: 0

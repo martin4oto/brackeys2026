@@ -9,6 +9,12 @@ public class dialogueBox : MonoBehaviour
     public TextMeshProUGUI titleText;
 
     Interaction currentInteraction;
+    PartyManager partyManager;
+
+    void Start()
+    {
+        partyManager = GameObject.Find("Player").GetComponent<PartyManager>();
+    }
 
     public void StartDialogue(Interaction interaction)
     {
@@ -17,6 +23,18 @@ public class dialogueBox : MonoBehaviour
             return;
         }
 
+        StartNext(interaction);
+    }
+
+    public void PrintLine(string line)
+    {
+        mainText.text += line;
+    }
+
+    public bool held = false;
+
+    void StartNext(Interaction interaction)
+    {
         dialogueBoxObject.SetActive(true);
 
         mainText.text = "";
@@ -29,21 +47,21 @@ public class dialogueBox : MonoBehaviour
         currentInteraction = interaction;
     }
 
-    public void PrintLine(string line)
-    {
-        mainText.text += line;
-    }
-
-    bool held = false;
-
     void Update()
     {
         if(currentInteraction != null && Keyboard.current.anyKey.isPressed && !Keyboard.current.eKey.isPressed && !held)
         {
             held = true;
+
+            if(currentInteraction.characterReward.characterData != null)
+            {
+                Inventory.instance.AddCharacter(currentInteraction.characterReward);
+                partyManager.SpawnParty();
+            }
+
             if(currentInteraction.nextInteraction !=null)
             {
-                StartDialogue(currentInteraction.nextInteraction);
+                StartNext(currentInteraction.nextInteraction);
             }
             else
             {

@@ -190,6 +190,7 @@ MonoBehaviour:
   dialogueBoxObject: {fileID: 271414052}
   mainText: {fileID: 544340444}
   titleText: {fileID: 1790523537}
+  held: 0
 --- !u!114 &3081089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2071,7 +2072,7 @@ MonoBehaviour:
     TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
     TEXT '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36c62d09df1fe4845ad5d879dda23419, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2138,7 +2139,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -275.34662, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &544340445
@@ -2187,6 +2188,7 @@ MonoBehaviour:
     critChance: 0
     alive: 1
     atkBonus: 0
+    armor: 0
   - characterData: {fileID: 11400000, guid: 55e04060ea5cbe041bba5ea9fb0db017, type: 2}
     level: 0
     currentHP: 0
@@ -2194,6 +2196,7 @@ MonoBehaviour:
     critChance: 0
     alive: 1
     atkBonus: 0
+    armor: 0
   - characterData: {fileID: 11400000, guid: 55e04060ea5cbe041bba5ea9fb0db017, type: 2}
     level: 0
     currentHP: 0
@@ -2201,6 +2204,7 @@ MonoBehaviour:
     critChance: 0
     alive: 1
     atkBonus: 0
+    armor: 0
   - characterData: {fileID: 0}
     level: 0
     currentHP: 0
@@ -2208,6 +2212,7 @@ MonoBehaviour:
     critChance: 0
     alive: 0
     atkBonus: 0
+    armor: 0
   enemies:
   - enemyStats: {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
     currentId: 0
@@ -2923,6 +2928,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 55e04060ea5cbe041bba5ea9fb0db017, type: 2}
   - {fileID: 11400000, guid: 4dc3792cf58f1024c8b0a082e7bda233, type: 2}
   - {fileID: 11400000, guid: 94089d25b19e3fe40ab9a16108f92b0a, type: 2}
+  - {fileID: 11400000, guid: 255e50fa435a8d14380db622ad03b951, type: 2}
 --- !u!4 &715777909
 Transform:
   m_ObjectHideFlags: 0
@@ -5636,7 +5642,7 @@ Transform:
   m_GameObject: {fileID: 1540214140}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -43181,7 +43187,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: TITLE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 36c62d09df1fe4845ad5d879dda23419, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -43248,7 +43254,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1790523538
