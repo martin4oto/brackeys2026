@@ -12,9 +12,12 @@ public class GridMovement : MonoBehaviour
     public bool isEnemy;
     public playerControlScript playerControlScript;
 
+    animationManager animationChanger;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        animationChanger = GetComponent<animationManager>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,7 @@ public class GridMovement : MonoBehaviour
 
             if(IsMovementComplete(momentum))
             {
+                animationChanger.AnimationStop();
                 return;
             }
             transform.position += (Vector3)momentum;
@@ -53,6 +57,7 @@ public class GridMovement : MonoBehaviour
     {
         direction = (Vector2)(position - transform.position);
         Vector3.Normalize(direction);
+        animationChanger.AnimationChange(direction);
     }
 
     bool IsMovementComplete(Vector2 momentum)

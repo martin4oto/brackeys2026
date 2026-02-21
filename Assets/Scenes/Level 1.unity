@@ -5723,7 +5723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &488230863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29771,8 +29771,10 @@ GameObject:
   - component: {fileID: 2116810922}
   - component: {fileID: 2116810921}
   - component: {fileID: 2116810920}
+  - component: {fileID: 2116810926}
   - component: {fileID: 2116810919}
   - component: {fileID: 2116810918}
+  - component: {fileID: 2116810925}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -29988,6 +29990,40 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &2116810925
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116810916}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 029961df722b2de49b6facf86a03bd57, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2116810926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116810916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3954db7215a74842bd54d8abb0e37a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::animationManager
 --- !u!1 &2134008904
 GameObject:
   m_ObjectHideFlags: 0
