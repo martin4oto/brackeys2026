@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class SkillController : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class SkillController : MonoBehaviour
         int dmg=(int)(caster.characterData.baseAtk*((caster.characterData.maxMana/100)+1));
         GameController.Instance.enemies[targets].hp-=dmg;
     }
-    
+    public List<String> names;
     public void Heal(int targets, int user)
     {
         Data caster=GameController.Instance.characters[user];
@@ -74,6 +75,7 @@ public class SkillController : MonoBehaviour
             GameObject.Destroy(gameObject);
         DontDestroyOnLoad (transform.gameObject);
         Instance = this;
+        names=new List<string>{"Attack","Heal","Heal Potion for 30 HP","Team Heal", "Attack"};
         skills.Add(Attack); //0
         skills.Add(Heal); //1
         skills.Add(HealPotion30); //2

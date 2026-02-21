@@ -253,6 +253,7 @@ public class Inventory : MonoBehaviour
             newData[i] = data.Copy();
             newData[i].alive = true;
             newData[i].mana = data.characterData.maxMana;
+            newData[i].currentHP=data.characterData.maxHP;
         }
 
         return newData;
