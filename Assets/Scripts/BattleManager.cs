@@ -194,6 +194,7 @@ public class BattleManager : MonoBehaviour
     {
         if (GameController.Instance.characters[counterId].characterData != null && GameController.Instance.characters[counterId].alive)
         {
+            Debug.Log("Your turn");
             counter++;
             friendlyFields[counterId].GetComponent<Image>().color = Color.green;
             activeId=counterId;
@@ -212,10 +213,13 @@ public class BattleManager : MonoBehaviour
     void EnemyLogic()
     {
         //wait
+
         EnemyMoveStage();
         //wait
+
         EnemyAttackStage();
         //wait
+
         enemyFields[activeId].GetComponent<Image>().color = Color.white;
         return;
     }
