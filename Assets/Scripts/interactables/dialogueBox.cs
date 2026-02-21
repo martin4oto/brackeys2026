@@ -34,10 +34,13 @@ public class dialogueBox : MonoBehaviour
         mainText.text += line;
     }
 
+    bool held = false;
+
     void Update()
     {
-        if(currentInteraction != null && Keyboard.current.anyKey.isPressed && !Keyboard.current.eKey.isPressed)
+        if(currentInteraction != null && Keyboard.current.anyKey.isPressed && !Keyboard.current.eKey.isPressed && !held)
         {
+            held = true;
             if(currentInteraction.nextInteraction !=null)
             {
                 StartDialogue(currentInteraction.nextInteraction);
@@ -47,6 +50,11 @@ public class dialogueBox : MonoBehaviour
                 currentInteraction = null;
                 dialogueBoxObject.SetActive(false);
             }
+        }
+
+        if(!Keyboard.current.anyKey.isPressed)
+        {
+            held = false;
         }
     }
 }
