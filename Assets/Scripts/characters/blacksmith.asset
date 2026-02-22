@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: blacksmith
   m_EditorClassIdentifier: Assembly-CSharp::CharacterData
   characterName: blacksmith
-  maxHP: 0
-  maxMana: 0
-  id: 0
-  skill1: {fileID: 0}
+  maxHP: 150
+  maxMana: 60
+  id: 4
+  skill1: {fileID: 11400000, guid: ceeb07d5d08c68d44bb2a812dd45030a, type: 2}
   skill2: {fileID: 0}
   skill3: {fileID: 0}
-  combatSprite: {fileID: 0}
-  deadSprite: {fileID: 0}
+  combatSprite: {fileID: 6617260174738170073, guid: 9edeab8909d396f4a9b93ee730ae6b9e, type: 3}
+  deadSprite: {fileID: 8995154407686431259, guid: a83631798ddbf39449bdf768417e917a, type: 3}
   range: 0
-  baseAtk: 0
+  baseAtk: 45
   partyID: 1
