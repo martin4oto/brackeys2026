@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 885b1e6c320a0484ab8928a001da462e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  finalEnemy: 0
   isMoving: 0
   prefabIndex: 3
   guardAILocations: []
@@ -208,7 +209,7 @@ Animator:
   m_GameObject: {fileID: 5626019770442933230}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f8e231c63f8740d4baec0243e9a74416, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7b7add3a8dd70da47980f934ea6b91c9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -13,9 +13,24 @@ MonoBehaviour:
   m_Name: BarrelFirst
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
   mainText:
-  - 'the barrel has:'
+  - 'you got:'
   title: Barrel
   nextInteraction: {fileID: 0}
   itemRewards:
   - {fileID: 11400000, guid: 4406d34eabb462740a3311f48efa44e8, type: 2}
   - {fileID: 11400000, guid: e90ae454a282ca8419b1dd21c54b357e, type: 2}
+  - {fileID: 11400000, guid: ecbc83f09af89a14daf6d55780334f2f, type: 2}
+  - {fileID: 11400000, guid: c9cf6019f615e9e42be83d07ccb40d8f, type: 2}
+  - {fileID: 11400000, guid: a17fa5bbb2314804e9a25502bf7d6fd1, type: 2}
+  - {fileID: 11400000, guid: 4570849afb290924c92516047551a56d, type: 2}
+  - {fileID: 11400000, guid: 056d6c0d345ec7547802fda05e609848, type: 2}
+  - {fileID: 11400000, guid: 4406d34eabb462740a3311f48efa44e8, type: 2}
+  characterReward:
+    characterData: {fileID: 0}
+    level: 0
+    currentHP: 0
+    mana: 0
+    critChance: 0
+    alive: 0
+    atkBonus: 0
+    armor: 0
