@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class EscapeMenu : MonoBehaviour
 {
@@ -27,5 +28,10 @@ public class EscapeMenu : MonoBehaviour
     public void SaveGame()
     {
         MapManager.instance.SaveGame(1);
+    }
+
+    public void Exit()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 }

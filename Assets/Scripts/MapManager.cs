@@ -280,6 +280,7 @@ public class MapManager : MonoBehaviour
 
     public void LoadFile(int fileIndex)
     {
+        if(player == null)return;
         string filePath = path +"save"+ fileIndex;
 
         string json = File.ReadAllText(filePath);
