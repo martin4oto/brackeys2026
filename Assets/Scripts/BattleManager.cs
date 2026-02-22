@@ -314,7 +314,7 @@ public class BattleManager : MonoBehaviour
             SkillController.Instance.use(GameController.Instance.enemies[activeId].enemyStats.skill1,activeId,activeId);
             infoText.text=(text+SkillController.Instance.names[GameController.Instance.enemies[activeId].enemyStats.skill1]);
         }
-        else if(chance<=7f)
+        else if(chance<=9f)
         {
             Debug.Log("Skill2");
             SkillController.Instance.use(GameController.Instance.enemies[activeId].enemyStats.skill2,activeId,activeId);
