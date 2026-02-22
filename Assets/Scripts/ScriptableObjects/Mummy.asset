@@ -18,5 +18,5 @@ MonoBehaviour:
   skill1: 4
   skill2: 4
   skill3: 4
-  deadSprite: {fileID: 0}
+  deadSprite: {fileID: 8995154407686431259, guid: a83631798ddbf39449bdf768417e917a, type: 3}
   ranged: 0

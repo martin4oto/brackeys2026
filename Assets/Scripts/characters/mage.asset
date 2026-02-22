@@ -20,7 +20,7 @@ MonoBehaviour:
   skill2: {fileID: 11400000, guid: 4a51f87134703f74b9692db7405cb557, type: 2}
   skill3: {fileID: 0}
   combatSprite: {fileID: -2660159644114652792, guid: cb7b6c508f73cc94ebf2403c9590d77e, type: 3}
-  deadSprite: {fileID: 0}
+  deadSprite: {fileID: 8995154407686431259, guid: a83631798ddbf39449bdf768417e917a, type: 3}
   range: 1
   baseAtk: 30
   partyID: 0
