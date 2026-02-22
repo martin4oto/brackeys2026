@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour
 {
+    public bool finalEnemy;
     public bool isMoving = false;
     public int prefabIndex;
     public Vector2[] guardAILocations;
@@ -19,7 +20,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isMoving && guardAILocations!= null)
+        if(!isMoving && guardAILocations!= null && guardAILocations.Length != 0)
         {
             movement.StartMoving(guardAILocations[currentLocation]);
             isMoving = true;
@@ -44,6 +45,8 @@ public class Enemy : MonoBehaviour
         Inventory.instance.inventoryEnabled = false;
         GameController.Instance.characters = Inventory.instance.GetCompleteData();
         GameController.Instance.enemies= stats;
+        GameController.Instance.combatWinExpectation = finalEnemy;
+
         SceneManager.LoadScene("BattleScene");
     }
 }

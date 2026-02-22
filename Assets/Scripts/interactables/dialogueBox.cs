@@ -55,6 +55,7 @@ public class dialogueBox : MonoBehaviour
 
             if(currentInteraction.characterReward.characterData != null)
             {
+                Debug.Log("aaaa");
                 Inventory.instance.AddCharacter(currentInteraction.characterReward);
                 partyManager.SpawnParty();
             }

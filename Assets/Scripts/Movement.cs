@@ -18,6 +18,8 @@ public class GridMovement : MonoBehaviour
     void Start()
     {
         animationChanger = GetComponent<animationManager>();
+        animationChanger.SetUp();
+        animationChanger.AnimationStop();
     }
 
     // Update is called once per frame

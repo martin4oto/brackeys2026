@@ -52,6 +52,7 @@ public class InventoryMenu : MonoBehaviour
         }
         
         Name.text = currentItem.itemName;
+        description.text = currentItem.itemDescription;
         bigPicture.sprite = Resources.Load<Sprite>(path + currentItem.itemSprite);
     }
 
