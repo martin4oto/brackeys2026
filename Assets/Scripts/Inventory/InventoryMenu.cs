@@ -58,7 +58,11 @@ public class InventoryMenu : MonoBehaviour
 
     public void OpenMenu()
     {
-        characterName.text = Inventory.instance.characters[currentCharacter].stats.characterData.name;
+        if(ItemUseMenu)
+        {
+            characterName.text = Inventory.instance.characters[currentCharacter].stats.characterData.name;
+        }
+
         equipButton.SetActive(false);
         infoScreen.SetActive(false);
         begining = 0;
