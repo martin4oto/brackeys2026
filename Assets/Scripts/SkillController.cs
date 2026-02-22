@@ -67,7 +67,13 @@ public class SkillController : MonoBehaviour
     }
     public void EnemyAttackRanged(int targets, int user)
     {
-        
+        for(int i=0;i<GameController.Instance.characters.Length;i++)
+        {
+            if(GameController.Instance.characters[i].characterData!=null && GameController.Instance.characters[i].alive)
+            {
+                
+            }
+        }
     }
     void Awake()
     {
