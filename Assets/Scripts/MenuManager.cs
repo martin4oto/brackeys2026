@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class MenuManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MenuManager : MonoBehaviour
     public Button tutorialButton;
     public Button backButton;
     public GameObject tutorialPanel;
+    string path = Application.dataPath + "/Saves/";
     void Awake()
     {
         startButton.onClick.AddListener(() => StartNewGame());
@@ -27,6 +29,10 @@ public class MenuManager : MonoBehaviour
     }
     void LoadGame()
     {
+        if(!File.Exists(path + "save1"))
+        {
+            return;
+        }
         SceneManager.LoadScene("Level 1");
     }
     void OpenTutorial()
