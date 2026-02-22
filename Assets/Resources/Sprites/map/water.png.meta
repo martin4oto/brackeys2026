@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a8fca28b50617c842a1a1b999a7b836c
+guid: 66cbeefd8546f7c41a1aeafe79883bc2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8399535075916737090
-    second: buttPlugPillar_0
+      213: 8509550459451208454
+    second: water_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buttPlugPillar_0
+      name: water_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eb59c81e95bde6b80800000000000000
-      internalID: -8399535075916737090
+      spriteID: 603f9ddae0ff71670800000000000000
+      internalID: 8509550459451208454
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      buttPlugPillar_0: -8399535075916737090
+      water_0: 8509550459451208454
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
