@@ -47,6 +47,9 @@ public class Enemy : MonoBehaviour
         GameController.Instance.enemies= stats;
         GameController.Instance.combatWinExpectation = finalEnemy;
 
+        MapManager.instance.RemoveEnemy(this);
+        MapManager.instance.SaveGame(0);
+
         SceneManager.LoadScene("BattleScene");
     }
 }

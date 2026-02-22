@@ -126,6 +126,11 @@ public class MapManager : MonoBehaviour
 
     }
 
+    public void RemoveEnemy(Enemy enemy)
+    {
+        enemiesAlive.Remove(enemy);
+    }
+
     public void RemoveInteractable(interactable interactable)
     {
         Vector2 position = interactable.transform.position;
