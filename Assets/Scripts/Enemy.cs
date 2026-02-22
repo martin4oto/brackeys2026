@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!isMoving)
+        if(!isMoving && guardAILocations!= null)
         {
             movement.StartMoving(guardAILocations[currentLocation]);
             isMoving = true;
