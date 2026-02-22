@@ -111,6 +111,11 @@ public class MapManager : MonoBehaviour
     {
         player = GameObject.Find("Player");
         mainCamera = GameObject.Find("Main Camera");
+
+        if(player != null)
+        {
+            Inventory.instance = GameObject.Find("Inventory").GetComponent<Inventory>();
+        }
     }
 
     // Update is called once per frame
