@@ -15,10 +15,10 @@ MonoBehaviour:
   type: 0
   itemName: chestplate
   itemSprite: chestplate
-  itemDescription: 
+  itemDescription: Provides 6 armor
   skillID: 0
   gearType: 2
   friendly: 0
   itemID: 1
-  armorValue: 5
+  armorValue: 6
   bonusAtk: 0

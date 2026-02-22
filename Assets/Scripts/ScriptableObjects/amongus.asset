@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b27cc14372e9ff468d7437dd7e9dfea, type: 3}
   m_Name: amongus
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  enemyName: 
-  maxHp: 0
-  combatSprite: {fileID: 0}
-  skill1: 0
-  skill2: 0
-  skill3: 0
+  enemyName: Medjed
+  maxHp: 200
+  combatSprite: {fileID: 8363851449407657211, guid: 6eb4ffea9894f1d44aa14ed39c2c7aa8, type: 3}
+  skill1: 3
+  skill2: 4
+  skill3: 8
   deadSprite: {fileID: 0}
   ranged: 0

@@ -15,10 +15,10 @@ MonoBehaviour:
   type: 0
   itemName: boots
   itemSprite: boshut
-  itemDescription: 
+  itemDescription: Provides 4 armor
   skillID: 0
   gearType: 4
   friendly: 0
   itemID: 0
-  armorValue: 3
+  armorValue: 4
   bonusAtk: 0

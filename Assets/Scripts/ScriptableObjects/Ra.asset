@@ -15,8 +15,8 @@ MonoBehaviour:
   enemyName: Ra
   maxHp: 150
   combatSprite: {fileID: -168841706904268617, guid: a3a19046fb5870148b2be1d8211cbc48, type: 3}
-  skill1: 0
-  skill2: 0
-  skill3: 0
-  deadSprite: {fileID: 0}
-  ranged: 0
+  skill1: 5
+  skill2: 3
+  skill3: 6
+  deadSprite: {fileID: 3253179991209410550, guid: 9d2cdff195fd23f429b30e1efb747717, type: 3}
+  ranged: 1

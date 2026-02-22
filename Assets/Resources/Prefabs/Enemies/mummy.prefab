@@ -112,20 +112,20 @@ MonoBehaviour:
   prefabIndex: 2
   guardAILocations: []
   stats:
-  - enemyStats: {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
+  - enemyStats: {fileID: 11400000, guid: 6d542f7d9fb5aa3449bcc099a5fe8f4e, type: 2}
     currentId: 0
-    hp: 3
-    baseDmg: 20
+    hp: 80
+    baseDmg: 15
     alive: 1
-  - enemyStats: {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
+  - enemyStats: {fileID: 11400000, guid: 6d542f7d9fb5aa3449bcc099a5fe8f4e, type: 2}
     currentId: 0
-    hp: 2
-    baseDmg: 20
+    hp: 80
+    baseDmg: 15
     alive: 1
-  - enemyStats: {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
+  - enemyStats: {fileID: 11400000, guid: 6d542f7d9fb5aa3449bcc099a5fe8f4e, type: 2}
     currentId: 0
-    hp: 3
-    baseDmg: 20
+    hp: 80
+    baseDmg: 15
     alive: 1
   - enemyStats: {fileID: 0}
     currentId: 0

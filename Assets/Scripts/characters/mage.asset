@@ -16,10 +16,11 @@ MonoBehaviour:
   maxHP: 100
   maxMana: 200
   id: 3
-  skill1: {fileID: 0}
-  skill2: {fileID: 0}
+  skill1: {fileID: 11400000, guid: ceeb07d5d08c68d44bb2a812dd45030a, type: 2}
+  skill2: {fileID: 11400000, guid: 4a51f87134703f74b9692db7405cb557, type: 2}
   skill3: {fileID: 0}
-  combatSprite: {fileID: 0}
+  combatSprite: {fileID: -2660159644114652792, guid: cb7b6c508f73cc94ebf2403c9590d77e, type: 3}
   deadSprite: {fileID: 0}
-  range: 0
-  baseAtk: 0
+  range: 1
+  baseAtk: 30
+  partyID: 0

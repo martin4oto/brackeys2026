@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b27cc14372e9ff468d7437dd7e9dfea, type: 3}
   m_Name: Mummy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyStats
-  enemyName: 
-  maxHp: 0
-  combatSprite: {fileID: 0}
-  skill1: 0
-  skill2: 0
-  skill3: 0
+  enemyName: Mummy
+  maxHp: 80
+  combatSprite: {fileID: 4996513911601546786, guid: f692f9e9c7d7c5c4e9b70885d0e02168, type: 3}
+  skill1: 4
+  skill2: 4
+  skill3: 4
   deadSprite: {fileID: 0}
   ranged: 0

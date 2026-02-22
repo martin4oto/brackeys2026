@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 0
   itemName: spear
   itemSprite: kopie
-  itemDescription: 
+  itemDescription: Provides 20 attack
   skillID: 0
   gearType: 5
   friendly: 0

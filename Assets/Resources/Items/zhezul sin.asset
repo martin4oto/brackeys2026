@@ -15,8 +15,10 @@ MonoBehaviour:
   type: 0
   itemName: ice staff
   itemSprite: zhezulSin
-  itemDescription: 
+  itemDescription: Provides 35 attack
   skillID: 0
   gearType: 5
   friendly: 0
   itemID: 11
+  armorValue: 0
+  bonusAtk: 35
