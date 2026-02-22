@@ -1680,10 +1680,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapManager
   enemyVariants:
   - {fileID: 3505737017956275760, guid: 067f159b8bef4d5428f29bec725b086a, type: 3}
+  - {fileID: 8795304215969004629, guid: 82406886243456c4aaea48cc410d8ef9, type: 3}
+  - {fileID: 7014915932953044255, guid: 139ce2a6439e3bc40923d3bdd8e11e0b, type: 3}
+  - {fileID: 5626019770442933230, guid: 6d9a81f34568b4c47af5b61a31e43fc9, type: 3}
   interactableVariants:
   - {fileID: 3029440872695207823, guid: dcac93388451ab346aa01bf729ae6ae3, type: 3}
   - {fileID: 8851247458951548047, guid: 895293acd9ddb4444b134e5823ae630f, type: 3}
   - {fileID: 2014274459623854195, guid: 057c61f6498779241bd8ed24494af980, type: 3}
+  - {fileID: 1289338590010323176, guid: f9768d5fdcffa8a48be441c94cd0eff1, type: 3}
+  - {fileID: 2125590945603103115, guid: b50db9f62d49e2542939c1248a57b809, type: 3}
+  - {fileID: 4284736683898200713, guid: 17897c75a1ac02142bab9c7868fdfbbc, type: 3}
+  - {fileID: 8851247458951548047, guid: c66222b780a9b0c4eb7726c58ab8c71d, type: 3}
   enemiesAlive: []
   allInteractables: []
   width: 200
@@ -1709,6 +1716,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4dc3792cf58f1024c8b0a082e7bda233, type: 2}
   - {fileID: 11400000, guid: 94089d25b19e3fe40ab9a16108f92b0a, type: 2}
   - {fileID: 11400000, guid: 255e50fa435a8d14380db622ad03b951, type: 2}
+  - {fileID: 11400000, guid: b1b5c227595b9024ea305a93da95058b, type: 2}
 --- !u!4 &1780117860
 Transform:
   m_ObjectHideFlags: 0
