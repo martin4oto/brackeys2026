@@ -12,12 +12,18 @@ public class GameController : MonoBehaviour
 
     void Awake () {
         if(Instance!=null)
+        {
+            Instance.TryToWin();
             GameObject.Destroy(gameObject);
+            return;
+        }
+        TryToWin();
         DontDestroyOnLoad (transform.gameObject);
         Instance = this;
     }
 
-    void Start() {
+    void Start() 
+    {
         if(toBattle)
         {
             Inventory.instance.inventoryEnabled = false;
@@ -29,6 +35,9 @@ public class GameController : MonoBehaviour
     public Data[] characters = new Data[4];
     public EnemyData[] enemies = new EnemyData[4];
     public float locationID;
+    public bool gameWon = false;
+    public bool combatWinExpectation;
+
     public void EnterCombat() {
 
         //TODO add pre combat saving + logic
@@ -47,4 +56,11 @@ public class GameController : MonoBehaviour
         
     }
 
+    public void TryToWin()
+    {
+        if(gameWon)
+        {
+            //win
+        }
+    }
 }

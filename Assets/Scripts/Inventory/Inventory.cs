@@ -28,17 +28,9 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
     bool isActive = false;
-    void Awake()
+    public void SetUp()
     {
-        if(instance != null)
-        {
-            GameObject.Destroy(gameObject);
-            return;
-        }
-
-        DontDestroyOnLoad(transform);
-        instance = this;
-        
+        DontDestroyOnLoad(gameObject);
         items = new List<InventoryStack>();
         itemIndexes = new Dictionary<string, int>();
     }

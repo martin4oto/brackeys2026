@@ -115,6 +115,7 @@ public class MapManager : MonoBehaviour
         if(player != null)
         {
             Inventory.instance = GameObject.Find("Inventory").GetComponent<Inventory>();
+            Inventory.instance.SetUp();
         }
     }
 

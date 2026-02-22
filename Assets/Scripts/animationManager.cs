@@ -7,7 +7,7 @@ public class animationManager : MonoBehaviour
     string currentAnimation = "front";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void SetUp()
     {
         animator = GetComponent<Animator>();
     }

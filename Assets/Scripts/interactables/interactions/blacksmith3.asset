@@ -13,7 +13,16 @@ MonoBehaviour:
   m_Name: blacksmith3
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
   mainText:
-  - ' Okay then let''s go!'
+  - ' Okay then, let''s go!'
   title: Hasnan
   nextInteraction: {fileID: 0}
   itemRewards: []
+  characterReward:
+    characterData: {fileID: 11400000, guid: b1b5c227595b9024ea305a93da95058b, type: 2}
+    level: 0
+    currentHP: 0
+    mana: 0
+    critChance: 0
+    alive: 0
+    atkBonus: 0
+    armor: 0
