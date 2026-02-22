@@ -12,7 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93e5ee31573a82f4bb2f113de2cf4c6c, type: 3}
   m_Name: rock
   m_EditorClassIdentifier: Assembly-CSharp::Interaction
-  mainText: []
-  title: 
-  nextInteraction: {fileID: 0}
-  itemRewards: []
+  mainText:
+  - You picked up a rock
+  title: rock
+  nextInteraction: {fileID: 11400000}
+  itemRewards:
+  - {fileID: 11400000, guid: dd97756c2325dac478bba877da0c73db, type: 2}
+  characterReward:
+    characterData: {fileID: 0}
+    level: 0
+    currentHP: 0
+    mana: 0
+    critChance: 0
+    alive: 0
+    atkBonus: 0
+    armor: 0
