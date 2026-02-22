@@ -6,10 +6,15 @@ public class MenuManager : MonoBehaviour
 {
     public Button startButton;
     public Button loadGame;
+    public Button tutorialButton;
+    public Button backButton;
+    public GameObject tutorialPanel;
     void Awake()
     {
         startButton.onClick.AddListener(() => StartNewGame());
         loadGame.onClick.AddListener(() => LoadGame());
+        tutorialButton.onClick.AddListener(() => OpenTutorial());
+        backButton.onClick.AddListener(() => CloseTutorial());
     }
     void StartNewGame()
     {
@@ -23,5 +28,13 @@ public class MenuManager : MonoBehaviour
     void LoadGame()
     {
         SceneManager.LoadScene("Level 1");
+    }
+    void OpenTutorial()
+    {
+        tutorialPanel.SetActive(true);
+    }
+    void CloseTutorial()
+    {
+        tutorialPanel.SetActive(false);
     }
 }
