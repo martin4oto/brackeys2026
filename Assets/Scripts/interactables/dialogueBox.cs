@@ -65,6 +65,7 @@ public class dialogueBox : MonoBehaviour
             }
             else
             {
+                Time.timeScale = 1;
                 currentInteraction = null;
                 dialogueBoxObject.SetActive(false);
             }

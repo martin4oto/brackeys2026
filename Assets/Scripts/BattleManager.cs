@@ -59,7 +59,7 @@ public class BattleManager : MonoBehaviour
     public int activeSkillId;
     public int manaCost;
     private int counter;
-    private String leaderName;
+    public String leaderName;
     public static BattleManager Instance {
         get;
         set;
@@ -68,16 +68,14 @@ public class BattleManager : MonoBehaviour
     {
         if(Instance!=null)
         {
-            Instance.Setup();
             GameObject.Destroy(gameObject);
             return;
         }
 
         DontDestroyOnLoad (transform.gameObject);
         Instance = this;
-        Setup();
     }
-    public void Setup()
+    public void Start()
     {
         attackButton.onClick.AddListener(() => OnAttackButtonClicked());
         itemButton.onClick.AddListener(() => OnItemButtonClicked());

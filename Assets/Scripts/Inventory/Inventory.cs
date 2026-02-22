@@ -70,6 +70,17 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void RemoveCharacter(CharacterData character)
+    {
+        for(int i = 0; i<characters.Count; i++)
+        {
+            if(character.characterName == characters[i].stats.characterData.characterName)
+            {
+                characters.RemoveAt(i);
+            }
+        }
+    }
+
     public void AddCharacter(Data characer)
     {
         CharacterGear cg = new CharacterGear();

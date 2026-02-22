@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: varel_0
+  m_Name: anvil_0
   m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
-  m_Sprite: {fileID: -5866530389215650186, guid: e21eb98466d518f4684a2e5b8110f92b, type: 3}
+  m_Sprite: {fileID: -1060740448181984941, guid: 1e9326748f7e89045a998cb0dd78a4d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

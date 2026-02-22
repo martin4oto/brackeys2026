@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
@@ -22,7 +23,6 @@ public class GameController : MonoBehaviour
             Inventory.instance.inventoryEnabled = false;
             characters = Inventory.instance.GetCompleteData();
             SceneManager.LoadScene("BattleScene");
-
         }
     }
     [SerializeField]
@@ -33,6 +33,18 @@ public class GameController : MonoBehaviour
 
         //TODO add pre combat saving + logic
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("BattleScene"));
+    }
+
+    public void FixInventory()
+    {
+        for(int i = 0; i<characters.Length; i++)
+        {
+            if(!characters[i].alive && characters[i].characterData != null)
+            {
+                Inventory.instance.RemoveCharacter(characters[i].characterData);
+            }
+        }
+        
     }
 
 }

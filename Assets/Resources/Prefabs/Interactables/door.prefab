@@ -109,7 +109,7 @@ MonoBehaviour:
   baseInteraction: {fileID: 0}
   used: 0
   prefabIndex: 1
-  door: 1
+  destroy: 1
   itemReward: 0
 --- !u!61 &-3892854801467108281
 BoxCollider2D:

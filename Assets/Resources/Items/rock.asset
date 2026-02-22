@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   type: 1
   itemName: rock
-  itemSprite: malukkamuk
+  itemSprite: kamuk1
   itemDescription: 
   skillID: 0
   gearType: 0
