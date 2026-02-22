@@ -15,8 +15,10 @@ MonoBehaviour:
   type: 0
   itemName: leather pants
   itemSprite: kozha
-  itemDescription: 
+  itemDescription: Provides 3 armor
   skillID: 0
   gearType: 3
   friendly: 0
   itemID: 6
+  armorValue: 3
+  bonusAtk: 0

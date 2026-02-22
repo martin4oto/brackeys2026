@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3446ea38dc6da88418fc57f2e569934f, type: 3}
   m_Name: Attack
   m_EditorClassIdentifier: Assembly-CSharp::Skill
-  name: Attack
-  manaCost: 10
-  logo: {fileID: 5207273040741657318, guid: 50dbd55f5f865ee4e98a86bbea822d79, type: 3}
+  name: Zap
+  manaCost: 30
+  logo: {fileID: 3090245773724247759, guid: 31e9e0473ea77d245b7c3922415c7745, type: 3}
   id: 0
   enemyTarget: 1
   friendlyTarget: 0

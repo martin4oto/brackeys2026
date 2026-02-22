@@ -15,10 +15,10 @@ MonoBehaviour:
   type: 0
   itemName: sword
   itemSprite: mech
-  itemDescription: 
+  itemDescription: Provides 25 attack
   skillID: 0
   gearType: 5
   friendly: 0
   itemID: 9
   armorValue: 0
-  bonusAtk: 15
+  bonusAtk: 25

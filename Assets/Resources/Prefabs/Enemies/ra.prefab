@@ -112,26 +112,26 @@ MonoBehaviour:
   prefabIndex: 3
   guardAILocations: []
   stats:
-  - enemyStats: {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
+  - enemyStats: {fileID: 11400000, guid: 6d542f7d9fb5aa3449bcc099a5fe8f4e, type: 2}
     currentId: 0
-    hp: 3
+    hp: 80
+    baseDmg: 15
+    alive: 1
+  - enemyStats: {fileID: 11400000, guid: 6d542f7d9fb5aa3449bcc099a5fe8f4e, type: 2}
+    currentId: 0
+    hp: 80
+    baseDmg: 15
+    alive: 1
+  - enemyStats: {fileID: 11400000, guid: d63b01405f03d4e4b84dcf0207ed0204, type: 2}
+    currentId: 0
+    hp: 150
+    baseDmg: 30
+    alive: 1
+  - enemyStats: {fileID: 11400000, guid: e803b10536af6ee45819b2166b35478b, type: 2}
+    currentId: 0
+    hp: 200
     baseDmg: 20
     alive: 1
-  - enemyStats: {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
-    currentId: 0
-    hp: 2
-    baseDmg: 20
-    alive: 1
-  - enemyStats: {fileID: 11400000, guid: 97c45a371eed41147beef45cc2d29050, type: 2}
-    currentId: 0
-    hp: 3
-    baseDmg: 20
-    alive: 1
-  - enemyStats: {fileID: 0}
-    currentId: 0
-    hp: 0
-    baseDmg: 0
-    alive: 0
   currentLocation: 0
 --- !u!61 &8560623667781098320
 BoxCollider2D:

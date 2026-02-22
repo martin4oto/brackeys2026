@@ -15,8 +15,10 @@ MonoBehaviour:
   type: 0
   itemName: armored helmet
   itemSprite: helmet
-  itemDescription: 
+  itemDescription: Provides 8 armor
   skillID: 0
   gearType: 1
   friendly: 0
   itemID: 5
+  armorValue: 8
+  bonusAtk: 0

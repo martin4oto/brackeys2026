@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   type: 1
   itemName: Health Potion
-  itemSprite: 
+  itemSprite: healpotion
   itemDescription: Heals character 30HP
   skillID: 2
   gearType: 0
   friendly: 1
   itemID: 3
+  armorValue: 0
+  bonusAtk: 0
