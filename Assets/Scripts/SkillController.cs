@@ -66,28 +66,28 @@ public class SkillController : MonoBehaviour
         if(GameController.Instance.characters[targets].characterData!=null && GameController.Instance.characters[targets].alive)
         {
             EnemyData caster= GameController.Instance.enemies[user];
-            int dmg=caster.baseDmg;
+            float dmg=caster.baseDmg;
             dmg=dmg*(100-GameController.Instance.characters[targets].armor);
-            dmg=(int)(dmg/100);
+            int dmg2=(int)(dmg/100);
             if(dmg<0)
                 dmg=0;
-            GameController.Instance.characters[targets].currentHP-=dmg;
+            GameController.Instance.characters[targets].currentHP-=dmg2;
         }
     }
     public void EnemyAttackRanged(int targets, int user)
     {
         EnemyData caster= GameController.Instance.enemies[user];
-        int dmg=caster.baseDmg;
+        float dmg=caster.baseDmg;
         for(int i=0;i<GameController.Instance.characters.Length;i++)
         {
             if(GameController.Instance.characters[i].characterData!=null && GameController.Instance.characters[i].alive)
             {
                 dmg=caster.baseDmg;
                 dmg=dmg*(100-GameController.Instance.characters[targets].armor);
-                dmg=(int)(dmg/100);
-                if(dmg<0)
-                    dmg=0;
-                GameController.Instance.characters[targets].currentHP-=dmg;
+                int dmg2=(int)(dmg/100);
+                if(dmg2<0)
+                    dmg2=0;
+                GameController.Instance.characters[targets].currentHP-=dmg2;
             }
         }
     }
@@ -105,35 +105,32 @@ public class SkillController : MonoBehaviour
     }
     public void Bite(int targets, int user)
     {
+        EnemyData caster= GameController.Instance.enemies[user];
+        float dmg=caster.baseDmg;
         if(GameController.Instance.characters[targets].characterData!=null && GameController.Instance.characters[targets].alive)
         {
-            EnemyData caster= GameController.Instance.enemies[user];
-            int dmg=caster.baseDmg;
+
             dmg=dmg*(100-GameController.Instance.characters[targets].armor);
-            dmg=(int)(dmg/100);
-            if(dmg<0)
-                dmg=0;
-            GameController.Instance.characters[targets].currentHP-=dmg;
+            int dmg2=(int)(dmg/100);
+            if(dmg2<0)
+                dmg2=0;
+            GameController.Instance.characters[targets].currentHP-=dmg2;
         }
         if(targets!=0 && GameController.Instance.characters[targets-1].characterData!=null && GameController.Instance.characters[targets-1].alive)
         {
-            EnemyData caster= GameController.Instance.enemies[user];
-            int dmg=caster.baseDmg;
             dmg=dmg*(100-GameController.Instance.characters[targets-1].armor);
-            dmg=(int)(dmg/100);
-            if(dmg<0)
-                dmg=0;
-            GameController.Instance.characters[targets-1].currentHP-=dmg;
+            int dmg2=(int)(dmg/100);
+            if(dmg2<0)
+                dmg2=0;
+            GameController.Instance.characters[targets-1].currentHP-=dmg2;
         }
         if(targets!=3 && GameController.Instance.characters[targets+1].characterData!=null && GameController.Instance.characters[targets+1].alive)
         {
-            EnemyData caster= GameController.Instance.enemies[user];
-            int dmg=caster.baseDmg;
             dmg=dmg*(100-GameController.Instance.characters[targets+1].armor);
-            dmg=(int)(dmg/100);
-            if(dmg<0)
-                dmg=0;
-            GameController.Instance.characters[targets+1].currentHP-=dmg;
+            int dmg2=(int)(dmg/100);
+            if(dmg2<0)
+                dmg2=0;
+            GameController.Instance.characters[targets+1].currentHP-=dmg2;
         }
     }
     void Awake()
