@@ -22,8 +22,8 @@ public class BattleManager : MonoBehaviour
     public GameObject victoryPanel;
     public Sprite background;
     public GameObject party;
-    private SpriteRenderer[] partySprites= new SpriteRenderer[4];
-    private SpriteRenderer[] enemySprites= new SpriteRenderer[4];
+    private Image[] partySprites= new Image[4];
+    private Image[] enemySprites= new Image[4];
     public GameObject enemyParty;
     public Button attackButton;
     public Button itemButton;
@@ -92,14 +92,14 @@ public class BattleManager : MonoBehaviour
         background= Resources.Load<Sprite>(file);
         panel.GetComponent<Image>().sprite=background;
         //TODO add music file
-        partySprites[0]=party.transform.Find("Character1").GetComponent<SpriteRenderer>();
-        partySprites[1]=party.transform.Find("Character2").GetComponent<SpriteRenderer>();
-        partySprites[2]=party.transform.Find("Character3").GetComponent<SpriteRenderer>();
-        partySprites[3]=party.transform.Find("Character4").GetComponent<SpriteRenderer>();
-        enemySprites[0]=enemyParty.transform.Find("Enemy1").GetComponent<SpriteRenderer>();
-        enemySprites[1]=enemyParty.transform.Find("Enemy2").GetComponent<SpriteRenderer>();
-        enemySprites[2]=enemyParty.transform.Find("Enemy3").GetComponent<SpriteRenderer>();
-        enemySprites[3]=enemyParty.transform.Find("Enemy4").GetComponent<SpriteRenderer>();
+        partySprites[0]=party.transform.Find("Character1").GetComponent<Image>();
+        partySprites[1]=party.transform.Find("Character2").GetComponent<Image>();
+        partySprites[2]=party.transform.Find("Character3").GetComponent<Image>();
+        partySprites[3]=party.transform.Find("Character4").GetComponent<Image>();
+        enemySprites[0]=enemyParty.transform.Find("Enemy1").GetComponent<Image>();
+        enemySprites[1]=enemyParty.transform.Find("Enemy2").GetComponent<Image>();
+        enemySprites[2]=enemyParty.transform.Find("Enemy3").GetComponent<Image>();
+        enemySprites[3]=enemyParty.transform.Find("Enemy4").GetComponent<Image>();
         for(int i=0;i<GameController.Instance.characters.Length;i++)
         {
             if (GameController.Instance.characters[i].characterData != null)
